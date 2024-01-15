@@ -85,3 +85,40 @@
   border: none;
   transition: 1s all ease;
 }
+@media screen and (max-width: 975px) {
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    z-index: 10000;
+    width: 100vw;
+    background: white;
+    height: fit-content;
+    pad: 20px;
+  }
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .header-action {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  .header-container {
+    width: 100%;
+    display: flex;
+    /* gap: 110px; */
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+}

@@ -20,3 +20,13 @@
   justify-content: space-between;
   gap: 64px;
 }
+@media screen and (max-width: 975px) {
+  .brand-wrapper {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 64px;
+  }
+}

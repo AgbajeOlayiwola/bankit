@@ -53,3 +53,80 @@
 .tailor-cont > div {
   width: 49%;
 }
+@media screen and (max-width: 975px) {
+  .tailor-cont > div {
+    width: 100%;
+  }
+  .tailor-container {
+    width: 100%;
+    padding: 96px 0px;
+    background: var(--surface-critical-default, #fbf3f3);
+  }
+
+  .tailor-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Reduce the gap for better mobile spacing */
+  }
+
+  .tailor-header {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tailor-header p {
+    color: var(--palette-red-400, #eb9894);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+
+  .tailor-header h2 {
+    color: var(--surface-dark-default, #262626);
+    font-size: 32px; /* Decrease font size for better mobile readability */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 150% */
+  }
+
+  .tailor-header h2 span {
+    color: var(--text-secondary, #666);
+  }
+
+  .tailor-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Reduce the gap for better mobile spacing */
+  }
+
+  .tailor-cont {
+    display: flex;
+    flex-direction: column; /* Change to column layout on mobile */
+    gap: 16px; /* Reduce the gap for better mobile spacing */
+  }
+
+  @media screen and (max-width: 975px) {
+    .tailor-cont {
+      gap: 24px; /* Adjust gap for mobile spacing */
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .tailor-container {
+      padding: 48px 16px; /* Adjust padding for better mobile spacing */
+    }
+
+    .tailor-header h2 {
+      font-size: 28px; /* Adjust font size for better mobile readability */
+      line-height: 40px; /* Adjust line height for better mobile readability */
+    }
+
+    .tailor-body {
+      gap: 16px; /* Reduce the gap for better mobile spacing */
+    }
+  }
+}

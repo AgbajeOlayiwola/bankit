@@ -94,3 +94,101 @@
 .footer-stores img {
   cursor: pointer;
 }
+
+@media screen and (max-width: 975px) {
+  .footer-container {
+    width: 100%;
+    background: var(--actions-default, #062983);
+    display: flex;
+    padding: 80px 16px; /* Adjust padding for better mobile spacing */
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+    gap: 20px; /* Adjust the gap for better mobile spacing */
+    flex-shrink: 0;
+  }
+
+  .footer-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Adjust the gap for better mobile spacing */
+  }
+
+  .footer-header {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
+    align-items: center; /* Center items on mobile */
+  }
+
+  .footer-text {
+    width: 100%; /* Full width on mobile */
+    display: flex;
+    gap: 10px; /* Adjust the gap for better mobile spacing */
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+  }
+
+  .footer-links {
+    display: flex;
+    width: 100%; /* Full width on mobile */
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+  }
+
+  .footer-quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap for better mobile spacing */
+  }
+
+  .footer-quick-links > h2 {
+    color: var(--text-dark-default, #fff);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 150% */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .footer-quick-links a {
+    text-decoration: none;
+    color: var(--text-dark-secondary, #dbdbdb);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .footer-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+  }
+
+  .footer-body > p {
+    color: var(--text-dark-default, #fff);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center; /* Center items on mobile */
+  }
+
+  .footer-stores {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
+    gap: 16px;
+    align-items: center; /* Center items on mobile */
+  }
+
+  .footer-stores img {
+    cursor: pointer;
+  }
+}
