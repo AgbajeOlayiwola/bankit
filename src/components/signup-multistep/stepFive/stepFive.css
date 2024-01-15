@@ -38,3 +38,11 @@
   gap: 16px;
   width: 100%;
 }
+@media screen and (max-width: 975px) {
+  .stepfive-button {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+}

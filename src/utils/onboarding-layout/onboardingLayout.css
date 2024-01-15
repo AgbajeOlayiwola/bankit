@@ -106,11 +106,12 @@
   }
 
   .onboarding-layout-first {
+    display: none;
     width: 44%;
     max-width: 630px;
     background-color: rgba(4, 31, 98, 0.1);
     background-image: url("../../assets/doodle.svg");
-    display: flex;
+    /* display: flex; */
     align-items: center;
     /* justify-content: center; */
     padding-left: 40px;

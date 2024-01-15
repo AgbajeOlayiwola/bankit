@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import "./stepOne.css";
-import ArrowLeft from "../../../svg-component/arrowLeft";
-import PriButton from "../../primary-button/priButton";
-import Info from "../../../svg-component/info";
-import ClosedEye from "../../../svg-component/closedEye";
-import OpenEye from "../../../svg-component/openEye";
-import Checked from "../../../svg-component/checked";
-import Unchecked from "../../../svg-component/unchecked";
-import validator from "validator";
-import { useNavigate } from "react-router-dom";
-import OnboardingHeader from "../../onboarding-header/onboardingHeader";
-import { useSendOtpMutation } from "../../../redux/api/mutationApi";
+import React, { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
+import validator from "validator"
+import { useSendOtpMutation } from "../../../redux/api/mutationApi"
+import ArrowLeft from "../../../svg-component/arrowLeft"
+import Checked from "../../../svg-component/checked"
+import ClosedEye from "../../../svg-component/closedEye"
+import Info from "../../../svg-component/info"
+import OpenEye from "../../../svg-component/openEye"
+import Unchecked from "../../../svg-component/unchecked"
+import OnboardingHeader from "../../onboarding-header/onboardingHeader"
+import PriButton from "../../primary-button/priButton"
+import "./stepOne.css"
 
 const StepOne = ({ submit }) => {
   const {
@@ -19,37 +19,46 @@ const StepOne = ({ submit }) => {
     handleSubmit,
     getValues,
     formState: { errors },
-  } = useForm();
-  const [sendOtp, { data: otpSend, isLoading: newOtpLoad, isSuccess: newOtpSuccess, isError: newOtpFalse, error: newOtpErr }] = useSendOtpMutation();
+  } = useForm()
+  const [
+    sendOtp,
+    {
+      data: otpSend,
+      isLoading: newOtpLoad,
+      isSuccess: newOtpSuccess,
+      isError: newOtpFalse,
+      error: newOtpErr,
+    },
+  ] = useSendOtpMutation()
   useEffect(() => {
     if (newOtpSuccess) {
       if (otpSend) {
-        console.log(otpSend);
+        console.log(otpSend)
 
         //  setCookie("accessToken", otpSend?.accessToken);
         //  if (getCookie("accessToken")) {
-        submit(getValues());
+        submit(getValues())
         //  }
       }
     }
-  }, [otpSend, newOtpSuccess, submit, getValues]);
+  }, [otpSend, newOtpSuccess, submit, getValues])
   useEffect(() => {
     if (newOtpFalse) {
       if (newOtpErr) {
-        console.log(newOtpErr);
+        console.log(newOtpErr)
       }
     }
-  }, [newOtpErr, newOtpFalse]);
-  const navigate = useNavigate();
-  const [state, setState] = useState(false);
-  const [symbol, setSymbol] = useState(false);
-  const [uppercase, setUppercase] = useState(false);
-  const [numbers, setNumbers] = useState(false);
-  const [digits, setDigits] = useState(false);
-  const [active, setActive] = useState(false);
+  }, [newOtpErr, newOtpFalse])
+  const navigate = useNavigate()
+  const [state, setState] = useState(false)
+  const [symbol, setSymbol] = useState(false)
+  const [uppercase, setUppercase] = useState(false)
+  const [numbers, setNumbers] = useState(false)
+  const [digits, setDigits] = useState(false)
+  const [active, setActive] = useState(false)
   const action = () => {
-    setState(!state);
-  };
+    setState(!state)
+  }
   const handlePwd = (e) => {
     if (
       validator.isStrongPassword(e.target.value, {
@@ -60,9 +69,9 @@ const StepOne = ({ submit }) => {
         minSymbols: 1,
       })
     ) {
-      setSymbol(true);
+      setSymbol(true)
     } else {
-      setSymbol(false);
+      setSymbol(false)
     }
     if (
       validator.isStrongPassword(e.target.value, {
@@ -73,9 +82,9 @@ const StepOne = ({ submit }) => {
         minSymbols: 0,
       })
     ) {
-      setUppercase(true);
+      setUppercase(true)
     } else {
-      setUppercase(false);
+      setUppercase(false)
     }
 
     if (
@@ -87,9 +96,9 @@ const StepOne = ({ submit }) => {
         minSymbols: 0,
       })
     ) {
-      setDigits(true);
+      setDigits(true)
     } else {
-      setDigits(false);
+      setDigits(false)
     }
     if (
       validator.isStrongPassword(e.target.value, {
@@ -100,9 +109,9 @@ const StepOne = ({ submit }) => {
         minSymbols: 0,
       })
     ) {
-      setNumbers(true);
+      setNumbers(true)
     } else {
-      setNumbers(false);
+      setNumbers(false)
     }
 
     if (
@@ -114,30 +123,35 @@ const StepOne = ({ submit }) => {
         minSymbols: 1,
       })
     ) {
-      setActive(true);
+      setActive(true)
     } else {
-      setActive(false);
+      setActive(false)
     }
-  };
+  }
   return (
     <div className="step-one-container">
       <div className="back-button">
         <ArrowLeft
           action={() => {
-            navigate("/");
+            navigate("/")
           }}
         />
       </div>
       <div className="step-one-body">
-        <OnboardingHeader title="Get Started" text="Enter your details to create a Bankit account" />
+        <OnboardingHeader
+          title="Get Started"
+          text="Enter your details to create a Bankit account"
+        />
         <form
           onSubmit={handleSubmit((e) => {
             // e.preventDefault();
-            const data = {
-              phoneNumber: e.phoneNumber,
-            };
-            sendOtp(data);
-          })}>
+            // const data = {
+            //   phoneNumber: e.phoneNumber,
+            // };
+            // sendOtp(data);
+            submit(getValues())
+          })}
+        >
           <div className="step-one-form">
             <div className="step-one-group">
               <div className="step-one-groups">
@@ -195,7 +209,9 @@ const StepOne = ({ submit }) => {
                   </div>
                   <Info />
                 </div>
-                {errors.phoneNumber ? <p>{errors?.phoneNumber?.message}</p> : null}
+                {errors.phoneNumber ? (
+                  <p>{errors?.phoneNumber?.message}</p>
+                ) : null}
               </div>
               <div className="step-one-groups">
                 <div className="step-one-single">
@@ -211,7 +227,11 @@ const StepOne = ({ submit }) => {
                     />
                     <span>Password</span>
                   </div>
-                  {state ? <OpenEye action={action} color="#474747" /> : <ClosedEye color="#474747" action={action} />}
+                  {state ? (
+                    <OpenEye action={action} color="#474747" />
+                  ) : (
+                    <ClosedEye color="#474747" action={action} />
+                  )}
                 </div>
                 {errors.password ? <p>{errors?.password?.message}</p> : null}
               </div>
@@ -221,18 +241,22 @@ const StepOne = ({ submit }) => {
               <div className="step-hint-container">
                 <div className="step-hint-double">
                   <div className="step-hint-single">
-                    {uppercase ? <Checked /> : <Unchecked />} <p>At least one uppercase</p>
+                    {uppercase ? <Checked /> : <Unchecked />}{" "}
+                    <p>At least one uppercase</p>
                   </div>
                   <div className="step-hint-single">
-                    {numbers ? <Checked /> : <Unchecked />} <p>At least six characters</p>
+                    {numbers ? <Checked /> : <Unchecked />}{" "}
+                    <p>At least six characters</p>
                   </div>
                 </div>
                 <div className="step-hint-double">
                   <div className="step-hint-single">
-                    {symbol ? <Checked /> : <Unchecked />} <p>At least one symbol</p>
+                    {symbol ? <Checked /> : <Unchecked />}{" "}
+                    <p>At least one symbol</p>
                   </div>
                   <div className="step-hint-single">
-                    {digits ? <Checked /> : <Unchecked />} <p>At least one digit</p>
+                    {digits ? <Checked /> : <Unchecked />}{" "}
+                    <p>At least one digit</p>
                   </div>
                 </div>
               </div>
@@ -245,13 +269,14 @@ const StepOne = ({ submit }) => {
         Already have an account?{" "}
         <span
           onClick={() => {
-            navigate("/auth/login");
-          }}>
+            navigate("/auth/login")
+          }}
+        >
           Log in
         </span>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default StepOne;
+export default StepOne

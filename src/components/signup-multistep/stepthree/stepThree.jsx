@@ -1,37 +1,46 @@
-import React, { useState, useEffect } from "react";
-import "./stepThree.css";
-import PriButton from "../../primary-button/priButton";
-import ArrowLeft from "../../../svg-component/arrowLeft";
-import Info from "../../../svg-component/info";
-import OnboardingHeader from "../../onboarding-header/onboardingHeader";
-import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
+import ArrowLeft from "../../../svg-component/arrowLeft"
+import Info from "../../../svg-component/info"
+import OnboardingHeader from "../../onboarding-header/onboardingHeader"
+import PriButton from "../../primary-button/priButton"
+import "./stepThree.css"
 
 const StepThree = ({ back, forward }) => {
-  const [active, setActive] = useState(false);
-  const suggesstions = ["@adolf", "@adam", "@aadolfus"];
-  const [value, setValue] = useState("");
-  const profile = useSelector((state) => state.profile);
-  const [registerNewUser, { data: registerUser, isLoading: newUserLoad, isSuccess: newUserSuccess, isError: newUserFalse, error: newUserErr }] = useRegisterNewUserMutation();
+  const [active, setActive] = useState(false)
+  const suggesstions = ["@adolf", "@adam", "@aadolfus"]
+  const [value, setValue] = useState("")
+  const profile = useSelector((state) => state.profile)
+  const [
+    registerNewUser,
+    {
+      data: registerUser,
+      isLoading: newUserLoad,
+      isSuccess: newUserSuccess,
+      isError: newUserFalse,
+      error: newUserErr,
+    },
+  ] = useRegisterNewUserMutation()
   useEffect(() => {
     if (newUserSuccess) {
       if (registerUser) {
-        console.log(registerUser);
+        console.log(registerUser)
 
         //  setCookie("accessToken", registerUser?.accessToken);
         //  if (getCookie("accessToken")) {
-        forward();
+        forward()
         //  }
       }
     }
-  }, [registerUser, newUserSuccess, forward]);
+  }, [registerUser, newUserSuccess, forward])
   useEffect(() => {
     if (newUserFalse) {
       if (newUserErr) {
-        console.log(newUserErr);
+        console.log(newUserErr)
       }
     }
-  }, [newUserErr, newUserFalse]);
+  }, [newUserErr, newUserFalse])
   return (
     <div className="stepthree-container">
       <div className="stepthree-wrapper">
@@ -39,7 +48,10 @@ const StepThree = ({ back, forward }) => {
           <ArrowLeft action={back} />
         </div>
         <div className="stepthree-cont">
-          <OnboardingHeader title="Just One More Thing..." text="Create your Bankit User name" />
+          <OnboardingHeader
+            title="Just One More Thing..."
+            text="Create your Bankit User name"
+          />
           <div className="step-one-single">
             <div>
               <input
@@ -47,8 +59,8 @@ const StepThree = ({ back, forward }) => {
                 required
                 value={value}
                 onChange={(e) => {
-                  setValue(e.target.value);
-                  setActive(true);
+                  setValue(e.target.value)
+                  setActive(true)
                   // setSuggestions((arr) => [...arr, e.target.value]);
                 }}
               />
@@ -63,12 +75,13 @@ const StepThree = ({ back, forward }) => {
               <p
                 key={index}
                 onClick={() => {
-                  setValue(item);
-                  setActive(true);
-                }}>
+                  setValue(item)
+                  setActive(true)
+                }}
+              >
                 {item}
               </p>
-            );
+            )
           })}
         </div>
       </div>
@@ -76,19 +89,20 @@ const StepThree = ({ back, forward }) => {
         text="Next"
         active={active}
         action={() => {
-          const data = {
-            password: profile.password,
-            phone: profile.phoneNumber,
-            firstName: profile.firstName,
-            lastName: profile.lastName,
-            username: value,
-          };
-          registerNewUser(data);
+          // const data = {
+          //   password: profile.password,
+          //   phone: profile.phoneNumber,
+          //   firstName: profile.firstName,
+          //   lastName: profile.lastName,
+          //   username: value,
+          // };
+          // registerNewUser(data);
+          forward()
         }}
         load={newUserLoad}
       />
     </div>
-  );
-};
+  )
+}
 
-export default StepThree;
+export default StepThree
