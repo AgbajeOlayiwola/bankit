@@ -32,9 +32,9 @@ const Header = () => {
           <>
             <div className="header-nav">
               <NavLink to="/">Home</NavLink>
-              <NavLink to="/features">Features</NavLink>
-              <NavLink to="/open">Open an Account</NavLink>
-              <NavLink to="/about">About Us</NavLink>
+              <NavLink to="#">Features</NavLink>
+              <NavLink to="#">Open an Account</NavLink>
+              <NavLink to="#">About Us</NavLink>
             </div>
             <div className="header-action">
               <NavLink>Contact Us</NavLink>
