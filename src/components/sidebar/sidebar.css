@@ -78,7 +78,7 @@
   .sidebar-container {
     height: 100vh;
     background: var(--surface-default, #fff);
-    width: 30%;
+    width: 78%;
     max-width: 200px;
     overflow: hidden;
     position: absolute;
