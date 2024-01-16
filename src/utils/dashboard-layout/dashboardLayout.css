@@ -15,6 +15,7 @@
 .dashboardlayout-body {
   height: 100vh;
   overflow-y: scroll;
+  width: 100vw;
   background: var(--background-default, #f5f5f5);
   padding: 40px 48px 0px;
   box-sizing: border-box;
