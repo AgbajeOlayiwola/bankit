@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import "./dashboardLayout.css"
-import Sidebar from "../../components/sidebar/sidebar"
-import Navbar from "../../components/navbar/navbar"
-import Support from "../../components/support/support"
-import Chat from "../../components/chat/chat"
 import { useNavigate } from "react-router-dom"
+import Chat from "../../components/chat/chat"
+import Navbar from "../../components/navbar/navbar"
+import Sidebar from "../../components/sidebar/sidebar"
+import Support from "../../components/support/support"
+import "./dashboardLayout.css"
 
 const DashboardLayout = ({ children }) => {
   const navigate = useNavigate()
