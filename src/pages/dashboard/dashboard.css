@@ -1,6 +1,7 @@
 .dashboard-container {
   display: flex;
   gap: 63px;
+  padding-left: 200px;
 }
 
 .dashboard-first,
@@ -16,4 +17,27 @@
 
 .dashboard-second {
   width: 41%;
+}
+@media screen and (max-width: 975px) {
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 63px;
+    align-items: center;
+    padding-left: 0px;
+  }
+  .dashboard-first,
+  .dashboard-second {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .dashboard-first {
+    width: 100%;
+  }
+
+  .dashboard-second {
+    width: 100%;
+  }
 }
