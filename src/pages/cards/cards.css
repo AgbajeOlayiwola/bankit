@@ -11,3 +11,18 @@
   font-weight: 700;
   line-height: 48px; /* 120% */
 }
+@media screen and (max-width: 975px) {
+  .cards-container-wrapper {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .cards-wrappers {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 50px;
+  }
+}

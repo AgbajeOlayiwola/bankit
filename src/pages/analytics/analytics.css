@@ -16,3 +16,10 @@
   display: flex;
   gap: 25px;
 }
+@media screen and (max-width: 975px) {
+  .analytics-page > div {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+}
