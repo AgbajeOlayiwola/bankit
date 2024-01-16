@@ -14,6 +14,7 @@ const DashboardLayout = ({ children }) => {
   const openSide = () => {
     setShowSide((prev) => !prev)
   }
+
   return (
     <div className="dashboardlayout-container">
       <Sidebar
