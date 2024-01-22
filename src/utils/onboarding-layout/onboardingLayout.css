@@ -162,9 +162,8 @@
   }
 
   .onboarding-layout-wrapper {
-    width: 58%;
-    max-width: 468px;
-    margin: 0px auto;
+    width: 84%;
+    /* margin: 0px auto; */
     padding: 46px 0px 0px;
     /* height: 85vh;
   overflow-y: scroll; */
