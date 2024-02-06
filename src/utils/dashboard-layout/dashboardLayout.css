@@ -17,7 +17,7 @@
   overflow-y: scroll;
   width: 100vw;
   background: var(--background-default, #f5f5f5);
-  padding: 40px 48px 0px;
+  padding: 40px 48px 0px 233px;
   box-sizing: border-box;
 }
 
