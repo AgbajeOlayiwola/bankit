@@ -1,13 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import Cookies from "universal-cookie"
 const baseUrl = "https://bankit-two.vercel.app/api/v1/"
 export const mutationApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl,
     prepareHeaders: (headers, { getState }) => {
-      const cookies = new Cookies()
-      const token = cookies.get("token")
+      const token = getState().token
+
       // headers.set('x-api-key', `${process.env.BASE_KEY}`);
       headers.set("Accept", "application/json")
       headers.set("Content-Type", "application/json")

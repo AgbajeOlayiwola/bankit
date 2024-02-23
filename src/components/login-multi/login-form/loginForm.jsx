@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import setCookie from "universal-cookie"
 import { useLoginMutation } from "../../../redux/api/mutationApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
+import { setToken } from "../../../redux/slices/tokenSlice"
 import ArrowLeft from "../../../svg-component/arrowLeft"
 import ClosedEye from "../../../svg-component/closedEye"
 import Info from "../../../svg-component/info"
@@ -43,7 +43,7 @@ const LoginForm = ({ forward }) => {
       if (loginUser) {
         dispatch(setProfile(loginUser))
 
-        setCookie("accessToken", loginUser?.accessToken)
+        dispatch(setToken(loginUser?.accessToken))
         if (loginUserSuccess) {
           forward()
         }

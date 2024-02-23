@@ -1,23 +1,34 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/dist/query/react";
-import { mutationApi } from "../api/mutationApi";
-import { combineReducers } from "redux";
-import { persistReducer, FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import profileReducer from "../slices/profileSlice";
+import { configureStore } from "@reduxjs/toolkit"
+import { setupListeners } from "@reduxjs/toolkit/dist/query/react"
+import { combineReducers } from "redux"
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+  persistReducer,
+  persistStore,
+} from "redux-persist"
+import storage from "redux-persist/lib/storage"
+import { mutationApi } from "../api/mutationApi"
+import profileReducer from "../slices/profileSlice"
+import tokenReducer from "../slices/tokenSlice"
 
 const reducers = combineReducers({
   [mutationApi.reducerPath]: mutationApi.reducer,
   profile: profileReducer,
-});
+  token: tokenReducer,
+})
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["profile"],
-};
+  whitelist: ["profile", "token"],
+}
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, reducers)
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -28,8 +39,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(mutationApi.middleware),
-});
+})
 
-setupListeners(store.dispatch);
+setupListeners(store.dispatch)
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)
