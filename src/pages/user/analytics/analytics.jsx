@@ -1,9 +1,9 @@
-import React from "react";
-import "./analytics.css";
-import DashboardLayout from "../../utils/dashboard-layout/dashboardLayout";
-import DashboardAnalytics from "../../components/dashboard-analytics/dashboard-analytics";
-import Inflow from "../../components/inflow/inflow";
-import { list } from "../../utils/data";
+import React from "react"
+import DashboardAnalytics from "../../../components/dashboard-analytics/dashboard-analytics"
+import Inflow from "../../../components/inflow/inflow"
+import DashboardLayout from "../../../utils/dashboard-layout/dashboardLayout"
+import { list } from "../../../utils/data"
+import "./analytics.css"
 
 const Analytics = () => {
   return (
@@ -17,7 +17,7 @@ const Analytics = () => {
         </div>
       </div>
     </DashboardLayout>
-  );
-};
+  )
+}
 
-export default Analytics;
+export default Analytics

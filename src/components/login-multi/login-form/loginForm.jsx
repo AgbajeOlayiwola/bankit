@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import setCookie from "universal-cookie"
 import { useLoginMutation } from "../../../redux/api/mutationApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
 import ArrowLeft from "../../../svg-component/arrowLeft"
@@ -11,7 +12,6 @@ import OpenEye from "../../../svg-component/openEye"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
-
 const LoginForm = ({ forward }) => {
   const dispatch = useDispatch()
   const {
@@ -41,10 +41,10 @@ const LoginForm = ({ forward }) => {
       if (loginUser) {
         dispatch(setProfile(loginUser))
 
-        //  setCookie("accessToken", loginUser?.accessToken);
-        //  if (getCookie("accessToken")) {
-        forward()
-        //  }
+        setCookie("accessToken", loginUser?.accessToken)
+        if (loginUserSuccess) {
+          forward()
+        }
       }
     }
   }, [loginUser, loginUserSuccess, forward, dispatch])
@@ -71,13 +71,13 @@ const LoginForm = ({ forward }) => {
         />
         <form
           onSubmit={handleSubmit((e) => {
-            forward()
-            // e.preventDefault();
-            // const data = {
-            //   identifier: e.identifier,
-            //   password: e.password,
-            // };
-            // login(data);
+            // forward()
+            // e.preventDefault()
+            const data = {
+              identifier: e.identifier,
+              password: e.password,
+            }
+            login(data)
           })}
         >
           <div className="loginform-content">

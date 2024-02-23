@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { default as getCookie, default as setCookie } from "universal-cookie"
 import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
 import ArrowLeft from "../../../svg-component/arrowLeft"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepThree.css"
-
 const StepThree = ({ back, forward }) => {
   const [active, setActive] = useState(false)
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
   const [value, setValue] = useState("")
-  const profile = useSelector((state) => state.profile)
+  const { profile } = useSelector((store) => store)
   const [
     registerNewUser,
     {
@@ -27,22 +29,31 @@ const StepThree = ({ back, forward }) => {
       if (registerUser) {
         console.log(registerUser)
 
-        //  setCookie("accessToken", registerUser?.accessToken);
-        //  if (getCookie("accessToken")) {
-        forward()
-        //  }
+        setCookie("accessToken", registerUser?.accessToken)
+        if (getCookie("accessToken")) {
+          forward()
+        }
       }
     }
   }, [registerUser, newUserSuccess, forward])
   useEffect(() => {
-    if (newUserFalse) {
+    if (newUserSuccess) {
+      forward()
+    } else if (newUserFalse) {
       if (newUserErr) {
-        console.log(newUserErr)
+        showToastErrorMessage()
       }
     }
   }, [newUserErr, newUserFalse])
+
+  const showToastErrorMessage = () => {
+    toast.error("Account creation failed", {
+      position: "top-right",
+    })
+  }
   return (
     <div className="stepthree-container">
+      <ToastContainer />
       <div className="stepthree-wrapper">
         <div className="back-button">
           <ArrowLeft action={back} />
@@ -89,15 +100,14 @@ const StepThree = ({ back, forward }) => {
         text="Next"
         active={active}
         action={() => {
-          // const data = {
-          //   password: profile.password,
-          //   phone: profile.phoneNumber,
-          //   firstName: profile.firstName,
-          //   lastName: profile.lastName,
-          //   username: value,
-          // };
-          // registerNewUser(data);
-          forward()
+          const data = {
+            password: profile?.password,
+            phone: profile?.phoneNumber,
+            firstName: profile?.firstName,
+            lastName: profile?.lastName,
+            username: value.replace("@", ""),
+          }
+          registerNewUser(data)
         }}
         load={newUserLoad}
       />

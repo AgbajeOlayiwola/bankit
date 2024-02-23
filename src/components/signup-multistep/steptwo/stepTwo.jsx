@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import { useVerifyOtpMutation } from "../../../redux/api/mutationApi"
 import ArrowLeft from "../../../svg-component/arrowLeft"
 import Otp from "../../otp/otp"
 import PriButton from "../../primary-button/priButton"
 import "./stepTwo.css"
-
 const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
   const [active, setActive] = useState(false)
+  const [convertNumber, setConverNumber] = useState()
   const [otp, setOtp] = useState("")
-  const profile = useSelector((state) => state.profile)
+  const { profile } = useSelector((store) => store)
   console.log(profile)
   const [
     verifyOtp,
@@ -36,12 +38,27 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
   useEffect(() => {
     if (newOtpFalse) {
       if (newOtpErr) {
-        console.log(newOtpErr)
+        showToastErrorMessage()
       }
     }
   }, [newOtpErr, newOtpFalse])
+  useEffect(() => {
+    setConverNumber(
+      `+234${profile?.phoneNumber.slice(
+        1,
+        4
+      )}********${profile?.phoneNumber.slice(9)}`
+    )
+  }, [])
+  const showToastErrorMessage = () => {
+    toast.error("Otp failed.", {
+      position: "top-right",
+    })
+  }
+
   return (
     <div className="steptwo-container">
+      <ToastContainer />
       <div className="steptwo-back">
         <ArrowLeft action={back} />
       </div>
@@ -49,7 +66,7 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
         <div className="steptwo-header">
           <h2>{title}</h2>
           <p>
-            {text} <span>{number}</span> {text2}
+            {text} <span>{convertNumber}</span> {text2}
           </p>
           {title === "Enter OTP" ? null : <h3>{text3}</h3>}
         </div>
@@ -72,11 +89,11 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
           text="Next"
           active={active}
           action={() => {
-            // const data = {
-            //   phoneNumber: profile.phoneNumber,
-            //   otp,
-            // };
-            // verifyOtp(data);
+            const data = {
+              phoneNumber: profile.phoneNumber,
+              otp,
+            }
+            verifyOtp(data)
             forward()
           }}
           load={newOtpLoad}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import validator from "validator"
 import { useSendOtpMutation } from "../../../redux/api/mutationApi"
 import ArrowLeft from "../../../svg-component/arrowLeft"
@@ -12,7 +14,6 @@ import Unchecked from "../../../svg-component/unchecked"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepOne.css"
-
 const StepOne = ({ submit }) => {
   const {
     register,
@@ -43,12 +44,15 @@ const StepOne = ({ submit }) => {
     }
   }, [otpSend, newOtpSuccess, submit, getValues])
   useEffect(() => {
-    if (newOtpFalse) {
-      if (newOtpErr) {
-        console.log(newOtpErr)
-      }
+    if (newOtpErr) {
+      showToastErrorMessage()
     }
-  }, [newOtpErr, newOtpFalse])
+  }, [newOtpErr])
+  const showToastErrorMessage = () => {
+    toast.error("Otp failed to send.", {
+      position: "top-right",
+    })
+  }
   const navigate = useNavigate()
   const [state, setState] = useState(false)
   const [symbol, setSymbol] = useState(false)
@@ -130,6 +134,7 @@ const StepOne = ({ submit }) => {
   }
   return (
     <div className="step-one-container">
+      <ToastContainer />
       <div className="back-button">
         <ArrowLeft
           action={() => {
@@ -144,11 +149,10 @@ const StepOne = ({ submit }) => {
         />
         <form
           onSubmit={handleSubmit((e) => {
-            // e.preventDefault();
-            // const data = {
-            //   phoneNumber: e.phoneNumber,
-            // };
-            // sendOtp(data);
+            const data = {
+              phoneNumber: e.phoneNumber,
+            }
+            sendOtp(data)
             submit(getValues())
           })}
         >

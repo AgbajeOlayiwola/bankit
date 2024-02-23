@@ -1,7 +1,6 @@
 .dashboard-container {
   display: flex;
   gap: 63px;
-  padding-left: 200px;
 }
 
 .dashboard-first,

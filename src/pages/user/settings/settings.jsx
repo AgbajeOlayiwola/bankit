@@ -1,8 +1,8 @@
-import React from "react";
-import "./settings.css";
-import DashboardLayout from "../../utils/dashboard-layout/dashboardLayout";
-import SettingsProfile from "../../components/settings-profile/settingsProfile";
-import SettingsSide from "../../components/settings-side/settingsSide";
+import React from "react"
+import "./settings.css"
+import DashboardLayout from "../../../utils/dashboard-layout/dashboardLayout"
+import SettingsProfile from "../../../components/settings-profile/settingsProfile"
+import SettingsSide from "../../../components/settings-side/settingsSide"
 
 const Settings = () => {
   return (
@@ -19,7 +19,7 @@ const Settings = () => {
         </div>
       </div>
     </DashboardLayout>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings

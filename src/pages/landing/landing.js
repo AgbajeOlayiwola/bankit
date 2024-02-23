@@ -1,13 +1,13 @@
-import React from "react";
-import "./landing.css";
-import Welcome from "../../components/welcome/welcome";
-import Design from "../../components/design/design";
-import DailyNeeds from "../../components/daily-needs/dailyNeeds";
-import Tailor from "../../components/tailor/tailor";
-import Card from "../../components/card/card";
-import Frequently from "../../components/frequently/frequently";
-import Revolute from "../../components/revolute/revolute";
-import Footer from "../../components/footer/footer";
+import React from "react"
+import Card from "../../components/card/card"
+import DailyNeeds from "../../components/daily-needs/dailyNeeds"
+import Design from "../../components/design/design"
+import Footer from "../../components/footer/footer"
+import Frequently from "../../components/frequently/frequently"
+import Revolute from "../../components/revolute/revolute"
+import Tailor from "../../components/tailor/tailor"
+import Welcome from "../../components/welcome/welcome"
+import "./landing.css"
 
 const Landing = () => {
   return (
@@ -21,7 +21,7 @@ const Landing = () => {
       <Revolute />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Landing;
+export default Landing
