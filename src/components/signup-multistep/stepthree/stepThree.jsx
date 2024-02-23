@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { default as getCookie, default as setCookie } from "universal-cookie"
@@ -9,9 +9,11 @@ import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepThree.css"
+import { setToken } from "../../../redux/slices/tokenSlice"
 const StepThree = ({ back, forward }) => {
   const [active, setActive] = useState(false)
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
+  const dispatch = useDispatch()
   const [value, setValue] = useState("")
   const { profile } = useSelector((store) => store)
   const [
@@ -28,8 +30,7 @@ const StepThree = ({ back, forward }) => {
     if (newUserSuccess) {
       if (registerUser) {
         console.log(registerUser)
-
-        setCookie("accessToken", registerUser?.accessToken)
+        dispatch(setToken(registerUser?.accessToken))
         if (getCookie("accessToken")) {
           forward()
         }
