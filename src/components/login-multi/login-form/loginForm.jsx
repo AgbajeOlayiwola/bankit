@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import setCookie from "universal-cookie"
 import { useLoginMutation } from "../../../redux/api/mutationApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
@@ -52,11 +54,18 @@ const LoginForm = ({ forward }) => {
     if (loginUserFalse) {
       if (loginUserErr) {
         console.log(loginUserErr)
+        showToastErrorMessage()
       }
     }
   }, [loginUserErr, loginUserFalse])
+  const showToastErrorMessage = () => {
+    toast.error("Identifier or Password Incorrect", {
+      position: "top-right",
+    })
+  }
   return (
     <div className="loginform-container">
+      <ToastContainer />
       <div className="back-button">
         <ArrowLeft
           action={() => {
