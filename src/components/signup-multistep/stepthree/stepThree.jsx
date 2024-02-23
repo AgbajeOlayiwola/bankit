@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { default as getCookie, default as setCookie } from "universal-cookie"
 import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
+import { setToken } from "../../../redux/slices/tokenSlice"
 import ArrowLeft from "../../../svg-component/arrowLeft"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepThree.css"
-import { setToken } from "../../../redux/slices/tokenSlice"
 const StepThree = ({ back, forward }) => {
   const [active, setActive] = useState(false)
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
@@ -26,26 +25,18 @@ const StepThree = ({ back, forward }) => {
       error: newUserErr,
     },
   ] = useRegisterNewUserMutation()
+
   useEffect(() => {
     if (newUserSuccess) {
-      if (registerUser) {
-        console.log(registerUser)
-        dispatch(setToken(registerUser?.accessToken))
-        if (getCookie("accessToken")) {
-          forward()
-        }
-      }
-    }
-  }, [registerUser, newUserSuccess, forward])
-  useEffect(() => {
-    if (newUserSuccess) {
+      console.log(registerUser)
+      dispatch(setToken(registerUser?.accessToken))
       forward()
     } else if (newUserFalse) {
       if (newUserErr) {
         showToastErrorMessage()
       }
     }
-  }, [newUserErr, newUserFalse])
+  }, [newUserErr, newUserSuccess, newUserFalse])
 
   const showToastErrorMessage = () => {
     toast.error("Account creation failed", {
