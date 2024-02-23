@@ -153,7 +153,6 @@ const StepOne = ({ submit }) => {
               phoneNumber: e.phoneNumber,
             }
             sendOtp(data)
-            submit(getValues())
           })}
         >
           <div className="step-one-form">

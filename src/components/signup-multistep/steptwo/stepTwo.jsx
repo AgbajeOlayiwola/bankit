@@ -94,7 +94,6 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
               otp,
             }
             verifyOtp(data)
-            forward()
           }}
           load={newOtpLoad}
         />
