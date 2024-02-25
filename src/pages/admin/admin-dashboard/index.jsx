@@ -40,7 +40,7 @@ const AdminDashboard = () => {
   const chartData = [
     {
       companyName: "Sun",
-      progressPaymentPrice: 0,
+      progressPaymentPrice: 20,
     },
     {
       companyName: "Mon",
@@ -56,11 +56,11 @@ const AdminDashboard = () => {
     },
     {
       companyName: "Thu",
-      progressPaymentPrice: 150,
+      progressPaymentPrice: 250,
     },
     {
       companyName: "Fri",
-      progressPaymentPrice: 250,
+      progressPaymentPrice: 300,
     },
   ]
   return (
@@ -80,6 +80,13 @@ const AdminDashboard = () => {
         })}
       </div>
       <div className="barchart-area">
+        <div className="chart-top">
+          <div className="chart-top-text">
+            <h2>Customer Growth</h2>
+            <h3>Total no of customers</h3>
+          </div>
+          <div></div>
+        </div>
         <VerticalBarChart ChartData={chartData} />
       </div>
     </div>

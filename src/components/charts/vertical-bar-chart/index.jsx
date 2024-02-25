@@ -67,16 +67,14 @@ export function VerticalBarChart({ ChartData }) {
     labels: ChartData.map((item) => item.companyName),
     datasets: [
       {
-        barPercentage: 1,
-        barThickness: 1906,
+        barPercentage: 13,
+        barThickness: 906,
         maxBarThickness: 90,
         borderRadius: 9,
-        minBarLength: 2,
+        minBarLength: 0,
         label: ChartData.map((item) => item.progressPaymentPrice),
         data: ChartData.map((item) => item.progressPaymentPrice),
         backgroundColor: backgroundColors,
-
-        borderWidth: 0.1,
       },
     ],
   }

@@ -16,3 +16,32 @@
   gap: 70px;
   padding-bottom: 50px;
 }
+.chart-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.chart-top-text {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.chart-top-text h2 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #262626;
+}
+.chart-top-text h3 {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #666666;
+}

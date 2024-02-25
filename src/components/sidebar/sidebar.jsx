@@ -6,11 +6,12 @@ import "./sidebar.css"
 
 const Sidebar = ({ action, action2, showSide }) => {
   const location = useLocation()
-  const color1 = location.pathname === "/dashboard" ? "#062983" : "#666666"
-  const color2 = location.pathname === "/transactions" ? "#062983" : "#666666"
-  const color3 = location.pathname === "/analytics" ? "#062983" : "#666666"
-  const color4 = location.pathname === "/cards" ? "#062983" : "#666666"
-  const color5 = location.pathname === "/settings" ? "#062983" : "#666666"
+  const color1 = location.pathname === "/user/dashboard" ? "#062983" : "#666666"
+  const color2 =
+    location.pathname === "/user/transactions" ? "#062983" : "#666666"
+  const color3 = location.pathname === "/user/analytics" ? "#062983" : "#666666"
+  const color4 = location.pathname === "/user/cards" ? "#062983" : "#666666"
+  const color5 = location.pathname === "/user/settings" ? "#062983" : "#666666"
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const handleWindowResize = () => {
