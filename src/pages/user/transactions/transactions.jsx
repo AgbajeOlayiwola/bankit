@@ -6,7 +6,7 @@ import TransactionsTable from "../../../components/transactions-table/transactio
 
 const Transactions = () => {
   return (
-    <DashboardLayout>
+    <>
       <div className="transactions-container">
         <div className="transactions-cont">
           <h2>Transaction</h2>
@@ -25,7 +25,7 @@ const Transactions = () => {
         </div>
         <TransactionsTable />
       </div>
-    </DashboardLayout>
+    </>
   )
 }
 

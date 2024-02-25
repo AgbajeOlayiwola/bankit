@@ -1,6 +1,6 @@
 import React from "react"
+import SignupMulti from "../../components/signup-multistep/signupMulti"
 import "./signup.css"
-import SignupMulti from "../../../components/signup-multistep/signupMulti"
 
 const SignUp = () => {
   return <SignupMulti />

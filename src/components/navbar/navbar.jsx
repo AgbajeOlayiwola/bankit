@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
 import Coins from "../../assets/coins.png"
 import ProfilePic from "../../assets/profile-pic.png"
 import Bell from "../../svg-component/bell"
@@ -9,6 +10,7 @@ import "./navbar.css"
 
 const Navbar = ({ openSide }) => {
   const profile = useSelector((state) => state.profile)
+  const location = useLocation()
 
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
@@ -24,7 +26,13 @@ const Navbar = ({ openSide }) => {
     return () => window.removeEventListener("resize", handleWindowResize)
   }, [width])
   return (
-    <div className="navbar-container">
+    <div
+      className={
+        location.pathname.includes("admin")
+          ? "admin-navbar-container"
+          : "navbar-container"
+      }
+    >
       <div className="navbar-text">
         <h2>Hello {profile?.user?.firstName}</h2>
         <p>Wednesday August 23rd, 2023.</p>

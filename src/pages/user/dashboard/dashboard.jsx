@@ -1,20 +1,19 @@
 import React from "react"
-import "./dashboard.css"
-import DashboardLayout from "../../../utils/dashboard-layout/dashboardLayout"
-import PowerUp from "../../../components/power-up/powerUp"
 import AccountSummary from "../../../components/account-summary/accountSummary"
-import SendMoney from "../../../components/send-money/sendMoney"
 import Beneficiaries from "../../../components/beneficiaries/beneficiaries"
-import Services from "../../../components/services/services"
-import User from "../../../svg-component/user"
-import Contact from "../../../svg-component/contact"
 import DashboardAnalytics from "../../../components/dashboard-analytics/dashboard-analytics"
+import PowerUp from "../../../components/power-up/powerUp"
+import SendMoney from "../../../components/send-money/sendMoney"
+import Services from "../../../components/services/services"
 import TransactionHistory from "../../../components/transaction-history/transactionHistory"
+import Contact from "../../../svg-component/contact"
+import User from "../../../svg-component/user"
+import "./dashboard.css"
 
 const Dashboard = () => {
   const array = []
   return (
-    <DashboardLayout>
+    <>
       <div className="dashboard-container">
         <div className="dashboard-first">
           <PowerUp />
@@ -37,7 +36,7 @@ const Dashboard = () => {
           <TransactionHistory />
         </div>
       </div>
-    </DashboardLayout>
+    </>
   )
 }
 

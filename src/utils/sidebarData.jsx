@@ -1,52 +1,115 @@
-import React from "react";
-import AnalyticsSvg from "../svg-component/analyticsSvg";
-import CardsSvg from "../svg-component/cardsSvg";
-import DashboardSvg from "../svg-component/dashboardSvg";
-import HelpCenter from "../svg-component/helpCenter";
-import Logout from "../svg-component/logout";
-import SettingsSvg from "../svg-component/settingsSvg";
-import TransactionSvg from "../svg-component/transactionSvg";
+import React from "react"
+import { useLocation } from "react-router-dom"
+import AnalyticsSvg from "../svg-component/analyticsSvg"
+import CardsSvg from "../svg-component/cardsSvg"
+import DashboardSvg from "../svg-component/dashboardSvg"
+import Feedbacksupport from "../svg-component/feedback-support"
+import HelpCenter from "../svg-component/helpCenter"
+import Loanmanagmentsvg from "../svg-component/loan-managment-svg"
+import Logout from "../svg-component/logout"
+import SettingsSvg from "../svg-component/settingsSvg"
+import TransactionSvg from "../svg-component/transactionSvg"
+import Usermanagement from "../svg-component/user-management"
 
 const SideBarData = (color1, color2, color3, color4, color5) => {
-  return {
-    links: [
-      {
-        img: <DashboardSvg color={color1} />,
-        text: "Dashboard",
-        link: "/dashboard",
-      },
-      {
-        img: <TransactionSvg color={color2} />,
-        text: "Transaction",
-        link: "/transactions",
-      },
-      {
-        img: <AnalyticsSvg color={color3} />,
-        text: "Analytics",
-        link: "/analytics",
-      },
-      {
-        img: <CardsSvg color={color4} />,
-        text: "Cards",
-        link: "/cards",
-      },
-      {
-        img: <SettingsSvg color={color5} />,
-        text: "Settings",
-        link: "/settings",
-      },
-    ],
-    subLinks: [
-      {
-        img: <HelpCenter />,
-        text: "Help Center",
-      },
-      {
-        img: <Logout />,
-        text: "Logout",
-      },
-    ],
-  };
-};
+  const location = useLocation()
+  if (location?.pathname?.includes("admin")) {
+    return {
+      links: [
+        {
+          img: <DashboardSvg color={color1} />,
+          text: "Dashboard",
+          link: "/admin/dashboard",
+        },
+        {
+          img: <Usermanagement color={color2} />,
+          text: "Customer Management",
+          link: "/admin/custom-management",
+        },
+        {
+          img: <TransactionSvg color={color2} />,
+          text: "Transaction Feed",
+          link: "/admin/transaction-feed",
+        },
+        {
+          img: <AnalyticsSvg color={color3} />,
+          text: "Reporting & Analytics",
+          link: "/admin/reporting-analytics",
+        },
+        {
+          img: <SettingsSvg color={color5} />,
+          text: "Configuration",
+          link: "/admin/configuration",
+        },
 
-export default SideBarData;
+        {
+          img: <Loanmanagmentsvg color={color5} />,
+          text: "Loan Management",
+          link: "/admin/loan-management",
+        },
+        {
+          img: <Usermanagement color={color5} />,
+          text: "User Management",
+          link: "/admin/user-management",
+        },
+        {
+          img: <Feedbacksupport color={color5} />,
+          text: "Feedback & Support",
+          link: "/admin/feedback-support",
+        },
+      ],
+      subLinks: [
+        {
+          img: <HelpCenter />,
+          text: "Help Center",
+        },
+        {
+          img: <Logout />,
+          text: "Logout",
+        },
+      ],
+    }
+  } else {
+    return {
+      links: [
+        {
+          img: <DashboardSvg color={color1} />,
+          text: "Dashboard",
+          link: "/user/dashboard",
+        },
+        {
+          img: <TransactionSvg color={color2} />,
+          text: "Transaction",
+          link: "/user/transactions",
+        },
+        {
+          img: <AnalyticsSvg color={color3} />,
+          text: "Analytics",
+          link: "/user/analytics",
+        },
+        {
+          img: <CardsSvg color={color4} />,
+          text: "Cards",
+          link: "/user/cards",
+        },
+        {
+          img: <SettingsSvg color={color5} />,
+          text: "Settings",
+          link: "/user/settings",
+        },
+      ],
+      subLinks: [
+        {
+          img: <HelpCenter />,
+          text: "Help Center",
+        },
+        {
+          img: <Logout />,
+          text: "Logout",
+        },
+      ],
+    }
+  }
+}
+
+export default SideBarData

@@ -1,6 +1,6 @@
 import React from "react"
+import LoginMulti from "../../components/login-multi/loginMulti"
 import "./login.css"
-import LoginMulti from "../../../components/login-multi/loginMulti"
 
 const Login = () => {
   return <LoginMulti />

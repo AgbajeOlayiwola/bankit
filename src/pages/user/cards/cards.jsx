@@ -1,17 +1,16 @@
 import React, { useState } from "react"
-import "./cards.css"
-import DashboardLayout from "../../../utils/dashboard-layout/dashboardLayout"
-import CardsContainer from "../../../components/cards-container/cardsContainer"
-import RequestCard from "../../../components/request-card/requestCard"
 import CardPin from "../../../components/card-pin/cardPin"
+import CardsContainer from "../../../components/cards-container/cardsContainer"
 import CardsSuccess from "../../../components/cards-success/cardsSuccess"
+import RequestCard from "../../../components/request-card/requestCard"
+import "./cards.css"
 
 const Cards = () => {
   const [right, setRight] = useState("-700px")
   const [right2, setRight2] = useState("-700px")
   const [right3, setRight3] = useState("-700px")
   return (
-    <DashboardLayout>
+    <>
       <div className="cards-wrappers">
         <h2>Cards</h2>
         <CardsContainer
@@ -40,7 +39,7 @@ const Cards = () => {
           setRight3("-700px")
         }}
       />
-    </DashboardLayout>
+    </>
   )
 }
 

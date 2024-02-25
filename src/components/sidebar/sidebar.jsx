@@ -29,8 +29,12 @@ const Sidebar = ({ action, action2, showSide }) => {
       className={
         width < 900
           ? showSide
-            ? "sidebar-container"
+            ? location.pathname.includes("admin")
+              ? "admin-sidebar-container"
+              : "sidebar-container"
             : "mobile-sidebar-container"
+          : location.pathname.includes("admin")
+          ? "admin-sidebar-container"
           : "sidebar-container"
       }
     >

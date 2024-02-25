@@ -1,0 +1,32 @@
+.styles-card {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  width: 100%;
+  padding: 25px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-right div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.card-right h1 {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #666666;
+}
+.amount {
+  font-family: Poppins;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+}

@@ -1,12 +1,11 @@
 import React from "react"
-import "./settings.css"
-import DashboardLayout from "../../../utils/dashboard-layout/dashboardLayout"
 import SettingsProfile from "../../../components/settings-profile/settingsProfile"
 import SettingsSide from "../../../components/settings-side/settingsSide"
+import "./settings.css"
 
 const Settings = () => {
   return (
-    <DashboardLayout>
+    <>
       <div className="settings-container">
         <h2>Settings</h2>
         <div className="settings-wrapper">
@@ -18,7 +17,7 @@ const Settings = () => {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </>
   )
 }
 

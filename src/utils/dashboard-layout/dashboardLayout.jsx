@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import Chat from "../../components/chat/chat"
 import Navbar from "../../components/navbar/navbar"
 import Sidebar from "../../components/sidebar/sidebar"
@@ -14,40 +14,53 @@ const DashboardLayout = ({ children }) => {
   const openSide = () => {
     setShowSide((prev) => !prev)
   }
-
+  const location = useLocation()
   return (
-    <div className="dashboardlayout-container">
-      <Sidebar
-        showSide={showSide}
-        action={() => {
-          setRight("0px")
-        }}
-        action2={() => {
-          navigate("/auth/login")
-        }}
-      />
-      <div className="dashboardlayout-wrapper">
-        <Navbar openSide={openSide} />
-        <div className="dashboardlayout-body">{children}</div>
-      </div>
+    <>
+      {location?.pathname?.includes("admin") ||
+      location?.pathname?.includes("user") ? (
+        <div className="dashboardlayout-container">
+          <Sidebar
+            showSide={showSide}
+            action={() => {
+              setRight("0px")
+            }}
+            action2={() => {
+              navigate("/auth/login")
+            }}
+          />
+          <div className="dashboardlayout-wrapper">
+            <Navbar openSide={openSide} />
+            <div
+              className={
+                location?.pathname?.includes("admin")
+                  ? "admin-dashboardlayout-body"
+                  : "dashboardlayout-body"
+              }
+            >
+              {children}
+            </div>
+          </div>
 
-      <Support
-        right={right}
-        messageAction={() => {
-          setRight2("0px")
-        }}
-        closeAction={() => {
-          setRight("-700px")
-        }}
-      />
+          <Support
+            right={right}
+            messageAction={() => {
+              setRight2("0px")
+            }}
+            closeAction={() => {
+              setRight("-700px")
+            }}
+          />
 
-      <Chat
-        right={right2}
-        closeAction={() => {
-          setRight2("-800px")
-        }}
-      />
-    </div>
+          <Chat
+            right={right2}
+            closeAction={() => {
+              setRight2("-800px")
+            }}
+          />
+        </div>
+      ) : null}
+    </>
   )
 }
 
