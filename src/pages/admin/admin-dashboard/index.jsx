@@ -1,5 +1,6 @@
 import React from "react"
 import CardOne from "../../../components/card/card-one"
+import { VerticalBarChart } from "../../../components/charts/vertical-bar-chart"
 import Assetlargesvg from "../../../svg-component/asset-large-svg"
 import Assetssvgsmall from "../../../svg-component/assets-svg-small"
 import Liabilitieslargesvg from "../../../svg-component/liabilities-large-svg"
@@ -32,13 +33,40 @@ const AdminDashboard = () => {
     {
       text: "Total Number of Accounts",
       svg: <Usermanagementlarge color="#e4e4e4" />,
-      smallSvg: <Usermanagement color="#474747;" />,
+      smallSvg: <Usermanagement color="#474747" />,
       price: "870,519",
     },
   ]
+  const chartData = [
+    {
+      companyName: "Sun",
+      progressPaymentPrice: 0,
+    },
+    {
+      companyName: "Mon",
+      progressPaymentPrice: 100,
+    },
+    {
+      companyName: "Tue",
+      progressPaymentPrice: 150,
+    },
+    {
+      companyName: "Wed",
+      progressPaymentPrice: 200,
+    },
+    {
+      companyName: "Thu",
+      progressPaymentPrice: 150,
+    },
+    {
+      companyName: "Fri",
+      progressPaymentPrice: 250,
+    },
+  ]
   return (
-    <div>
+    <div className="dashboard">
       <h1>Dashboard Overview</h1>
+
       <div className="cardGrid">
         {cardData.map((item, index) => {
           return (
@@ -50,6 +78,9 @@ const AdminDashboard = () => {
             />
           )
         })}
+      </div>
+      <div className="barchart-area">
+        <VerticalBarChart ChartData={chartData} />
       </div>
     </div>
   )

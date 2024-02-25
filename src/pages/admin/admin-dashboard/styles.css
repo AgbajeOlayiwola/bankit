@@ -3,3 +3,16 @@
   grid-template-columns: 45% 45%;
   grid-gap: 5%;
 }
+.barchart-area {
+  padding: 24px 40px 24px 40px;
+  border-radius: 16px;
+  border: 1px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+}
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding-bottom: 50px;
+}
