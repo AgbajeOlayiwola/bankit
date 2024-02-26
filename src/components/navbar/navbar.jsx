@@ -44,19 +44,23 @@ const Navbar = ({ openSide }) => {
               <Search />
               <input type="text" placeholder="Search" />
             </div>
-            <div className="navbar-other">
-              <div className="navbar-points">
-                <h2>200</h2>
-                <img src={Coins} alt="coins" />
+            {location.pathname.includes("admin") ? null : (
+              <div className="navbar-other">
+                <div className="navbar-points">
+                  <h2>200</h2>
+                  <img src={Coins} alt="coins" />
+                </div>
+                <div className="navbar-notifications">
+                  <Bell />
+                </div>
               </div>
-              <div className="navbar-notifications">
-                <Bell />
-              </div>
+            )}
+          </div>
+          {location.pathname.includes("admin") ? null : (
+            <div className="navbar-profile">
+              <img src={ProfilePic} alt="profilepic" />
             </div>
-          </div>
-          <div className="navbar-profile">
-            <img src={ProfilePic} alt="profilepic" />
-          </div>
+          )}
         </div>
       ) : (
         <div onClick={openSide}>

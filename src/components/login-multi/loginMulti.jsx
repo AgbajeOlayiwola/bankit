@@ -1,29 +1,30 @@
-import React, { useState } from "react";
-import "./loginMulti.css";
-import Onboardinglayout from "../../utils/onboarding-layout/onboardingLayout";
-import StepTwo from "../signup-multistep/steptwo/stepTwo";
-import LoginForm from "./login-form/loginForm";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Onboardinglayout from "../../utils/onboarding-layout/onboardingLayout"
+import StepTwo from "../signup-multistep/steptwo/stepTwo"
+import LoginForm from "./login-form/loginForm"
+import "./loginMulti.css"
 
 const LoginMulti = () => {
-  const navigate = useNavigate();
-  const [count, setCount] = useState(0);
+  const navigate = useNavigate()
+  const [count, setCount] = useState(0)
   const add = () => {
-    setCount(count + 1);
-  };
+    setCount(count + 1)
+  }
   const minus = () => {
-    setCount(count - 1);
-  };
+    setCount(count - 1)
+  }
   const steps = () => {
     switch (count) {
       case 0:
         return (
           <LoginForm
+            forwardToAdmin={() => navigate("/admin/dashboard")}
             forward={() => {
-              navigate("/dashboard");
+              navigate("/user/dashboard")
             }}
           />
-        );
+        )
       case 1:
         return (
           <StepTwo
@@ -34,15 +35,15 @@ const LoginMulti = () => {
             text2=". Not the right number?"
             text3="Change number"
             forward={() => {
-              navigate("/dashboard");
+              navigate("/user/dashboard")
             }}
           />
-        );
+        )
       default:
-        return <LoginForm forward={add} />;
+        return <LoginForm forward={add} />
     }
-  };
-  return <Onboardinglayout>{steps()}</Onboardinglayout>;
-};
+  }
+  return <Onboardinglayout>{steps()}</Onboardinglayout>
+}
 
-export default LoginMulti;
+export default LoginMulti

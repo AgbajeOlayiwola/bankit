@@ -14,7 +14,7 @@ import OpenEye from "../../../svg-component/openEye"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
-const LoginForm = ({ forward }) => {
+const LoginForm = ({ forward, forwardToAdmin }) => {
   const dispatch = useDispatch()
   const {
     register,
@@ -44,7 +44,9 @@ const LoginForm = ({ forward }) => {
         dispatch(setProfile(loginUser))
 
         dispatch(setToken(loginUser?.accessToken))
-        if (loginUserSuccess) {
+        if (loginUser?.user?.role == "super admin") {
+          forwardToAdmin()
+        } else {
           forward()
         }
       }

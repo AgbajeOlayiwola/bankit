@@ -1,13 +1,17 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
 import Chat from "../../components/chat/chat"
 import Navbar from "../../components/navbar/navbar"
 import Sidebar from "../../components/sidebar/sidebar"
 import Support from "../../components/support/support"
+import { clearProfile } from "../../redux/slices/profileSlice"
+import { clearToken } from "../../redux/slices/tokenSlice"
 import "./dashboardLayout.css"
 
 const DashboardLayout = ({ children }) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [right, setRight] = useState("-700px")
   const [right2, setRight2] = useState("-800px")
   const [showSide, setShowSide] = useState(false)
@@ -15,6 +19,11 @@ const DashboardLayout = ({ children }) => {
     setShowSide((prev) => !prev)
   }
   const location = useLocation()
+  const logout = async () => {
+    await dispatch(clearProfile())
+    await dispatch(clearToken())
+    navigate("/auth/login")
+  }
   return (
     <>
       {location?.pathname?.includes("admin") ||
@@ -26,7 +35,7 @@ const DashboardLayout = ({ children }) => {
               setRight("0px")
             }}
             action2={() => {
-              navigate("/auth/login")
+              logout()
             }}
           />
           <div className="dashboardlayout-wrapper">

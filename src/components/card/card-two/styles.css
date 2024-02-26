@@ -1,0 +1,18 @@
+.card-two {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  width: 100%;
+  padding: 25px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.percentage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.positive {
+  color: #059d02;
+}
