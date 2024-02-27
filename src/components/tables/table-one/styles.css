@@ -1,0 +1,37 @@
+.table {
+  padding: 25px 15px;
+  width: 100%;
+  border-radius: 12px;
+  background: white;
+}
+.table_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table_header h1 {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+.table_header h1:nth-child(2) {
+  width: 20%;
+}
+.table_body {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table_body div h1 {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+.table_body div:nth-child(2) {
+  width: 20%;
+}

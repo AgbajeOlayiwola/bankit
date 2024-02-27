@@ -1,5 +1,7 @@
 import React from "react"
 import CardOne from "../../../components/card/card-one"
+import MiniProfile from "../../../components/min-profile"
+import TableOne from "../../../components/tables/table-one"
 import Loanmanagmentsvg from "../../../svg-component/loan-managment-svg"
 import Netbalancesvg from "../../../svg-component/net-balance-svg"
 import "./styles.css"
@@ -25,8 +27,26 @@ const AdminTransactionFeed = () => {
       price: "N999,187,519",
     },
   ]
+  const table_header = [
+    "S/N",
+    "Name",
+    "Amount",
+    "Transaction ID",
+    "Type",
+    "Status",
+    "Action",
+  ]
+  const table_body = {
+    titleone: "1",
+    titleTwo: <MiniProfile />,
+    titleThree: "N200,000",
+    titleFour: "xyew-jsdfdf-100",
+    titleFive: "Bill Paymetn",
+    titleSix: "Successful",
+    titleSeven: "...",
+  }
   return (
-    <div>
+    <div className="transactionFeed">
       <h1>Transaction Feed</h1>
       <div className="cardflex">
         {cardData.map((item, index) => {
@@ -40,6 +60,7 @@ const AdminTransactionFeed = () => {
           )
         })}
       </div>
+      <TableOne head={table_header} body={table_body} />
     </div>
   )
 }
