@@ -1,5 +1,28 @@
+.reports {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 .cardGrid {
   display: grid;
   grid-template-columns: 45% 45%;
   grid-gap: 5%;
+}
+.filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.filter-div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.filter-div div {
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

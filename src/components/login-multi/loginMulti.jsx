@@ -12,7 +12,7 @@ const LoginMulti = () => {
     setCount(count + 1)
   }
   const minus = () => {
-    setCount(count - 1)
+    setCount(0)
   }
   const steps = () => {
     switch (count) {
@@ -23,12 +23,14 @@ const LoginMulti = () => {
             forward={() => {
               navigate("/user/dashboard")
             }}
+            next={() => setCount(1)}
           />
         )
       case 1:
         return (
           <StepTwo
-            back={minus}
+            back={() => setCount(0)}
+            from="login"
             title="Verify your number"
             text="We’ve sent a verification code to your registered number"
             number="+2348******180"

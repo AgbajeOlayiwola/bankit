@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom"
 import AnalyticsSvg from "../svg-component/analyticsSvg"
 import CardsSvg from "../svg-component/cardsSvg"
 import DashboardSvg from "../svg-component/dashboardSvg"
-import Feedbacksupport from "../svg-component/feedback-support"
 import HelpCenter from "../svg-component/helpCenter"
-import Loanmanagmentsvg from "../svg-component/loan-managment-svg"
 import Logout from "../svg-component/logout"
 import SettingsSvg from "../svg-component/settingsSvg"
 import TransactionSvg from "../svg-component/transactionSvg"
@@ -36,27 +34,27 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
           text: "Reporting & Analytics",
           link: "/admin/reporting-analytics",
         },
-        {
-          img: <SettingsSvg color={color5} />,
-          text: "Configuration",
-          link: "/admin/configuration",
-        },
+        // {
+        //   img: <SettingsSvg color={color5} />,
+        //   text: "Configuration",
+        //   link: "/admin/configuration",
+        // },
 
-        {
-          img: <Loanmanagmentsvg color={color5} />,
-          text: "Loan Management",
-          link: "/admin/loan-management",
-        },
+        // {
+        //   img: <Loanmanagmentsvg color={color5} />,
+        //   text: "Loan Management",
+        //   link: "/admin/loan-management",
+        // },
         {
           img: <Usermanagement color={color5} />,
           text: "User Management",
           link: "/admin/user-management",
         },
-        {
-          img: <Feedbacksupport color={color5} />,
-          text: "Feedback & Support",
-          link: "/admin/feedback-support",
-        },
+        // {
+        //   img: <Feedbacksupport color={color5} />,
+        //   text: "Feedback & Support",
+        //   link: "/admin/feedback-support",
+        // },
       ],
       subLinks: [
         {

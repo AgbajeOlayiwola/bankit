@@ -132,4 +132,5 @@
 
 .otp-duration h3 span {
   text-decoration-line: underline;
+  cursor: pointer;
 }

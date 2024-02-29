@@ -44,7 +44,9 @@ const AdminCustomManagement = () => {
   ]
   const table_body = {
     titleone: "1",
-    titleTwo: <MiniProfile />,
+    titleTwo: (
+      <MiniProfile name={"admin"} last={"admin"} email={"admin@gmail.com"} />
+    ),
     titleThree: "1234567890",
     titleFour: "N100,000",
     titleFive: "tier1",

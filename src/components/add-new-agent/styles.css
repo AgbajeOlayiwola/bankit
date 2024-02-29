@@ -1,0 +1,18 @@
+.addNewAgentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.addNewAgentForm h1 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}

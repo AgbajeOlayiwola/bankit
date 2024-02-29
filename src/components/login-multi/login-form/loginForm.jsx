@@ -14,7 +14,7 @@ import OpenEye from "../../../svg-component/openEye"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
-const LoginForm = ({ forward, forwardToAdmin }) => {
+const LoginForm = ({ forward, forwardToAdmin, next }) => {
   const dispatch = useDispatch()
   const {
     register,
@@ -41,12 +41,18 @@ const LoginForm = ({ forward, forwardToAdmin }) => {
   useEffect(() => {
     if (loginUserSuccess) {
       if (loginUser) {
-        dispatch(setProfile(loginUser))
-
-        dispatch(setToken(loginUser?.accessToken))
-        if (loginUser?.user?.role == "super admin") {
+        if (
+          loginUser?.message ==
+          "First time using this device to login.. Please verify your acount with the otp sent to you"
+        ) {
+          next()
+        } else if (loginUser?.user?.role == "super admin") {
+          dispatch(setProfile(loginUser))
+          dispatch(setToken(loginUser?.accessToken))
           forwardToAdmin()
-        } else {
+        } else if (loginUser?.user?.role !== "super admin") {
+          dispatch(setProfile(loginUser))
+          dispatch(setToken(loginUser?.accessToken))
           forward()
         }
       }
@@ -88,6 +94,7 @@ const LoginForm = ({ forward, forwardToAdmin }) => {
               identifier: e.identifier,
               password: e.password,
             }
+            dispatch(setProfile({ phoneNumber: e.identifier }))
             login(data)
           })}
         >

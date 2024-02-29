@@ -4,6 +4,7 @@
   gap: 10px;
 }
 .profile-name {
+  width: 100% !important;
   display: flex;
   flex-direction: column;
   gap: 10px;

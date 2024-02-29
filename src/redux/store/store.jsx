@@ -13,11 +13,13 @@ import {
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { mutationApi } from "../api/mutationApi"
+import { queryApi } from "../api/query"
 import profileReducer from "../slices/profileSlice"
 import tokenReducer from "../slices/tokenSlice"
 
 const reducers = combineReducers({
   [mutationApi.reducerPath]: mutationApi.reducer,
+  [queryApi.reducerPath]: queryApi.reducer,
   profile: profileReducer,
   token: tokenReducer,
 })
@@ -38,7 +40,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(mutationApi.middleware),
+    }).concat(mutationApi.middleware, queryApi.middleware),
 })
 
 setupListeners(store.dispatch)

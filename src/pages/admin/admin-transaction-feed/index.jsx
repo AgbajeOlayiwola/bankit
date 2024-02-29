@@ -2,28 +2,28 @@ import React from "react"
 import CardOne from "../../../components/card/card-one"
 import MiniProfile from "../../../components/min-profile"
 import TableOne from "../../../components/tables/table-one"
-import Loanmanagmentsvg from "../../../svg-component/loan-managment-svg"
-import Netbalancesvg from "../../../svg-component/net-balance-svg"
+import TransactlargeSvg from "../../../svg-component/transact_largeSvg"
+import Transactsmall from "../../../svg-component/transact_small"
 import "./styles.css"
 
 const AdminTransactionFeed = () => {
   const cardData = [
     {
-      text: "Net Balance",
-      svg: <Netbalancesvg color="#e4e4e4" />,
-      smallSvg: <Loanmanagmentsvg color={" #474747"} />,
+      text: "Total Transaction",
+      svg: <TransactlargeSvg color="#e4e4e4" />,
+      smallSvg: <Transactsmall color={" #474747"} />,
       price: "N999,187,519",
     },
     {
-      text: "Total Liabilities",
-      svg: <Netbalancesvg color="#e4e4e4" />,
-      smallSvg: <Loanmanagmentsvg color={" #474747"} />,
+      text: "Pending Transaction",
+      svg: <TransactlargeSvg color="#e4e4e4" />,
+      smallSvg: <Transactsmall color={" #474747"} />,
       price: "N999,187,519",
     },
     {
-      text: "Total Assets",
-      svg: <Netbalancesvg color="#e4e4e4" />,
-      smallSvg: <Loanmanagmentsvg color={" #474747"} />,
+      text: "Failed Transaction",
+      svg: <TransactlargeSvg color="#e4e4e4" />,
+      smallSvg: <Transactsmall color={" #474747"} />,
       price: "N999,187,519",
     },
   ]
@@ -38,7 +38,9 @@ const AdminTransactionFeed = () => {
   ]
   const table_body = {
     titleone: "1",
-    titleTwo: <MiniProfile />,
+    titleTwo: (
+      <MiniProfile name={"admin"} last={"admin"} email={"admin@gmail.com"} />
+    ),
     titleThree: "N200,000",
     titleFour: "xyew-jsdfdf-100",
     titleFive: "Bill Paymetn",

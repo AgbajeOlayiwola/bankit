@@ -1,0 +1,60 @@
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 29%;
+  gap: 10px;
+}
+.badge h2 {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #666666;
+}
+.badge h3 {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #b2b2b2;
+}
+.badgeFlex {
+  display: flex;
+  gap: 30px;
+  background: #f8f8fa;
+  flex-wrap: wrap;
+  padding: 24px 16px 24px 16px;
+  border-radius: 14px;
+}
+.badges {
+  display: flex;
+  flex: 1 0 calc(33.333% - 20px);
+  flex-direction: column;
+  gap: 40px;
+}
+.badgesName {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.badgesNameh2 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.badgesh1 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+}

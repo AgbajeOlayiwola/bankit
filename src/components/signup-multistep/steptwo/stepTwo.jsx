@@ -2,12 +2,25 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useVerifyOtpMutation } from "../../../redux/api/mutationApi"
+import {
+  useSendOtpMutation,
+  useVerifyOtpMutation,
+} from "../../../redux/api/mutationApi"
 import ArrowLeft from "../../../svg-component/arrowLeft"
+import Loader from "../../loader/loader"
 import Otp from "../../otp/otp"
 import PriButton from "../../primary-button/priButton"
 import "./stepTwo.css"
-const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
+const StepTwo = ({
+  back,
+  forward,
+  text,
+  title,
+  number,
+  text2,
+  text3,
+  from,
+}) => {
   const [active, setActive] = useState(false)
   const [convertNumber, setConverNumber] = useState()
   const [otp, setOtp] = useState("")
@@ -23,14 +36,45 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
       error: newOtpErr,
     },
   ] = useVerifyOtpMutation()
+  const [
+    sendOtp,
+    {
+      data: sendOtpData,
+      isLoading: sendOtpLoad,
+      isSuccess: sendOtpSuccess,
+      isError: sendOtpFalse,
+      error: sendOtpErr,
+    },
+  ] = useSendOtpMutation()
+  useEffect(() => {
+    if (sendOtpSuccess) {
+      showToastOtpSuccessMessage()
+    }
+  }, [sendOtpData, sendOtpSuccess])
+  useEffect(() => {
+    if (sendOtpErr) {
+      showToastOtpErrorMessage()
+    }
+  }, [sendOtpErr])
+  const showToastOtpSuccessMessage = () => {
+    toast.success("Otp sent successfully.", {
+      position: "top-right",
+    })
+  }
+  const showToastOtpErrorMessage = () => {
+    toast.error("Otp failed to send.", {
+      position: "top-right",
+    })
+  }
   useEffect(() => {
     if (newOtpSuccess) {
       if (otpSend) {
         console.log(otpSend)
-
-        //  setCookie("accessToken", otpSend?.accessToken);
-        //  if (getCookie("accessToken")) {
-        forward()
+        if (from == "login") {
+          forward()
+        } else {
+          forward()
+        }
         //  }
       }
     }
@@ -43,19 +87,28 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
     }
   }, [newOtpErr, newOtpFalse])
   useEffect(() => {
-    setConverNumber(
-      `+234${profile?.phoneNumber.slice(
-        1,
-        4
-      )}********${profile?.phoneNumber.slice(9)}`
-    )
+    if (from === "login") {
+      return null
+    } else {
+      setConverNumber(
+        `+234${profile?.phoneNumber.slice(
+          1,
+          4
+        )}********${profile?.phoneNumber.slice(9)}`
+      )
+    }
   }, [])
   const showToastErrorMessage = () => {
     toast.error("Otp failed.", {
       position: "top-right",
     })
   }
-
+  const resentOtp = () => {
+    const data = {
+      phoneNumber: profile?.phoneNumber,
+    }
+    sendOtp(data)
+  }
   return (
     <div className="steptwo-container">
       <ToastContainer />
@@ -76,12 +129,15 @@ const StepTwo = ({ back, forward, text, title, number, text2, text3 }) => {
             otp={(e) => {
               setOtp(e)
             }}
+            otpfields={6}
           />
           <div className="otp-duration">
             <p>00:00</p>
             <h3>
               This code will expire in 3 minutes. Did not receive code?{" "}
-              <span>Resend code</span>
+              <span onClick={() => resentOtp()}>
+                {sendOtpLoad ? <Loader /> : "Resend code"}
+              </span>
             </h3>
           </div>
         </div>

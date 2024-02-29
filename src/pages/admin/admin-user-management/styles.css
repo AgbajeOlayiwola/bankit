@@ -1,0 +1,13 @@
+.user-management {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-management button {
+  width: 30%;
+}
+.management {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}

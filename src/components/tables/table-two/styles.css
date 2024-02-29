@@ -1,0 +1,41 @@
+.table-container {
+  width: 92%;
+  padding: 36px;
+  background: white;
+  border-radius: 16px;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 8px;
+}
+
+.custom-table th {
+  background-color: white;
+  border-bottom: 0.5px solid #99999938;
+  color: #999999;
+
+  text-align: start;
+}
+.custom-table tbody td {
+  color: #666666;
+}
+.editDelete {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.editDelete div:nth-child(1) {
+  color: blue;
+  cursor: pointer;
+}
+.editDelete div:nth-child(2) {
+  color: red;
+  cursor: pointer;
+}

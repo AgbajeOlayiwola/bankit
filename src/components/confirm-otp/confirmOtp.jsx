@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-import "./confirmOtp.css";
-import SidePopup from "../side-popup/sidePopup";
-import PriButton from "../primary-button/priButton";
-import Otp from "../otp/otp";
+import React, { useState } from "react"
+import Otp from "../otp/otp"
+import PriButton from "../primary-button/priButton"
+import SidePopup from "../side-popup/sidePopup"
+import "./confirmOtp.css"
 
-const ConfirmOtp = ({ right, closeAction, title, text, subText }) => {
-  const [active, setActive] = useState(false);
+const ConfirmOtp = ({
+  right,
+  closeAction,
+  title,
+  text,
+  subText,
+  click,
+  load,
+}) => {
+  const [active, setActive] = useState(false)
+  const [otpValue, setOtpValue] = useState()
   return (
     <SidePopup right={right} closeAction={closeAction}>
       <div className="confirm-otp">
@@ -17,10 +26,11 @@ const ConfirmOtp = ({ right, closeAction, title, text, subText }) => {
           </div>
           <Otp
             completed={() => {
-              setActive(true);
+              setActive(true)
             }}
+            otpfields={4}
             otp={(e) => {
-              console.log(e);
+              setOtpValue(e)
             }}
           />
           <div className="otp-duration">
@@ -28,16 +38,24 @@ const ConfirmOtp = ({ right, closeAction, title, text, subText }) => {
               <>
                 <p>00:00</p>
                 <h3>
-                  This code will expire in 3 minutes. Did not receive code? <br /> <span>Resend code</span>
+                  This code will expire in 3 minutes. Did not receive code?{" "}
+                  <br /> <span>Resend code</span>
                 </h3>
               </>
             )}
           </div>
-          <PriButton active={active} text="Next" />
+          <PriButton
+            active={() => {
+              active()
+            }}
+            load={load}
+            action={() => click(otpValue)}
+            text="Next"
+          />
         </div>
       </div>
     </SidePopup>
-  );
-};
+  )
+}
 
-export default ConfirmOtp;
+export default ConfirmOtp

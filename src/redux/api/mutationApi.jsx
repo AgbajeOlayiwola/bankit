@@ -101,10 +101,42 @@ export const mutationApi = createApi({
         body: data,
       }),
     }),
+    vrifyUsrId: builder.mutation({
+      query: (data) => ({
+        url: "users/idverification",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    upgradeToTierOne: builder.mutation({
+      query: (data) => ({
+        url: "users/upgrade-tierOne",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    createAdmin: builder.mutation({
+      query: (data) => ({
+        url: "management/admin",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateAdmin: builder.mutation({
+      query: (data) => ({
+        url: `management/edit/profile/${data?.id}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 })
 
 export const {
+  useUpdateAdminMutation,
+  useVrifyUsrIdMutation,
+  useUpgradeToTierOneMutation,
+  useCreateAdminMutation,
   useUserChangePinMutation,
   useUsersFinancialHabitMutation,
   useSetUserPinMutation,
