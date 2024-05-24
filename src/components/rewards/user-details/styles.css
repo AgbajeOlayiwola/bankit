@@ -1,0 +1,45 @@
+.info-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.allInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.allInfo h1 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.info-cover {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 15px;
+}
+.info-flex h2 {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.info-cover h1 {
+  margin-bottom: 15px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.AllInfoimgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

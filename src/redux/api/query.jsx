@@ -25,6 +25,14 @@ export const queryApi = createApi({
         }
       },
     }),
+    getAllPoints: builder.query({
+      query: () => {
+        return {
+          url: "management/fetch/point",
+        }
+      },
+    }),
+
     getDataBundles: builder.query({
       query: () => {
         return {
@@ -60,12 +68,21 @@ export const queryApi = createApi({
         }
       },
     }),
+    getAllBillers: builder.query({
+      query: (id) => {
+        return {
+          url: `billings`,
+        }
+      },
+    }),
   }),
 })
 
 export const {
   useGetAllBillersQuery,
+  useGetAllPointsQuery,
   useGetAdminManagmentByIDQuery,
   useGetAdminManagmentQuery,
   useGetCurrentUserQuery,
+  useDeleteAdminManagmentByIDQuery,
 } = queryApi

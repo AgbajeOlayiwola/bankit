@@ -1,9 +1,8 @@
 .design-container {
   width: 100%;
-  background: var(--surface-warning-default, #fffbf0);
+  background: var(--surface-warning-default, #fff);
   padding: 96px 0px;
   box-sizing: border-box;
-  margin-top: 160px;
   justify-content: center;
   align-items: center;
 }
@@ -22,7 +21,7 @@
 }
 
 .design-header > p {
-  color: var(--palette-orange-300, #fac79e);
+  color: var(--palette-orange-300, #bebebe);
   font-size: 17px;
   font-style: normal;
   font-weight: 700;

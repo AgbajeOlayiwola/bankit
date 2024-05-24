@@ -2,14 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 96px 0px 0px;
+  padding: 50px 70px;
+  background-color: #9db7fb60;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 32px;
 }
 
 .revolute-text {
-  width: 35%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.welcome-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.welcome-actions > div {
+  width: 100%;
 }
 
 .revolute-text1 {
@@ -20,11 +33,13 @@
 }
 
 .revolute-text1 h2 {
-  color: var(--text-default, #262626);
-  font-size: 40px;
-  font-style: normal;
+  color: var(--text-default, #093dc3);
+  font-family: SF Pro Display;
+  font-size: 52px;
   font-weight: 700;
-  line-height: 60px; /* 150% */
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .revolute-text1 h2 span {
@@ -41,7 +56,15 @@
 
 .revolute-text-store {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
   gap: 24px;
+}
+.revolute-text-store input {
+  padding: 24px 15px;
+  width: 94%;
+  border-radius: 10px;
+  border: none;
 }
 
 .revolute-store {

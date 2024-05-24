@@ -8,12 +8,14 @@ import Input from "../input/input"
 import PriButton from "../primary-button/priButton"
 import SidePopup from "../side-popup/sidePopup"
 import "./styles.css"
-const AddNewAgent = ({ right, closeAction, messageAction }) => {
+const AddNewAgent = ({ right, closeAction, messageAction, refresh }) => {
   const [active, setActive] = useState(true)
   const initSchema = yup.object().shape({
     firstName: yup.string().required("Please Enter user first name"),
     lastName: yup.string().required("Please enter user last name"),
-    role: yup.string().required("Please enter user role"),
+    role: yup
+      .string()
+      .required("Please enter user role 'admin' or 'super admin'"),
     email: yup
       .string()
       .trim()
@@ -42,6 +44,7 @@ const AddNewAgent = ({ right, closeAction, messageAction }) => {
       showToastErrorMessage()
     } else if (createAdminSuccess) {
       showToastSuccessMessage()
+      refresh()
     }
   }, [createAdminErr, createAdminSuccess])
   const showToastErrorMessage = () => {
@@ -67,7 +70,7 @@ const AddNewAgent = ({ right, closeAction, messageAction }) => {
               firstName: values?.firstName,
               lastName: values?.lastName,
               email: values?.email,
-              userId: values?.userId,
+              userId: `BN${values?.userId}`,
               role: values?.role,
             }
             createAdmin(data)
@@ -116,29 +119,29 @@ const AddNewAgent = ({ right, closeAction, messageAction }) => {
                   iconChange={null}
                   edit={false}
                 />
-                {errors ? <p className="error">{errors?.lastName}</p> : null}
+                {errors ? <p className="error">{errors?.email}</p> : null}
               </div>
               <div>
                 <Input
                   type="text"
                   placeholder="Enter User Id"
                   text={true}
-                  action={(e) => setFieldValue("role", e.target.value)}
+                  action={(e) => setFieldValue("userId", e.target.value)}
                   iconChange={null}
                   edit={false}
                 />
-                {errors ? <p className="error">{errors?.lastName}</p> : null}
+                {errors ? <p className="error">{errors?.useerId}</p> : null}
               </div>
               <div>
                 <Input
                   type="text"
                   placeholder="Enter Role"
                   text={true}
-                  action={null}
+                  action={(e) => setFieldValue("role", e.target.value)}
                   iconChange={null}
                   edit={false}
                 />
-                {errors ? <p className="error">{errors?.lastName}</p> : null}
+                {errors ? <p className="error">{errors?.role}</p> : null}
               </div>
               <PriButton
                 text="Create User"

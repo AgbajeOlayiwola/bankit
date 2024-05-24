@@ -1,5 +1,6 @@
 import { Formik } from "formik"
 import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import * as yup from "yup"
@@ -7,8 +8,10 @@ import { useUpdateAdminMutation } from "../../redux/api/mutationApi"
 import Input from "../input/input"
 import PriButton from "../primary-button/priButton"
 import SidePopup from "../side-popup/sidePopup"
-const EditForm = ({ right, closeAction, messageAction }) => {
+const EditForm = ({ right, closeAction, messageAction, refresh }) => {
   const [active, setActive] = useState(true)
+  const { editAdmin } = useSelector((store) => store)
+  console.log(editAdmin?.firstName)
   const initSchema = yup.object().shape({
     firstName: yup.string().required("Please Enter user first name"),
     lastName: yup.string().required("Please enter user last name"),
@@ -20,11 +23,10 @@ const EditForm = ({ right, closeAction, messageAction }) => {
       .required("Email is required"),
   })
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    userid: "",
-    role: "",
+    firstName: editAdmin?.firstName,
+    lastName: editAdmin?.lastName,
+    email: editAdmin?.email,
+    role: editAdmin?.role,
   }
   const [
     updateAdmin,
@@ -41,6 +43,7 @@ const EditForm = ({ right, closeAction, messageAction }) => {
       showToastErrorMessage()
     } else if (updateAdminSuccess) {
       showToastSuccessMessage()
+      refresh()
     }
   }, [updateAdminErr, updateAdminSuccess])
   const showToastErrorMessage = () => {
@@ -65,7 +68,6 @@ const EditForm = ({ right, closeAction, messageAction }) => {
               firstName: values?.firstName,
               lastName: values?.lastName,
               email: values?.email,
-              userId: values?.userId,
               role: values?.role,
             }
             updateAdmin(data)
@@ -81,7 +83,7 @@ const EditForm = ({ right, closeAction, messageAction }) => {
             handleSubmit,
           }) => (
             <form className="addNewAgentForm" onSubmit={handleSubmit}>
-              <h1>Add New User</h1>
+              <h1>Edit User</h1>
               <div>
                 <Input
                   type="text"
@@ -117,19 +119,19 @@ const EditForm = ({ right, closeAction, messageAction }) => {
                   iconChange={null}
                   edit={false}
                 />
-                {errors ? <p className="error">{errors?.lastName}</p> : null}
+                {errors ? <p className="error">{errors?.email}</p> : null}
               </div>
               <div>
                 <Input
                   type="text"
-                  placeholder="Enter User Id"
-                  value={values?.firstName}
+                  placeholder="Enter role"
+                  value={values?.role}
                   text={true}
                   action={(e) => setFieldValue("role", e.target.value)}
                   iconChange={null}
                   edit={false}
                 />
-                {errors ? <p className="error">{errors?.lastName}</p> : null}
+                {errors ? <p className="error">{errors?.role}</p> : null}
               </div>
 
               <PriButton

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
 import WelcomeImage from "../../assets/welcome.png"
-import Layout from "../../utils/layout/layout"
-import Brands from "../brands/brands"
+import Cover from "../cover"
 import Header from "../header/header"
 import PriButton from "../primary-button/priButton"
-import SecButton from "../sec-button/secButton"
 import "./welcome.css"
 
 const Welcome = () => {
@@ -24,23 +22,30 @@ const Welcome = () => {
   return (
     <div className="welcome-container">
       <Header />
-      <div className="welcome-wrapper">
-        <Layout>
+      <Cover>
+        <div className="welcome-wrapper">
           <div className="welcome-cont">
             <div className="welcome-hero">
               <div className="welcome-text">
                 <h2>
-                  Banking made just for <span>you</span>
+                  Live your best life with <span>Bankit!</span>
                 </h2>
-                <p>Seamless Banking at your Fingertrips</p>
+                <p>
+                  Say goodbye to boring banking! With Bankit, every deposit, and
+                  goal earns you rewards. Watch your savings grow as you conquer
+                  financial challenges and unlock new achievements!
+                </p>
               </div>
               <div className="welcome-action">
                 <div>
-                  <PriButton text="Get started" active={true} />
+                  <a href="#earlyAccessForm">
+                    <PriButton text="Get Early Access" active={true} />
+                  </a>
                 </div>
-                <div>
-                  <SecButton text="Download App" />
-                </div>
+
+                {/* <div>
+                  <SecButton svg={true} text="Download App" />
+                </div> */}
               </div>
             </div>
             {width > 900 ? (
@@ -49,9 +54,8 @@ const Welcome = () => {
               </div>
             ) : null}
           </div>
-        </Layout>
-      </div>
-      <Brands />
+        </div>
+      </Cover>
     </div>
   )
 }

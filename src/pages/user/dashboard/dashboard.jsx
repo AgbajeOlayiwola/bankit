@@ -10,6 +10,7 @@ import { useGetCurrentUserQuery } from "../../../redux/api/query"
 import Contact from "../../../svg-component/contact"
 import User from "../../../svg-component/user"
 import "./dashboard.css"
+import { Formik } from "formik"
 
 const Dashboard = () => {
   const array = []

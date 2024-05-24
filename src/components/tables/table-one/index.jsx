@@ -1,6 +1,8 @@
 import React from "react"
+import Loader from "../../loader/loader"
+import MiniProfile from "../../min-profile"
 import "./styles.css"
-const TableOne = ({ head, body }) => {
+const TableOne = ({ head, body, action, load }) => {
   return (
     <div className="table-container">
       <table className="custom-table">
@@ -11,17 +13,34 @@ const TableOne = ({ head, body }) => {
             })}
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{body?.titleone}</td>
-            <td>{body?.titleTwo}</td>
-            <td>{body?.titleThree}</td>
-            <td>{body?.titleFour}</td>
-            <td>{body?.titleFive}</td>
-            <td>{body?.titleSix}</td>
-            <td>{body?.titleSeven}</td>
-          </tr>
-        </tbody>
+        {load ? (
+          <Loader />
+        ) : (
+          <tbody>
+            {body.map((item, index) => {
+              return (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td onClick={() => action(item)}>
+                    {" "}
+                    <MiniProfile
+                      name={item?.User?.firstName}
+                      last={item?.User?.lastName}
+                      email={item?.User?.email}
+                    />
+                  </td>
+                  <td>{item?.point}</td>
+                  <td>{item?.pointType}</td>
+                  <td>{item?.createdAt.split("T")[0]}</td>
+                  <td>
+                    <div className={item?.status}>{item?.status}</div>
+                  </td>
+                  <td className="more">{item?.titleSeven}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        )}
       </table>
     </div>
   )

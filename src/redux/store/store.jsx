@@ -14,6 +14,9 @@ import {
 import storage from "redux-persist/lib/storage"
 import { mutationApi } from "../api/mutationApi"
 import { queryApi } from "../api/query"
+import airtimeReducer from "../slices/airtimeSlice"
+import configdataReducer from "../slices/configurationDataSlice"
+import editAdminReducer from "../slices/editAdminSlice"
 import profileReducer from "../slices/profileSlice"
 import tokenReducer from "../slices/tokenSlice"
 
@@ -22,12 +25,15 @@ const reducers = combineReducers({
   [queryApi.reducerPath]: queryApi.reducer,
   profile: profileReducer,
   token: tokenReducer,
+  configdata: configdataReducer,
+  editAdmin: editAdminReducer,
+  airtime: airtimeReducer,
 })
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["profile", "token"],
+  whitelist: ["profile", "token", "configdataReducer", "editAdmin", "airtime"],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

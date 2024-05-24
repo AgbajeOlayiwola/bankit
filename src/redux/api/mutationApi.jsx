@@ -129,10 +129,27 @@ export const mutationApi = createApi({
         body: data,
       }),
     }),
+    addPoint: builder.mutation({
+      query: (data) => ({
+        url: `management/manage-point`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    buyAirtime: builder.mutation({
+      query: (data) => ({
+        url: `billings/buy/airtime`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 })
 
 export const {
+  useBuyAirtimeMutation,
+  useAddPointMutation,
   useUpdateAdminMutation,
   useVrifyUsrIdMutation,
   useUpgradeToTierOneMutation,

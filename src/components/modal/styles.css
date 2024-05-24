@@ -1,0 +1,27 @@
+.modal-outer {
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  background: #3e3c3c69;
+}
+.modal-inner {
+  background: white;
+  width: 40vw;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-close svg {
+  cursor: pointer;
+}

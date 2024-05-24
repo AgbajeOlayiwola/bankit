@@ -7,7 +7,7 @@ const DesignLayout = styled.div`
   background: ${({ bgcolor }) => bgcolor};
   flex-direction: ${({ type }) => (type === "long" ? "unset" : "column")};
   align-items: ${({ type }) => (type === "long" ? "center" : "flex-start")};
-  height: ${({ type }) => (type === "long" ? "unset" : "448px")};
+  height: ${({ type }) => (type === "long" ? "unset" : null)};
   gap: 24px;
   display: flex;
   border-radius: 20px;

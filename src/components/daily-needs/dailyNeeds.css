@@ -11,14 +11,46 @@
   flex-direction: column;
   gap: 80px;
 }
-
+.daily_neads_list_div {
+  display: flex;
+  justify-content: space-between;
+}
+.daily_neads_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+.daily_neads_list p {
+  display: flex;
+  gap: 4px;
+  color: white;
+  align-items: center;
+}
 .daily-needs-header {
   display: flex;
   flex-direction: column;
   gap: 8px;
   text-align: center;
 }
-
+.design-wrappers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+}
+.daily_needs_copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.daily_needs_copy h1 {
+  color: white;
+}
+.daily_needs_copy p {
+  color: white;
+}
 .daily-needs-header p {
   color: var(--primary-50, #9cbfff);
   font-size: 18px;
@@ -26,7 +58,8 @@
   font-weight: 700;
   line-height: 30px; /* 166.667% */
 }
-
+.daily_needs_copy h1 {
+}
 .daily-needs-header h2 {
   color: var(--primitives-white, #fff);
   font-size: 40px;

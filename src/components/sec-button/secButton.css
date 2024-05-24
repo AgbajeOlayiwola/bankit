@@ -1,15 +1,19 @@
 .sec-button {
   padding: 24px 0px;
   box-sizing: border-box;
-  border-radius: 24px;
+  border-radius: 32px;
   font-size: 16px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-style: normal;
   font-weight: 700;
   line-height: 162%;
   cursor: pointer;
   transition: is all ease;
-  border: 1px solid #062983;
+  border: none;
   background: #fff;
   color: #062983;
 }

@@ -71,7 +71,21 @@
   background-color: transparent;
   margin-top: 0px;
 }
+.step-one-single div select {
+  width: 100%;
+  border: none;
+  padding: 10px 0px;
+  background-color: transparent;
+  margin-top: 0px;
+}
 
+.step-one-single div textarea {
+  width: 100%;
+  border: none;
+  padding: 10px 0px;
+  background-color: transparent;
+  margin-top: 0px;
+}
 .step-hint-single div input[type="text"] {
   text-transform: capitalize;
 }

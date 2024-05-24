@@ -1,8 +1,12 @@
-import React from "react";
-import "./layout.css";
+import React from "react"
+import "./layout.css"
 
 const Layout = ({ children }) => {
-  return <div className="layout-container">{children}</div>;
-};
+  return (
+    <div className="cover_outer">
+      <div className="cover_inner">{children}</div>
+    </div>
+  )
+}
 
-export default Layout;
+export default Layout

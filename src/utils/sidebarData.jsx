@@ -34,11 +34,11 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
           text: "Reporting & Analytics",
           link: "/admin/reporting-analytics",
         },
-        // {
-        //   img: <SettingsSvg color={color5} />,
-        //   text: "Configuration",
-        //   link: "/admin/configuration",
-        // },
+        {
+          img: <SettingsSvg color={color5} />,
+          text: "Configuration",
+          link: "/admin/configuration",
+        },
 
         // {
         //   img: <Loanmanagmentsvg color={color5} />,
