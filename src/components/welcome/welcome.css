@@ -15,6 +15,7 @@
 .welcome-cont {
   width: 100%;
   gap: 124px;
+  height: fit-content;
   /* max-width: 1120px; */
   display: flex;
   align-items: center;
