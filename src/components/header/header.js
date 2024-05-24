@@ -39,22 +39,24 @@ const Header = () => {
               </div> */}
               <div className="header-action">
                 {/* <NavLink>Contact Us</NavLink> */}
-                <button
+                {/* <button
                   className="header-login"
                   onClick={() => {
                     navigate("/auth/login")
                   }}
                 >
                   Login
-                </button>
-                <button
-                  className="header-signup"
-                  onClick={() => {
-                    navigate("/auth/signup")
-                  }}
-                >
-                  Create an account
-                </button>
+                </button> */}
+                <a href="#earlyAccessForm">
+                  <button
+                    className="header-signup"
+                    // onClick={() => {
+                    //   navigate("/auth/signup")
+                    // }}
+                  >
+                    Get early access
+                  </button>
+                </a>
               </div>
             </>
           ) : (
