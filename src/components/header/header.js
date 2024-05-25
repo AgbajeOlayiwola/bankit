@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import bankitLogo from "../../assets/Logo.png"
 import Layout from "../../utils/layout/layout"
 import BurgerMenuSvg from "../svgs/burgwerMenuSvg"
@@ -62,30 +62,17 @@ const Header = () => {
           )}
           {showDropDown ? (
             <div className="head">
-              <div className="header-nav">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/features">Features</NavLink>
-                <NavLink to="/open">Open an Account</NavLink>
-                <NavLink to="/about">About Us</NavLink>
-              </div>
               <div className="header-action">
-                <NavLink>Contact Us</NavLink>
-                <button
-                  className="header-login"
-                  onClick={() => {
-                    navigate("/auth/login")
-                  }}
-                >
-                  Login
-                </button>
-                <button
-                  className="header-signup"
-                  onClick={() => {
-                    navigate("/auth/signup")
-                  }}
-                >
-                  Sign up
-                </button>
+                <a href="#earlyAccessForm">
+                  <button
+                    className="header-signup"
+                    // onClick={() => {
+                    //   navigate("/auth/signup")
+                    // }}
+                  >
+                    Get early access
+                  </button>
+                </a>
               </div>
             </div>
           ) : null}

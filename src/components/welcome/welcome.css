@@ -116,7 +116,20 @@
     background-repeat: no-repeat;
     padding: 24px 0px 0px;
   }
-
+  .phone {
+    display: none;
+    width: 556px;
+    height: 866px;
+  }
+  .card {
+    position: absolute;
+    display: none;
+    bottom: 100px;
+    width: 370px;
+    height: 370px;
+    right: 297px;
+    animation: cardAnimation 3s infinite forwards;
+  }
   .welcome-wrapper {
     width: 100%;
     display: flex;
