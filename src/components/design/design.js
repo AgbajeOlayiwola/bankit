@@ -8,7 +8,7 @@ import "./design.css"
 
 const Design = () => {
   return (
-    <div className="design-container">
+    <div className="design-container" data-aos="fade-up">
       <Layout>
         <div className="design-cont">
           <div className="design-header">

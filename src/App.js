@@ -1,12 +1,17 @@
+import AOS from "aos"
+import "aos/dist/aos.css"
 import { AnimatePresence, motion } from "framer-motion"
+import { useEffect } from "react"
 import { Route, Routes } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
+import "./App.css" // Your custom styles
 import AdminConfiguration from "./pages/admin/admin-configuration"
 import AdminCustomManagement from "./pages/admin/admin-customer-management"
 import AdminDashboard from "./pages/admin/admin-dashboard"
+import AdminFedbackSupport from "./pages/admin/admin-feedback-support"
 import AdminLogin from "./pages/admin/admin-login/adminLogin"
 import AdmminReportingAnalytics from "./pages/admin/admin-reporting-analytics"
 import AdminTransactionFeed from "./pages/admin/admin-transaction-feed"
@@ -22,7 +27,6 @@ import Dashboard from "./pages/user/dashboard/dashboard"
 import Settings from "./pages/user/settings/settings"
 import Transactions from "./pages/user/transactions/transactions"
 import DashboardLayout from "./utils/dashboard-layout/dashboardLayout"
-import AdminFedbackSupport from "./pages/admin/admin-feedback-support"
 
 function App() {
   const variants = {
@@ -30,6 +34,13 @@ function App() {
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: 0, y: -200 },
   }
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of the animation in milliseconds
+      once: true, // Whether animation should happen only once
+    })
+  }, [])
+
   return (
     <>
       <AnimatePresence mode="wait">

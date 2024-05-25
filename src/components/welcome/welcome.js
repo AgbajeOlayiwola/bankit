@@ -26,7 +26,7 @@ const Welcome = () => {
       <Cover>
         <div className="welcome-wrapper">
           <div className="welcome-cont">
-            <div className="welcome-hero">
+            <div className="welcome-hero" data-aos="fade-right">
               <div className="welcome-text">
                 <h2>
                   Live your best life with <span>Bankit!</span>
@@ -50,7 +50,7 @@ const Welcome = () => {
               </div>
             </div>
             {width > 900 ? (
-              <div className="welcome-img">
+              <div className="welcome-img" data-aos="fade-left">
                 <img src={WelcomeCard} className="card" alt="welcome" />
                 <img src={WelcomeImage} alt="welcome" className="phone" />
               </div>

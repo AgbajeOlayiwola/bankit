@@ -10,7 +10,7 @@ import "./footer.css"
 const Footer = () => {
   const date = new Date()
   return (
-    <div className="footer-container">
+    <div className="footer-container" data-aos="fade-up">
       <Layout>
         <div className="footer-cont">
           <div className="footer-header">

@@ -57,6 +57,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 162%; /* 35.64px */
+  text-align: left;
 }
 
 .welcome-action {

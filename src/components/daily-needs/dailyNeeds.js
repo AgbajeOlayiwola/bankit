@@ -5,7 +5,7 @@ import Pointssvg from "../svgs/pointssvg"
 import "./dailyNeeds.css"
 const DailyNeeds = () => {
   return (
-    <div className="daily-needs-container">
+    <div className="daily-needs-container" data-aos="fade-up">
       <Layout>
         <div className="daily-needs-wrapper">
           <div className="design-body">

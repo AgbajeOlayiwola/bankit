@@ -18,7 +18,11 @@ const Revolute = () => {
         theme="dark"
       />
 
-      <div className="revolute-container" id="earlyAccessForm">
+      <div
+        className="revolute-container"
+        id="earlyAccessForm"
+        data-aos="fade-up"
+      >
         <div className="revolute-text">
           <div className="revolute-text1">
             <h2>One app for everything finance</h2>
