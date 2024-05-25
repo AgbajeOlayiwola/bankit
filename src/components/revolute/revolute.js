@@ -1,12 +1,23 @@
 import React from "react"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import Phone from "../../assets/iPhone.png"
 import Layout from "../../utils/layout/layout"
 import PriButton from "../primary-button/priButton"
 import "./revolute.css"
-
 const Revolute = () => {
+  const notify = () => toast("Welcome to bankit")
   return (
     <Layout>
+      <ToastContainer
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+
       <div className="revolute-container" id="earlyAccessForm">
         <div className="revolute-text">
           <div className="revolute-text1">
@@ -23,7 +34,11 @@ const Revolute = () => {
           </div>
           <div className="welcome-actions">
             <div>
-              <PriButton text="Get Early Access" active={true} />
+              <PriButton
+                text="Get Early Access"
+                active={true}
+                action={notify}
+              />
             </div>
           </div>
         </div>
