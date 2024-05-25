@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import WelcomeImage from "../../assets/welcome.png"
+import WelcomeCard from "../../assets/BankitCardBlack.png"
+import WelcomeImage from "../../assets/Phoneimage18.png"
 import Cover from "../cover"
 import Header from "../header/header"
 import PriButton from "../primary-button/priButton"
@@ -50,7 +51,8 @@ const Welcome = () => {
             </div>
             {width > 900 ? (
               <div className="welcome-img">
-                <img src={WelcomeImage} alt="welcome" />
+                <img src={WelcomeCard} className="card" alt="welcome" />
+                <img src={WelcomeImage} alt="welcome" className="phone" />
               </div>
             ) : null}
           </div>
