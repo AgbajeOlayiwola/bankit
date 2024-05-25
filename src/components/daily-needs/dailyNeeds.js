@@ -1,9 +1,22 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import phone_upright from "../../assets/phone_image.png"
 import Layout from "../../utils/layout/layout"
 import Pointssvg from "../svgs/pointssvg"
 import "./dailyNeeds.css"
 const DailyNeeds = () => {
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+  }
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+    handleWindowResize()
+    window.addEventListener("resize", handleWindowResize)
+    return () => window.removeEventListener("resize", handleWindowResize)
+  }, [width])
   return (
     <div className="daily-needs-container" data-aos="fade-up">
       <Layout>
@@ -15,8 +28,8 @@ const DailyNeeds = () => {
                   <img
                     src={phone_upright}
                     alt="phone"
-                    width={546}
-                    height={764}
+                    width={width > 900 ? 546 : 390}
+                    height={width > 900 ? 764 : 580}
                   />
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import sheild from "../../assets/sheild.png"
 import smile from "../../assets/smile.png"
 import tv from "../../assets/tv.png"
@@ -7,6 +7,19 @@ import DesignSingle from "../design-single/designSingle"
 import "./design.css"
 
 const Design = () => {
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+  }
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+    handleWindowResize()
+    window.addEventListener("resize", handleWindowResize)
+    return () => window.removeEventListener("resize", handleWindowResize)
+  }, [width])
   return (
     <div className="design-container" data-aos="fade-up">
       <Layout>

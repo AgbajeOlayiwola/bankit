@@ -97,8 +97,8 @@
 
 @media screen and (max-width: 975px) {
   .footer-container {
-    width: 100%;
-    background: var(--actions-default, #062983);
+    width: 90%;
+    background: var(--actions-default, #fff);
     display: flex;
     padding: 80px 16px; /* Adjust padding for better mobile spacing */
     flex-direction: column;

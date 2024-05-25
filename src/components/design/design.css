@@ -62,9 +62,30 @@
     height: fit-content;
     padding: 10px;
   }
+  .design-wrappers {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+  }
+  .daily_neads_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .daily_neads_list_div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+  }
   .design-wrapper {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 100%;
     gap: 32px;
   }
