@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
+import bankitLogo from "../../assets/Logo.png"
 import Layout from "../../utils/layout/layout"
 import BurgerMenuSvg from "../svgs/burgwerMenuSvg"
 import "./header.css"
-
 const Header = () => {
   const navigate = useNavigate()
   const [showDropDown, setShowDropDown] = useState(false)
@@ -25,9 +25,7 @@ const Header = () => {
       <Layout>
         <div className="header-container">
           <div className="header-logo">
-            <h2>
-              Bank<span>It</span>
-            </h2>
+            <img src={bankitLogo} width={97} height={32} alt="bankit logo" />
           </div>
           {width > 900 ? (
             <>

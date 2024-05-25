@@ -1,6 +1,5 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
-import Logo from "../../assets/logo.svg"
+import Logo from "../../assets/Logo.png"
 import Facebook from "../../svg-component/facebook/facebook"
 import Instagram from "../../svg-component/instagram/instagram"
 import Linkedin from "../../svg-component/linkedin/linkedin"
@@ -17,16 +16,17 @@ const Footer = () => {
           <div className="footer-header">
             <div className="footer-text">
               <img src={Logo} alt="footer" />
-              <p>
-                BankIT is a financial technology company and not a Money Service
-                Business. All Deposit services are provided by partner banks.
-              </p>
-              <p>
-                Currently, only virtual cards are issued at this time. Physical
-                cards will be made available at a later date.
-              </p>
             </div>
-            <div className="footer-links">
+            <div className="footer-body">
+              <p>© {date.getFullYear()} BankIt Inc</p>
+              <div className="footer-socials">
+                <Linkedin />
+                <Twitter />
+                <Facebook />
+                <Instagram />
+              </div>
+            </div>
+            {/* <div className="footer-links">
               <div className="footer-quick-links">
                 <h2>Quick Links</h2>
                 <NavLink>Accounts</NavLink>
@@ -50,16 +50,7 @@ const Footer = () => {
                 <NavLink>Help</NavLink>
                 <NavLink>Contact us</NavLink>
               </div>
-            </div>
-          </div>
-          <div className="footer-body">
-            <p>© {date.getFullYear()} BankIt Inc</p>
-            <div className="footer-socials">
-              <Linkedin />
-              <Twitter />
-              <Facebook />
-              <Instagram />
-            </div>
+            </div> */}
           </div>
         </div>
       </Layout>
