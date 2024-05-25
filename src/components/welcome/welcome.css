@@ -74,12 +74,17 @@
   top: 0px;
   right: 0px;
 }
-
+.phone {
+  width: 556px;
+  height: 866px;
+}
 .card {
   position: absolute;
   bottom: 100px;
+  width: 370px;
+  height: 370px;
   right: 297px;
-  animation: cardAnimation 2s infinite forwards;
+  animation: cardAnimation 3s infinite forwards;
 }
 
 @keyframes cardAnimation {

@@ -4,6 +4,8 @@ const DesignLayout = styled.div`
   width: 100%;
   padding: 32px 64px;
   box-sizing: border-box;
+  max-height: 445px;
+  overflow: scroll;
   background: ${({ bgcolor }) => bgcolor};
   flex-direction: ${({ type }) => (type === "long" ? "unset" : "column")};
   align-items: ${({ type }) => (type === "long" ? "center" : "flex-start")};
@@ -11,6 +13,13 @@ const DesignLayout = styled.div`
   gap: 24px;
   display: flex;
   border-radius: 20px;
+  /* Hide scroll bar */
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    height: 0;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   @media (max-width: 768px) {
     padding: 16px;
