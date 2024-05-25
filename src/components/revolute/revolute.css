@@ -45,7 +45,15 @@
 .revolute-text1 h2 span {
   color: var(--text-secondary, #666);
 }
+.subbed p {
+  color: #062983;
 
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
+}
 .revolute-text1 p {
   color: var(--text-secondary, #666);
   font-size: 22px;

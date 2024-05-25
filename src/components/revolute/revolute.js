@@ -1,12 +1,13 @@
-import React from "react"
-import { ToastContainer, toast } from "react-toastify"
+import React, { useState } from "react"
+import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Phone from "../../assets/iPhone.png"
 import Layout from "../../utils/layout/layout"
 import PriButton from "../primary-button/priButton"
 import "./revolute.css"
 const Revolute = () => {
-  const notify = () => toast("Welcome to bankit")
+  const [sub, setSub] = useState(false)
+  const notify = () => setSub((prev) => !prev)
   return (
     <Layout>
       <ToastContainer
@@ -43,6 +44,15 @@ const Revolute = () => {
                 active={true}
                 action={notify}
               />
+
+              {sub && (
+                <div className="subbed">
+                  <p>
+                    Congratulations! You've secured your spot for early access
+                    to BanKit.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
