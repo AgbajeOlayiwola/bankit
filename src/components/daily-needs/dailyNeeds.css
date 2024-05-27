@@ -2,7 +2,7 @@
   width: 100%;
   background: url("../../assets/doodle.svg") no-repeat rgba(6, 41, 131, 0.8);
   display: flex;
-  padding: 96px 0px;
+  padding: 0px 0px;
   flex-direction: column;
 }
 

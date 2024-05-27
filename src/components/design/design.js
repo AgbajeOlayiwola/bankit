@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react"
-import sheild from "../../assets/sheild.png"
-import smile from "../../assets/smile.png"
-import tv from "../../assets/tv.png"
+import appPhone from "../../assets/Group308.png"
+import exportImage from "../../assets/export.png"
+import totalPoint from "../../assets/totalPoint.png"
 import Layout from "../../utils/layout/layout"
-import DesignSingle from "../design-single/designSingle"
+import Sheildsvg from "../svgs/sheild-svg"
 import "./design.css"
-
 const Design = () => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
@@ -21,47 +20,80 @@ const Design = () => {
     return () => window.removeEventListener("resize", handleWindowResize)
   }, [width])
   return (
-    <div className="design-container" data-aos="fade-up">
-      <Layout>
-        <div className="design-cont">
-          <div className="design-header">
-            <h2>Why you should choose us</h2>
-            <p>This is why you should bank with us</p>
-          </div>
-          <div className="design-body">
-            <div className="design-wrapper">
-              <div>
-                <DesignSingle
-                  color="black"
-                  img={smile}
-                  bgColor="#9db7fb60"
-                  title="Banking Meets Excitement"
-                  text="It is your personal finance mentor! Level up your financial literacy with interactive tutorials. Master the art of budgeting, investing, and more while having a blast!"
-                />
+    <>
+      <div className="design-container" data-aos="fade-up">
+        <Layout>
+          <div
+            className="revolute-containers"
+            id="earlyAccessForm"
+            data-aos="fade-up"
+          >
+            <div className="design-cont">
+              <div className="design-header">
+                <h2>
+                  Banking Meets <span> Excitement</span>
+                </h2>
+                <p>
+                  It is your personal finance mentor! Level up your financial
+                  literacy with interactive tutorials. Master the art of
+                  budgeting, investing, and more while having a blast!
+                </p>
               </div>
-              <div>
-                <DesignSingle
-                  color="black"
-                  img={sheild}
-                  bgColor="#9db7fb60"
-                  title="Secure and Reliable"
-                  text="Bankit is built on the best financial technology making it secure, fast and reliable for use at any time. We ensure to make our users feel safe whenever they use our app"
+              <div className="design-images">
+                <img
+                  src={exportImage}
+                  className="design-images1"
+                  alt="total Point"
                 />
-              </div>
-              <div>
-                <DesignSingle
-                  color="black"
-                  img={tv}
-                  bgColor="#9db7fb60"
-                  title="Multi Platform"
-                  text="Bankit is available for both ios and android devices so you can live your best life regardless of the device you have at hand."
+                <img
+                  src={totalPoint}
+                  className="design-images2"
+                  alt="total Point"
                 />
               </div>
             </div>
           </div>
-        </div>
-      </Layout>
-    </div>
+          <div
+            className="revolutes-containers"
+            id="earlyAccessForm"
+            data-aos="fade-up"
+          >
+            <div className="design-conts">
+              <div className="design-header">
+                <h2>Secure and Reliable</h2>
+                <p>
+                  Bankit is built on the best financial technology making it
+                  secure, fast and reliable for use at any time. We ensure to
+                  make our users feel safe whenever they use our app
+                </p>
+              </div>
+              <div className="designs-images">
+                <Sheildsvg />
+              </div>
+            </div>
+          </div>
+          <div
+            className="revolutess-containers"
+            id="earlyAccessForm"
+            data-aos="fade-up"
+          >
+            <div className="designs-conts">
+              <div className="design-headers">
+                <h2>Multi Platform</h2>
+                <p>
+                  Bankit is available for both ios and android devices so you
+                  can live your best life regardless of the device you have at
+                  hand.
+                </p>
+              </div>
+              <div className="designs-images">
+                <img src={appPhone} alt="bankitapphone" />
+              </div>
+            </div>
+          </div>
+        </Layout>
+      </div>
+    </>
   )
 }
 
