@@ -112,7 +112,9 @@
     flex-direction: column;
     gap: 32px; /* Adjust the gap for better mobile spacing */
   }
-
+  .footer-text img {
+    width: 200px;
+  }
   .footer-header {
     display: flex;
     flex-direction: column; /* Stack elements vertically on mobile */

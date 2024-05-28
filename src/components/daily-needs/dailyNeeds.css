@@ -72,3 +72,12 @@
 .daily-needs-header h2 span {
   color: var(--palette-blue-300, #cedbfd);
 }
+
+@media screen and (max-width: 975px) {
+  .daily-needs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding-bottom: 47px;
+  }
+}
