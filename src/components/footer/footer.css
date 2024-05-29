@@ -94,7 +94,9 @@
 .footer-stores img {
   cursor: pointer;
 }
-
+.footer-text img {
+  width: 100px;
+}
 @media screen and (max-width: 975px) {
   .footer-container {
     width: 90%;
@@ -113,7 +115,7 @@
     gap: 32px; /* Adjust the gap for better mobile spacing */
   }
   .footer-text img {
-    width: 200px;
+    width: 100px;
   }
   .footer-header {
     display: flex;
@@ -181,6 +183,9 @@
     gap: 16px;
     align-items: center;
     justify-content: center; /* Center items on mobile */
+  }
+  .footer-socials svg {
+    width: 60px;
   }
 
   .footer-stores {

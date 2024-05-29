@@ -14,7 +14,7 @@
 
 .welcome-cont {
   width: 100%;
-  padding-top: 8%;
+  padding-top: 0%;
   gap: 124px;
   height: fit-content;
   /* max-width: 1120px; */
@@ -133,7 +133,7 @@
   .welcome-wrapper {
     width: 100%;
     display: flex;
-    margin: 90px 0px;
+    margin: 40px 0px;
     position: relative;
   }
 
