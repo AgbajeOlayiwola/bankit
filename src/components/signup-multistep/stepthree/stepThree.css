@@ -1,7 +1,8 @@
 .stepthree-container {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 70px;
+  width: 86%;
 }
 
 .stepthree-wrapper {

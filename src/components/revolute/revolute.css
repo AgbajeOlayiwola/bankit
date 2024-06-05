@@ -70,9 +70,10 @@
   gap: 24px;
 }
 .revolute-text-store input {
-  padding: 24px 8px;
+  padding: 19px 12px;
   width: 94%;
   border-radius: 10px;
+  font-size: 14px;
   border: none;
 }
 

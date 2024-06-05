@@ -52,7 +52,13 @@ const Welcome = () => {
             {width > 900 ? (
               <div className="welcome-img" data-aos="fade-left">
                 <img src={WelcomeCard} className="card" alt="welcome" />
-                <img src={WelcomeImage} alt="welcome" className="phone" />
+                <img
+                  src={WelcomeImage}
+                  alt="welcome"
+                  className="phone"
+                  width={width > 1200 ? 555 : 300}
+                  height={width > 1200 ? 866 : 400}
+                />
               </div>
             ) : null}
           </div>

@@ -6,7 +6,6 @@ import {
   useSendOtpMutation,
   useVerifyOtpMutation,
 } from "../../../redux/api/mutationApi"
-import ArrowLeft from "../../../svg-component/arrowLeft"
 import Loader from "../../loader/loader"
 import Otp from "../../otp/otp"
 import PriButton from "../../primary-button/priButton"
@@ -86,18 +85,18 @@ const StepTwo = ({
       }
     }
   }, [newOtpErr, newOtpFalse])
-  useEffect(() => {
-    if (from === "login") {
-      return null
-    } else {
-      setConverNumber(
-        `+234${profile?.phoneNumber.slice(
-          1,
-          4
-        )}********${profile?.phoneNumber.slice(9)}`
-      )
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (from === "login") {
+  //     return null
+  //   } else {
+  //     setConverNumber(
+  //       `+234${profile?.phoneNumber.slice(
+  //         1,
+  //         4
+  //       )}********${profile?.phoneNumber.slice(9)}`
+  //     )
+  //   }
+  // }, [])
   const showToastErrorMessage = () => {
     toast.error("Otp failed.", {
       position: "top-right",
@@ -112,16 +111,17 @@ const StepTwo = ({
   return (
     <div className="steptwo-container">
       <ToastContainer />
-      <div className="steptwo-back">
-        <ArrowLeft action={back} />
-      </div>
+
       <div className="steptwo-cont">
-        <div className="steptwo-header">
-          <h2>{title}</h2>
-          <p>
-            {text} <span>{convertNumber}</span> {text2}
-          </p>
-          {title === "Enter OTP" ? null : <h3>{text3}</h3>}
+        <div className="header_and_number">
+          <div className="steptwo-header">
+            <h2>{title}</h2>
+            <p>
+              {text} <span>{convertNumber}</span> {text2}
+            </p>
+            {/* {title === "Enter OTP" ? null : <h3>{text3}</h3>} */}
+          </div>
+          <p className="header_steps">Step 2 of 5</p>
         </div>
         <div className="steptwo-otp">
           <Otp
@@ -132,11 +132,11 @@ const StepTwo = ({
             otpfields={6}
           />
           <div className="otp-duration">
-            <p>00:00</p>
+            {/* <p>00:00</p> */}
             <h3>
-              This code will expire in 3 minutes. Did not receive code?{" "}
+              Didn’t receive the code?
               <span onClick={() => resentOtp()}>
-                {sendOtpLoad ? <Loader /> : "Resend code"}
+                {sendOtpLoad ? <Loader /> : "Resend"}
               </span>
             </h3>
           </div>

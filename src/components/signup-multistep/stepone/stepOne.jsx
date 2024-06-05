@@ -5,16 +5,11 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import validator from "validator"
 import { useSendOtpMutation } from "../../../redux/api/mutationApi"
-import ArrowLeft from "../../../svg-component/arrowLeft"
-import Checked from "../../../svg-component/checked"
-import ClosedEye from "../../../svg-component/closedEye"
 import Info from "../../../svg-component/info"
-import OpenEye from "../../../svg-component/openEye"
-import Unchecked from "../../../svg-component/unchecked"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepOne.css"
-const StepOne = ({ submit }) => {
+const StepOne = ({ submit, page }) => {
   const {
     register,
     handleSubmit,
@@ -135,17 +130,12 @@ const StepOne = ({ submit }) => {
   return (
     <div className="step-one-container">
       <ToastContainer />
-      <div className="back-button">
-        <ArrowLeft
-          action={() => {
-            navigate("/")
-          }}
-        />
-      </div>
+
       <div className="step-one-body">
         <OnboardingHeader
-          title="Get Started"
-          text="Enter your details to create a Bankit account"
+          title="Let’s get started"
+          text="Enter your phone number and we will send you a confirmation code there"
+          currentStep={page + 1}
         />
         <form
           onSubmit={handleSubmit((e) => {
@@ -159,40 +149,23 @@ const StepOne = ({ submit }) => {
             <div className="step-one-group">
               <div className="step-one-groups">
                 <div className="step-one-single">
-                  <div>
+                  <div className="input_tel">
                     <input
-                      type="text"
-                      name="firstName"
-                      placeholder=" "
-                      {...register("firstName", {
-                        required: "First Name is required",
-                      })}
+                      type="tel"
+                      className="input_tel_text"
+                      placeholder="+234"
+                      name="phoneNumber"
+                      {...register(
+                        "phoneNumber",
+                        {
+                          required: "Phone Number is required",
+                        },
+                        {
+                          maxLength: 11,
+                        }
+                      )}
                     />
-                    <span>First name</span>
                   </div>
-                  <Info />
-                </div>
-                {errors.firstName ? <p>{errors?.firstName?.message}</p> : null}
-              </div>
-              <div className="step-one-groups">
-                <div className="step-one-single">
-                  <div>
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder=" "
-                      {...register("lastName", {
-                        required: "Last Name is required",
-                      })}
-                    />
-                    <span>Last name</span>
-                  </div>
-                  <Info />
-                </div>
-                {errors.lastName ? <p>{errors?.lastName?.message}</p> : null}
-              </div>
-              <div className="step-one-groups">
-                <div className="step-one-single">
                   <div>
                     <input
                       type="tel"
@@ -215,53 +188,6 @@ const StepOne = ({ submit }) => {
                 {errors.phoneNumber ? (
                   <p>{errors?.phoneNumber?.message}</p>
                 ) : null}
-              </div>
-              <div className="step-one-groups">
-                <div className="step-one-single">
-                  <div>
-                    <input
-                      type={state ? "text" : "password"}
-                      name="password"
-                      placeholder=" "
-                      onInput={handlePwd}
-                      {...register("password", {
-                        required: "Password is required",
-                      })}
-                    />
-                    <span>Password</span>
-                  </div>
-                  {state ? (
-                    <OpenEye action={action} color="#474747" />
-                  ) : (
-                    <ClosedEye color="#474747" action={action} />
-                  )}
-                </div>
-                {errors.password ? <p>{errors?.password?.message}</p> : null}
-              </div>
-            </div>
-            <div className="step-one-hint">
-              <h2>Password should have:</h2>
-              <div className="step-hint-container">
-                <div className="step-hint-double">
-                  <div className="step-hint-single">
-                    {uppercase ? <Checked /> : <Unchecked />}{" "}
-                    <p>At least one uppercase</p>
-                  </div>
-                  <div className="step-hint-single">
-                    {numbers ? <Checked /> : <Unchecked />}{" "}
-                    <p>At least six characters</p>
-                  </div>
-                </div>
-                <div className="step-hint-double">
-                  <div className="step-hint-single">
-                    {symbol ? <Checked /> : <Unchecked />}{" "}
-                    <p>At least one symbol</p>
-                  </div>
-                  <div className="step-hint-single">
-                    {digits ? <Checked /> : <Unchecked />}{" "}
-                    <p>At least one digit</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,5 @@
-import React, { useState, useRef } from "react"
+import React, { useRef, useState } from "react"
 import "./otp.css"
-import ClosedEye from "../../svg-component/closedEye"
-import OpenEye from "../../svg-component/openEye"
 
 const Otp = ({ completed, otp, otpfields }) => {
   const [state, setState] = useState(false)
@@ -64,11 +62,11 @@ const Otp = ({ completed, otp, otpfields }) => {
         <input type={state ? "number" : "password"} name="ssn-4" maxLength={1} onChange={handleChange} />
         <input type={state ? "number" : "password"} name="ssn-5" maxLength={1} onChange={handleChange} /> */}
       </div>
-      {state ? (
+      {/* {state ? (
         <OpenEye action={action} color="#474747" />
       ) : (
         <ClosedEye color="#474747" action={action} />
-      )}
+      )} */}
     </div>
   )
 }

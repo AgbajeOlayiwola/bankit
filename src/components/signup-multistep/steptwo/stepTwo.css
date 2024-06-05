@@ -12,20 +12,37 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
+  width: 88%;
 }
 
 .steptwo-header {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
+  width: 65%;
 }
+.header_and_number {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.header_steps {
+  color: var(--Text-Highlight, #245ef5);
 
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
 .steptwo-header > h2 {
   color: var(--text-default, #262626);
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: 48px; /* 120% */
+  text-align: start;
 }
 
 .steptwo-header > p {
@@ -34,6 +51,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 24px; /* 150% */
+  text-align: start;
 }
 
 .steptwo-header > p span {
@@ -67,7 +85,7 @@
 .otp-form {
   display: flex;
   align-items: center;
-  width: 83%;
+  width: 100%;
   justify-content: space-between;
 }
 
@@ -122,15 +140,17 @@
 }
 
 .otp-duration h3 {
-  color: var(--text-secondary, #666);
-  text-align: center;
+  color: var(--Text-Default, #262626);
+
+  font-family: SF Pro Display;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
 }
 
 .otp-duration h3 span {
+  color: var(--Text-Highlight, #245ef5);
   text-decoration-line: underline;
   cursor: pointer;
 }

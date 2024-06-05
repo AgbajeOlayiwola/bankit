@@ -58,7 +58,12 @@
   padding: 8px 24px;
   box-sizing: border-box;
 }
-
+.input_tel {
+  width: 20% !important;
+}
+.input_tel_text {
+  margin-right: 10px;
+}
 .step-one-single div {
   position: relative;
   width: 95%;

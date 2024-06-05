@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from "react";
-import StepOne from "./stepone/stepOne";
-import StepTwo from "./steptwo/stepTwo";
-import StepThree from "./stepthree/stepThree";
-import StepFour from "./stepFour/stepFour";
-import Onboardinglayout from "../../utils/onboarding-layout/onboardingLayout";
-import StepFive from "./stepFive/stepFive";
-import { useDispatch } from "react-redux";
-import { setProfile } from "../../redux/slices/profileSlice";
+import React, { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { setProfile } from "../../redux/slices/profileSlice"
+import Onboardinglayout from "../../utils/onboarding-layout/onboardingLayout"
+import StepEight from "./stepEight/stepEight"
+import StepFive from "./stepFive/stepFive"
+import StepFour from "./stepFour/stepFour"
+import StepNine from "./stepNine/stepNine"
+import StepSevem from "./stepSeven/stepSeven"
+import StepSix from "./stepSix/stepSix"
+import StepOne from "./stepone/stepOne"
+import StepThree from "./stepthree/stepThree"
+import StepTwo from "./steptwo/stepTwo"
 
 const SignupMulti = () => {
-  const dispatch = useDispatch();
-  const [count, setCount] = useState(0);
-  const [type, setType] = useState("");
+  const dispatch = useDispatch()
+  const [count, setCount] = useState(8)
+  const [type, setType] = useState("")
   const add = () => {
-    setCount(count + 1);
-  };
+    setCount(count + 1)
+  }
   const minus = () => {
-    setCount(count - 1);
-  };
+    setCount(count - 1)
+  }
   const steps = () => {
     switch (count) {
       case 0:
         return (
           <StepOne
             submit={(e) => {
-              dispatch(setProfile(e));
-              add();
+              dispatch(setProfile(e))
+              add()
             }}
+            page={count}
           />
-        );
+        )
 
       case 1:
         return (
@@ -41,27 +46,38 @@ const SignupMulti = () => {
             text2=". Not the right number?"
             text3="Change number"
           />
-        );
+        )
 
       case 2:
-        return <StepThree back={minus} forward={add} />;
-
+        return <StepThree back={minus} forward={add} page={count} />
       case 3:
-        return <StepFour back={minus} forward={add} />;
+        return <StepFour back={minus} forward={add} page={count} />
       case 4:
-        return <StepFive />;
+        return <StepFive back={minus} forward={add} page={count} />
+      case 5:
+        return <StepSix back={minus} forward={add} page={count} />
+      case 6:
+        return <StepSevem back={minus} forward={add} page={count} />
+      case 7:
+        return <StepEight back={minus} forward={add} page={count} />
+      case 8:
+        return <StepNine />
       default:
-        return <StepOne submit={add} />;
+        return <StepOne submit={add} />
     }
-  };
+  }
   useEffect(() => {
     if (count === 4) {
-      setType("final");
+      setType("final")
     } else {
-      setType("");
+      setType("")
     }
-  }, [count]);
-  return <Onboardinglayout type={type}>{steps()}</Onboardinglayout>;
-};
+  }, [count])
+  return (
+    <Onboardinglayout page={count} type={type}>
+      {steps()}
+    </Onboardinglayout>
+  )
+}
 
-export default SignupMulti;
+export default SignupMulti

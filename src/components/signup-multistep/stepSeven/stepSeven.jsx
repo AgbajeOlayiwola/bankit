@@ -7,8 +7,8 @@ import { setToken } from "../../../redux/slices/tokenSlice"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
-import "./stepFour.css"
-const StepFour = ({ back, forward, page }) => {
+import "./stepSeven.css"
+const StepSevem = ({ back, forward, page }) => {
   const [active, setActive] = useState(false)
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
   const dispatch = useDispatch()
@@ -48,8 +48,8 @@ const StepFour = ({ back, forward, page }) => {
       <div className="stepthree-wrapper">
         <div className="stepthree-cont">
           <OnboardingHeader
-            title="Tell us your name"
-            text="Enter your details to create a Bankit account "
+            title="One more step"
+            text="Create a unique username"
             currentStep={page + 1}
           />
           <div className="step-one-single">
@@ -64,7 +64,7 @@ const StepFour = ({ back, forward, page }) => {
                   // setSuggestions((arr) => [...arr, e.target.value]);
                 }}
               />
-              <span>Last name</span>
+              <span>Username</span>
             </div>
             <Info />
           </div>
@@ -89,4 +89,4 @@ const StepFour = ({ back, forward, page }) => {
   )
 }
 
-export default StepFour
+export default StepSevem

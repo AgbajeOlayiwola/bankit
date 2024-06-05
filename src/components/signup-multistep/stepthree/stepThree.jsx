@@ -4,12 +4,11 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
 import { setToken } from "../../../redux/slices/tokenSlice"
-import ArrowLeft from "../../../svg-component/arrowLeft"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepThree.css"
-const StepThree = ({ back, forward }) => {
+const StepThree = ({ back, forward, page }) => {
   const [active, setActive] = useState(false)
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
   const dispatch = useDispatch()
@@ -47,13 +46,11 @@ const StepThree = ({ back, forward }) => {
     <div className="stepthree-container">
       <ToastContainer />
       <div className="stepthree-wrapper">
-        <div className="back-button">
-          <ArrowLeft action={back} />
-        </div>
         <div className="stepthree-cont">
           <OnboardingHeader
-            title="Just One More Thing..."
-            text="Create your Bankit User name"
+            title="Tell us your name"
+            text="Enter your details to create a Bankit account "
+            currentStep={page + 1}
           />
           <div className="step-one-single">
             <div>
@@ -67,25 +64,10 @@ const StepThree = ({ back, forward }) => {
                   // setSuggestions((arr) => [...arr, e.target.value]);
                 }}
               />
-              <span>Create a username</span>
+              <span>First name</span>
             </div>
             <Info />
           </div>
-        </div>
-        <div className="stepthree-suggestions">
-          {suggesstions?.map((item, index) => {
-            return (
-              <p
-                key={index}
-                onClick={() => {
-                  setValue(item)
-                  setActive(true)
-                }}
-              >
-                {item}
-              </p>
-            )
-          })}
         </div>
       </div>
       <PriButton

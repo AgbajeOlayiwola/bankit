@@ -15,8 +15,9 @@
 }
 .design-conts {
   display: flex;
-  gap: 80px;
   flex-direction: row-reverse;
+  align-items: center;
+  gap: 80px;
 }
 .designs-conts {
   display: flex;
@@ -140,6 +141,21 @@
 
   color: #dbdbdb;
 }
+@media screen and (max-width: 1200px) {
+  .daily_neads_list_div {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .welcome-action > div {
+    width: 80% !important;
+  }
+  .daily_neads_list_div > div {
+    flex: 0 1 calc(50% - 4px);
+    box-sizing: border-box;
+  }
+}
 @media screen and (max-width: 975px) {
   .design-wrapper > div {
     width: 100%;
@@ -200,7 +216,7 @@
     top: -30px;
     width: 300px;
   }
-  .daily_neads_list_div {
+  .daily_neaads_list_div {
     display: flex;
     justify-content: space-between;
     flex-direction: column;

@@ -1,22 +1,26 @@
 .onboarding-layout-container {
-  width: 100%;
-  height: 100vh;
+  width: 60%;
+  max-width: 1440px;
   overflow: hidden;
   display: flex;
-  /* align-items: center; */
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .onboarding-layout-image {
-  width: 44%;
-  max-width: 630px;
-  /* height: 100vh; */
+  width: 50%;
 }
 
 .onboarding-layout-image img {
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
 }
-
+.onboarding-layout-container-outer {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
 .onboarding-layout-first {
   width: 44%;
   max-width: 630px;
@@ -69,20 +73,37 @@
 }
 
 .onboarding-layout-body {
-  flex: 1;
+  width: 100%;
 }
 
 .onboarding-layout-wrapper {
-  width: 58%;
-  max-width: 468px;
+  width: 100%%;
+  /* max-width: 468px;
   margin: 0px auto;
-  padding: 46px 0px 0px;
+  padding: 46px 0px 0px; */
   /* height: 85vh;
   overflow-y: scroll; */
 }
 
 .onboarding-layout-wrapper::-webkit-scrollbar {
   display: none;
+}
+.onboarding-layout-image h2 {
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--Text-Default, #262626);
+}
+.onboarding-layout-image p {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: var(--Text-Secondary, #666666);
 }
 @media screen and (max-width: 975px) {
   .onboarding-layout-container {
@@ -101,8 +122,8 @@
   }
 
   .onboarding-layout-image img {
-    width: 100%;
-    height: 100vh;
+    /* width: 100%;
+    height: 100vh; */
   }
 
   .onboarding-layout-first {
