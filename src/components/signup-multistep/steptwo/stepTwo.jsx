@@ -144,13 +144,7 @@ const StepTwo = ({
         <PriButton
           text="Next"
           active={active}
-          action={() => {
-            const data = {
-              phoneNumber: profile.phoneNumber,
-              otp,
-            }
-            verifyOtp(data)
-          }}
+          action={null}
           load={newOtpLoad}
         />
       </div>

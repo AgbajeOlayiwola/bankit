@@ -8,9 +8,7 @@ import { useLoginMutation } from "../../../redux/api/mutationApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
 import { setToken } from "../../../redux/slices/tokenSlice"
 import ArrowLeft from "../../../svg-component/arrowLeft"
-import ClosedEye from "../../../svg-component/closedEye"
 import Info from "../../../svg-component/info"
-import OpenEye from "../../../svg-component/openEye"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
@@ -101,6 +99,22 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
           <div className="loginform-content">
             <div className="loginform-cont">
               <div className="loginform-group">
+                <div className="step-one-single" style={{ width: "15%" }}>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="+234"
+                      required="required"
+                      onChange={(e) => {
+                        if (e.target.value.length > 0) {
+                          setActive(true)
+                        } else {
+                          setActive(false)
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
                 <div className="step-one-groups">
                   <div className="step-one-single">
                     <div>
@@ -119,34 +133,6 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                   {errors.identifier ? (
                     <p>{errors?.identifier?.message}</p>
                   ) : null}
-                </div>
-                <div className="step-one-groups">
-                  <div className="step-one-single">
-                    <div>
-                      <input
-                        type={state ? "text" : "password"}
-                        placeholder=" "
-                        name="password"
-                        {...register("password", {
-                          required: "Password is required",
-                        })}
-                        onInput={(e) => {
-                          if (e.target.value.length > 0) {
-                            setActive(true)
-                          } else {
-                            setActive(false)
-                          }
-                        }}
-                      />
-                      <span>Password</span>
-                    </div>
-                    {state ? (
-                      <OpenEye action={action} color="#474747" />
-                    ) : (
-                      <ClosedEye color="#474747" action={action} />
-                    )}
-                  </div>
-                  {errors.password ? <p>{errors?.password?.message}</p> : null}
                 </div>
               </div>
               <div className="loginform-forgot">

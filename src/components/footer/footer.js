@@ -26,6 +26,7 @@ const Footer = () => {
                 <Instagram />
               </div>
             </div>
+
             {/* <div className="footer-links">
               <div className="footer-quick-links">
                 <h2>Quick Links</h2>
@@ -52,6 +53,11 @@ const Footer = () => {
               </div>
             </div> */}
           </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p style={{ fontSize: "12px" }}>
+            116 Apapa-Oshodi Express Way, Isolo, Lagos, Nigeria
+          </p>
         </div>
       </Layout>
     </div>

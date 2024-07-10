@@ -2,7 +2,7 @@ import React from "react"
 import One from "../../assets/download_qr.png"
 import "./onboardingLayout.css"
 
-const Onboardinglayout = ({ children, type, page }) => {
+const Onboardinglayout = ({ children, type, page, screen }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -20,7 +20,7 @@ const Onboardinglayout = ({ children, type, page }) => {
   return (
     <div className="onboarding-layout-container-outer">
       <div className="onboarding-layout-container">
-        {page === 7 ? null : (
+        {screen ? null : (
           <div className={"onboarding-layout-image"}>
             <h2>Download the Bankit App</h2>
             <p>Scan the QR code to download the app</p>

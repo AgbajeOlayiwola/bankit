@@ -10,23 +10,29 @@
 }
 .card-right div {
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
+}
+.card-right div img {
+  border-radius: 50px;
 }
 .card-right h1 {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 32px;
-  letter-spacing: 0em;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
   text-align: left;
+
   color: #666666;
 }
 .amount {
-  font-family: Poppins;
-  font-size: 40px;
+  font-family: SF Pro Display;
+  font-size: 52px;
   font-weight: 700;
-  line-height: 48px;
-  letter-spacing: 0em;
+  line-height: 56px;
+  letter-spacing: -0.02em;
   text-align: left;
+  font-weight: 700;
+  color: var(--Actions-Default, #062983);
 }

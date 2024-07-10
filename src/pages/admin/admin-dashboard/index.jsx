@@ -1,40 +1,27 @@
 import React from "react"
+import bannerImage from "../../../assets/banner.png"
+import cardImage from "../../../assets/cardImage.png"
 import CardOne from "../../../components/card/card-one"
 import { VerticalBarChart } from "../../../components/charts/vertical-bar-chart"
-import Assetlargesvg from "../../../svg-component/asset-large-svg"
-import Assetssvgsmall from "../../../svg-component/assets-svg-small"
-import Liabilitieslargesvg from "../../../svg-component/liabilities-large-svg"
-import Liabilitiessvg from "../../../svg-component/liabilities-svg"
-import Loanmanagmentsvg from "../../../svg-component/loan-managment-svg"
-import Netbalancesvg from "../../../svg-component/net-balance-svg"
-import Usermanagement from "../../../svg-component/user-management"
-import Usermanagementlarge from "../../../svg-component/user-management-large"
+import { dashsidejsonData } from "../../../components/data"
+import SideTable from "../../../components/tables/side-table"
 import "./styles.css"
 const AdminDashboard = () => {
   const cardData = [
     {
-      text: "Net Balance",
-      svg: <Netbalancesvg color="#e4e4e4" />,
-      smallSvg: <Loanmanagmentsvg color={" #474747"} />,
+      text: "Lifestyle",
+      smallSvg: cardImage,
       price: "N999,187,519",
     },
     {
-      text: "Total Liabilities",
-      svg: <Liabilitieslargesvg color="#e4e4e4" />,
-      smallSvg: <Liabilitiessvg color="#474747" />,
+      text: "Kiddies",
+      smallSvg: cardImage,
       price: "N999,187,519",
     },
     {
-      text: "Total Assets",
-      svg: <Assetlargesvg color="#e4e4e4" />,
-      smallSvg: <Assetssvgsmall color="#474747" />,
+      text: "Business",
+      smallSvg: cardImage,
       price: "N999,187,519",
-    },
-    {
-      text: "Total Number of Accounts",
-      svg: <Usermanagementlarge color="#e4e4e4" />,
-      smallSvg: <Usermanagement color="#474747" />,
-      price: "870,519",
     },
   ]
   const chartData = [
@@ -65,29 +52,83 @@ const AdminDashboard = () => {
   ]
   return (
     <div className="dashboard">
-      <h1>Dashboard Overview</h1>
+      <img src={bannerImage} />
+      <div className="cardGridDash1">
+        <h2>Your Accounts</h2>
 
-      <div className="cardGrid">
-        {cardData.map((item, index) => {
-          return (
-            <CardOne
-              text={item?.text}
-              largesvg={item?.svg}
-              price={item?.price}
-              smallSvg={item?.smallSvg}
-            />
-          )
-        })}
-      </div>
-      <div className="barchart-area">
-        <div className="chart-top">
-          <div className="chart-top-text">
-            <h2>Customer Growth</h2>
-            <h3>Total no of customers</h3>
-          </div>
-          <div></div>
+        <div className="dashCardGrid">
+          {cardData.map((item, index) => {
+            return (
+              <CardOne
+                text={item?.text}
+                price={item?.price}
+                smallSvg={item?.smallSvg}
+              />
+            )
+          })}
         </div>
-        <VerticalBarChart ChartData={chartData} />
+      </div>
+      <div className="cardGridDash1">
+        <h2>Services</h2>
+
+        <div className="dashCardGrid">
+          {cardData.map((item, index) => {
+            return (
+              <CardOne
+                text={item?.text}
+                price={item?.price}
+                smallSvg={item?.smallSvg}
+              />
+            )
+          })}
+        </div>
+      </div>
+      <div className="bottomFlexTop">
+        <div className="dashBoottomFlex">
+          <div className="dashBoottomFlexInn">
+            <div className="dashBoottomFlexHist">
+              <h3>Recent Beneficiaries</h3>
+              <div className="dashBeneficiaryFLex">
+                <div className="dashuserlist">
+                  <div className="initials">A</div>
+                  <h2>Adekunle</h2>
+                </div>
+                <div className="dashuserlist">
+                  <div className="initials">A</div>
+                  <h2>Adekunle</h2>
+                </div>
+                <div className="dashuserlist">
+                  <div className="initials">A</div>
+                  <h2>Adekunle</h2>
+                </div>
+
+                <div className="dashuserlist">
+                  <div className="initials">A</div>
+                  <h2>Adekunle</h2>
+                </div>
+                <div className="dashuserlist">
+                  <div className="initials">A</div>
+                  <h2>Adekunle</h2>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="barchart-area">
+                <div className="chart-top">
+                  <div className="chart-top-text">
+                    <h2>Analytics</h2>
+                    <h3>Total no of customers</h3>
+                  </div>
+                  <div></div>
+                </div>
+                <VerticalBarChart ChartData={chartData} />
+              </div>
+            </div>
+          </div>
+          <div className={"right"}>
+            <SideTable jsonData={dashsidejsonData} sign="Transactions" />
+          </div>
+        </div>
       </div>
     </div>
   )

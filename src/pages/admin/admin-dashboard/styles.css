@@ -1,7 +1,10 @@
-.cardGrid {
-  display: grid;
-  grid-template-columns: 45% 45%;
-  grid-gap: 5%;
+.dashCardGrid {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.dashCardGrid .styles-card {
+  width: 29% !important;
 }
 .barchart-area {
   padding: 24px 40px 24px 40px;
@@ -44,4 +47,90 @@
   letter-spacing: 0em;
   text-align: left;
   color: #666666;
+}
+.cardGridDash1 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.cardGridDash1 > h2 {
+  margin: 0px;
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--Text-Default, #262626);
+}
+.dashBoottomFlex {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+}
+.dashBoottomFlexHist {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.bottomFlexTop {
+  display: flex;
+  gap: 15px;
+}
+.dashBoottomFlexInn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 54%;
+}
+.right {
+  width: 44%;
+}
+.dashBoottomFlexHist h3 {
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--Text-Default, #262626);
+}
+.initials {
+  padding: 16px 25px;
+  border-radius: 42px;
+  color: #fff;
+  width: fit-content;
+  font-family: SF Pro Display;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  background: var(--Palette-Green-700, #047e02);
+}
+.dashuserlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+.dashuserlist > h2 {
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 20px;
+  text-align: left;
+  color: var(--Text-Default, #262626);
+}
+.dashBeneficiaryFLex {
+  display: flex;
+  gap: 25px;
+  overflow: scroll;
+  align-items: center;
 }

@@ -6,13 +6,13 @@ const CardOne = ({ text, largesvg, price, smallSvg }) => {
     <div className="styles-card">
       <div className="card-right">
         <div>
-          {smallSvg}
+          <img src={smallSvg} width={48} height={48} />
 
           <h1>{text}</h1>
         </div>
         <h2 className="amount">{price}</h2>
       </div>
-      {largesvg}
+      {/* {largesvg} */}
     </div>
   )
 }

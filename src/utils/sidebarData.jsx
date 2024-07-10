@@ -21,22 +21,22 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
         },
         {
           img: <Usermanagement color={color2} />,
-          text: "Customer Management",
+          text: "Payments",
           link: "/admin/custom-management",
         },
         {
           img: <TransactionSvg color={color2} />,
-          text: "Transaction Feed",
+          text: "Cards",
           link: "/admin/transaction-feed",
         },
         {
           img: <AnalyticsSvg color={color3} />,
-          text: "Reporting & Analytics",
+          text: "Analytics",
           link: "/admin/reporting-analytics",
         },
         {
           img: <SettingsSvg color={color5} />,
-          text: "Configuration",
+          text: "Transactions",
           link: "/admin/configuration",
         },
 
@@ -47,7 +47,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
         // },
         {
           img: <Usermanagement color={color5} />,
-          text: "User Management",
+          text: "Statements",
           link: "/admin/user-management",
         },
         // {
@@ -59,7 +59,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
       subLinks: [
         {
           img: <HelpCenter />,
-          text: "Help Center",
+          text: "Settings",
         },
         {
           img: <Logout />,
