@@ -55,9 +55,34 @@ const Footer = () => {
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <p style={{ fontSize: "12px" }}>
-            116 Apapa-Oshodi Express Way, Isolo, Lagos, Nigeria
-          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            <p style={{ fontSize: "12px" }}>
+              116 Apapa-Oshodi Express Way, Isolo, Lagos, Nigeria
+            </p>
+            <br />
+            <p
+              style={{ fontSize: "12px", fontStyle: "none", cursor: "pointer" }}
+            >
+              <a
+                style={{
+                  fontSize: "12px",
+                  fontStyle: "none",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  color: "#000",
+                }}
+                href="tel:07059864396"
+              >
+                07059864396
+              </a>
+            </p>
+          </div>
         </div>
       </Layout>
     </div>
