@@ -6,7 +6,7 @@ import AirtimeStepThree from "./step3"
 import AirtimeStepFour from "./step4"
 
 const AirtimeSteps = () => {
-  const [page, setPage] = useState(3)
+  const [page, setPage] = useState(0)
   const steps = () => {
     switch (page) {
       case 0:

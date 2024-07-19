@@ -1,7 +1,7 @@
 import React from "react"
 import PriButton from "../../../../primary-button/priButton"
 import "./step1.css"
-const BuyDataStepOne = ({ toUserName, toAccount }) => {
+const BuyDataStepOne = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <div
@@ -52,7 +52,7 @@ const BuyDataStepOne = ({ toUserName, toAccount }) => {
         <br />
         <PriButton
           text="Proceed"
-          action={null}
+          action={nextPage}
           type={null}
           active={true}
           load={null}

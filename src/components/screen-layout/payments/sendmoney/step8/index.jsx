@@ -1,7 +1,7 @@
 import React from "react"
 import PriButton from "../../../../primary-button/priButton"
 
-const SendMoneyStepEight = () => {
+const SendMoneyStepEight = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
@@ -31,7 +31,12 @@ const SendMoneyStepEight = () => {
         <br />
         <br />
         <div className="buttonStyle">
-          <PriButton text="Proceed" active={true} load={null} />
+          <PriButton
+            text="Proceed"
+            active={true}
+            load={null}
+            action={nextPage}
+          />
         </div>
       </div>
     </div>

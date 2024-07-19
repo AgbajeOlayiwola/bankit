@@ -5,7 +5,7 @@ import ElectStepTwo from "./step2"
 import ElectStepThree from "./step3"
 
 const ElectricitySteps = () => {
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(0)
   const steps = () => {
     switch (page) {
       case 0:

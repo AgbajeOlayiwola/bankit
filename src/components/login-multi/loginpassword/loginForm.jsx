@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -11,7 +11,7 @@ import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
-const LoginForm = ({ forward, forwardToAdmin, next }) => {
+const LoginPassword = ({ forward, forwardToAdmin, next }) => {
   const dispatch = useDispatch()
   const {
     register,
@@ -22,6 +22,8 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
   const navigate = useNavigate()
   const [state, setState] = useState(false)
   const [active, setActive] = useState(false)
+  const { profile } = useSelector((state) => state)
+  console.log(profile)
   const action = () => {
     setState(!state)
   }
@@ -74,19 +76,20 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
 
       <div className="loginform-wrapper">
         <OnboardingHeader
-          title="Login"
-          text="Enter your details to login to your Bankit account."
+          title="Enter your password"
+          text="Enter your details to create a Bankit account "
           screen="login"
         />
         <form
           onSubmit={handleSubmit((e) => {
+            forward()
             // e.preventDefault()
             const data = {
-              identifier: e.identifier,
+              identifier: profile?.phoneNumber,
               password: e.password,
             }
             dispatch(setProfile({ phoneNumber: e.identifier }))
-            forward()
+            login(data)
           })}
         >
           <div className="loginform-content">
@@ -95,22 +98,6 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                 className="loginform-group"
                 style={{ display: "flex", gap: "12px", flexDirection: "row" }}
               >
-                <div className="step-one-single" style={{ width: "15%" }}>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="+234"
-                      required="required"
-                      onChange={(e) => {
-                        if (e.target.value.length > 0) {
-                          setActive(true)
-                        } else {
-                          setActive(false)
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
                 <div className="step-one-groups" style={{ width: "100%" }}>
                   <div className="step-one-single">
                     <div>
@@ -118,7 +105,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                         type="text"
                         name="identifier"
                         placeholder=" "
-                        {...register("identifier", {
+                        {...register("password", {
                           required: "Phone or Email is required",
                         })}
                       />
@@ -141,7 +128,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                 </h2>
               </div>
             </div>
-            <PriButton text="Next" active={active} load={loginUserLoad} />
+            <PriButton text="Next" active={true} load={loginUserLoad} />
           </div>
         </form>
       </div>
@@ -159,4 +146,4 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
   )
 }
 
-export default LoginForm
+export default LoginPassword

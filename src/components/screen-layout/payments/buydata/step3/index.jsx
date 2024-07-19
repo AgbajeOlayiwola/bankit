@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PriButton from "../../../../primary-button/priButton"
 import "./step3.css"
-const BuyDataStepThree = () => {
+const BuyDataStepThree = ({ nextPage }) => {
   const [active, setActive] = useState(false)
   return (
     <div className="payment_outer">
@@ -32,7 +32,12 @@ const BuyDataStepThree = () => {
         <br />
         <br />
         <div className="buttonStyle">
-          <PriButton text="Proceed" active={true} load={null} />
+          <PriButton
+            text="Proceed"
+            active={true}
+            load={null}
+            action={nextPage}
+          />
         </div>
       </div>
     </div>

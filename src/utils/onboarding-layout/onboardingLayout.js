@@ -1,8 +1,9 @@
 import React from "react"
 import One from "../../assets/download_qr.png"
+import two from "../../assets/PasswordPng.png"
 import "./onboardingLayout.css"
 
-const Onboardinglayout = ({ children, type, page, screen }) => {
+const Onboardinglayout = ({ children, type, page, screen, cureentPage }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -24,7 +25,11 @@ const Onboardinglayout = ({ children, type, page, screen }) => {
           <div className={"onboarding-layout-image"}>
             <h2>Download the Bankit App</h2>
             <p>Scan the QR code to download the app</p>
-            <img src={One} alt="one" width={196} height={217} />
+            {cureentPage === "loginPage" ? (
+              <img src={two} alt="two" width={196} height={217} />
+            ) : (
+              <img src={One} alt="one" width={196} height={217} />
+            )}
           </div>
         )}
         <div className="onboarding-layout-body">

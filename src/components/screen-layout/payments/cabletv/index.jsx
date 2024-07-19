@@ -5,7 +5,7 @@ import CableTvStepTwo from "./step2"
 import CableTvStepThree from "./step3"
 
 const CableTvSteps = () => {
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(0)
   const steps = () => {
     switch (page) {
       case 0:

@@ -2,7 +2,7 @@ import React from "react"
 import airtimeLogo from "../../../../../assets/mtn_nigeria_icon.png"
 import PriButton from "../../../../primary-button/priButton"
 import "./step2.css"
-const ElectStepTwo = () => {
+const ElectStepTwo = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
@@ -44,7 +44,12 @@ const ElectStepTwo = () => {
         <br />
         <br />
         <div className="buttonStyle">
-          <PriButton text="Proceed" active={true} load={null} />
+          <PriButton
+            text="Proceed"
+            active={true}
+            load={null}
+            action={nextPage}
+          />
         </div>
       </div>
     </div>

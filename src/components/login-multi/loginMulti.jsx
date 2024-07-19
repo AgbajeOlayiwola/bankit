@@ -4,6 +4,7 @@ import Onboardinglayout from "../../utils/onboarding-layout/onboardingLayout"
 import StepTwo from "../signup-multistep/steptwo/stepTwo"
 import LoginForm from "./login-form/loginForm"
 import "./loginMulti.css"
+import LoginPassword from "./loginpassword/loginForm"
 
 const LoginMulti = () => {
   const navigate = useNavigate()
@@ -21,12 +22,22 @@ const LoginMulti = () => {
           <LoginForm
             forwardToAdmin={() => navigate("/admin/dashboard")}
             forward={() => {
-              navigate("/user/dashboard")
+              setCount(1)
             }}
             next={() => setCount(1)}
           />
         )
       case 1:
+        return (
+          <LoginPassword
+            forwardToAdmin={() => navigate("/admin/dashboard")}
+            forward={() => {
+              navigate("/admin/dashboard")
+            }}
+            next={() => setCount(1)}
+          />
+        )
+      case 2:
         return (
           <StepTwo
             back={() => setCount(0)}
@@ -45,7 +56,11 @@ const LoginMulti = () => {
         return <LoginForm forward={add} />
     }
   }
-  return <Onboardinglayout>{steps()}</Onboardinglayout>
+  return (
+    <Onboardinglayout cureentPage={count === 1 ? "loginPage" : null}>
+      {steps()}
+    </Onboardinglayout>
+  )
 }
 
 export default LoginMulti

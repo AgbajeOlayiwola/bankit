@@ -3,10 +3,12 @@ import Otp from "../../../../otp/otp"
 import PriButton from "../../../../primary-button/priButton"
 import Success from "../../../../success/success"
 import "./step4.css"
+import { useNavigate } from "react-router-dom"
 const BuyDataStepFour = () => {
   const [active, setActive] = useState(true)
   const [otpValue, setOtpValue] = useState()
   const [showModal, setShowModal] = useState()
+  const navigate = useNavigate()
 
   return (
     <div className="payment_outer">
@@ -60,7 +62,7 @@ const BuyDataStepFour = () => {
               className="buttons_flex"
             >
               <PriButton
-                text="Proceed"
+                text="Cancel"
                 active={false}
                 action={() => setShowModal((prev) => !prev)}
                 load={null}
@@ -69,7 +71,7 @@ const BuyDataStepFour = () => {
               <PriButton
                 text="Proceed"
                 active={true}
-                action={() => setShowModal((prev) => !prev)}
+                action={() => navigate("/admin/dashboard")}
                 load={null}
               />
             </div>

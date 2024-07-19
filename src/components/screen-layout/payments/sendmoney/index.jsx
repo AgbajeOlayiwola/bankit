@@ -16,25 +16,25 @@ const SendMoneySteps = () => {
       case 0:
         return (
           <SendMoneyStepOne
-            nextPage={() => setPage(page + 1)}
-            movetobank={() => setPage(1)}
+            toUserName={() => setPage(1)}
+            toAccount={() => setPage(5)}
           />
         )
       case 1:
         return <SendMoneyStepTwo nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 2:
         return <SendMoneyStepThree nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 3:
         return <SendMoneyStepFour nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 4:
         return <SendMoneyStepFive nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 5:
         return <SendMoneyStepSix nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 6:
         return <SendMoneyStepSeven nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 7:
         return <SendMoneyStepEight nextPage={() => setPage(page + 1)} />
-      case 1:
+      case 8:
         return <SendMoneyStepNine nextPage={() => setPage(page + 1)} />
       default:
         return (

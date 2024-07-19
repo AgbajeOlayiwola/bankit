@@ -2,7 +2,7 @@ import React from "react"
 import airtimeLogo from "../../../../../assets/mtn_nigeria_icon.png"
 import PriButton from "../../../../primary-button/priButton"
 import "./step2.css"
-const BuyDataStepTwo = () => {
+const BuyDataStepTwo = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <div
@@ -64,7 +64,7 @@ const BuyDataStepTwo = () => {
         <br />
         <PriButton
           text="Proceed"
-          action={null}
+          action={nextPage}
           type={null}
           active={true}
           load={null}

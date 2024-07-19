@@ -15,11 +15,7 @@ const SendMoneyStepThree = () => {
         <div className="step-one-groups" style={{ width: "100%" }}>
           <div className="step-one-single">
             <div>
-              <input
-                type="text"
-                placeholder="Recipient Username"
-                required="required"
-              />
+              <input type="text" placeholder="Amount" required="required" />
             </div>
           </div>
         </div>
@@ -27,11 +23,7 @@ const SendMoneyStepThree = () => {
         <div className="step-one-groups" style={{ width: "100%" }}>
           <div className="step-one-single">
             <div>
-              <input
-                type="text"
-                placeholder="Recipient Username"
-                required="required"
-              />
+              <input type="text" placeholder="Narration" required="required" />
             </div>
           </div>
         </div>

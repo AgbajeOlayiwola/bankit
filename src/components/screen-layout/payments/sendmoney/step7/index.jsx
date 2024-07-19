@@ -1,7 +1,7 @@
 import React from "react"
 import accessLogo from "../../../../../assets/access_logo.png"
 import PriButton from "../../../../primary-button/priButton"
-const SendMoneyStepSeven = () => {
+const SendMoneyStepSeven = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
@@ -27,7 +27,7 @@ const SendMoneyStepSeven = () => {
         </div>
         <br />
         <div className="buttonStyle">
-          <PriButton text="Next" active={true} load={null} />
+          <PriButton text="Next" active={true} load={null} action={nextPage} />
         </div>
       </div>
     </div>

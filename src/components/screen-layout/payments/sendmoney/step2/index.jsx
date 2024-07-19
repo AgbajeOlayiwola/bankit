@@ -1,6 +1,7 @@
 import React from "react"
+import PriButton from "../../../../primary-button/priButton"
 
-const SendMoneyStepTwo = () => {
+const SendMoneyStepTwo = ({ nextPage }) => {
   return (
     <div className="payment_outer">
       <h2>Adekule ayo</h2>
@@ -55,6 +56,14 @@ const SendMoneyStepTwo = () => {
           </div>
         </div>
         <br />
+        <br />
+        <PriButton
+          text="Proceed"
+          action={nextPage}
+          type={null}
+          active={true}
+          load={null}
+        />
       </div>
     </div>
   )

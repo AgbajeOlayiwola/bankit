@@ -1,12 +1,14 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Otp from "../../../../otp/otp"
 import PriButton from "../../../../primary-button/priButton"
 import Success from "../../../../success/success"
 import "./step4.css"
-const AirtimeStepFour = () => {
+const AirtimeStepFour = ({ nextPage }) => {
   const [active, setActive] = useState(true)
   const [otpValue, setOtpValue] = useState()
   const [showModal, setShowModal] = useState()
+  const navigate = useNavigate()
 
   return (
     <div className="payment_outer">
@@ -60,7 +62,7 @@ const AirtimeStepFour = () => {
               className="buttons_flex"
             >
               <PriButton
-                text="Proceed"
+                text="Cancel"
                 active={false}
                 action={() => setShowModal((prev) => !prev)}
                 load={null}
@@ -69,7 +71,7 @@ const AirtimeStepFour = () => {
               <PriButton
                 text="Proceed"
                 active={true}
-                action={() => setShowModal((prev) => !prev)}
+                action={() => navigate("/admin/dashboard")}
                 load={null}
               />
             </div>
