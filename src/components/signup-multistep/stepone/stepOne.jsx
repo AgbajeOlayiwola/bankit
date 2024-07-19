@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import validator from "validator"
-import { useSendOtpMutation } from "../../../redux/api/mutationApi"
+// import { useSendOtpMutation } from "../../../redux/api/mutationApi"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -16,33 +16,33 @@ const StepOne = ({ submit, page }) => {
     getValues,
     formState: { errors },
   } = useForm()
-  const [
-    sendOtp,
-    {
-      data: otpSend,
-      isLoading: newOtpLoad,
-      isSuccess: newOtpSuccess,
-      isError: newOtpFalse,
-      error: newOtpErr,
-    },
-  ] = useSendOtpMutation()
-  useEffect(() => {
-    if (newOtpSuccess) {
-      if (otpSend) {
-        console.log(otpSend)
+  // const [
+  //   sendOtp,
+  //   {
+  //     data: otpSend,
+  //     isLoading: newOtpLoad,
+  //     isSuccess: newOtpSuccess,
+  //     isError: newOtpFalse,
+  //     error: newOtpErr,
+  //   },
+  // ] = useSendOtpMutation()
+  // useEffect(() => {
+  //   if (newOtpSuccess) {
+  //     if (otpSend) {
+  //       console.log(otpSend)
 
-        //  setCookie("accessToken", otpSend?.accessToken);
-        //  if (getCookie("accessToken")) {
-        submit(getValues())
-        //  }
-      }
-    }
-  }, [otpSend, newOtpSuccess, submit, getValues])
-  useEffect(() => {
-    if (newOtpErr) {
-      showToastErrorMessage()
-    }
-  }, [newOtpErr])
+  //       //  setCookie("accessToken", otpSend?.accessToken);
+  //       //  if (getCookie("accessToken")) {
+  //       submit(getValues())
+  //       //  }
+  //     }
+  //   }
+  // }, [otpSend, newOtpSuccess, submit, getValues])
+  // useEffect(() => {
+  //   if (newOtpErr) {
+  //     showToastErrorMessage()
+  //   }
+  // }, [newOtpErr])
   const showToastErrorMessage = () => {
     toast.error("Otp failed to send.", {
       position: "top-right",
@@ -142,7 +142,7 @@ const StepOne = ({ submit, page }) => {
             const data = {
               phoneNumber: e.phoneNumber,
             }
-            sendOtp(data)
+            // sendOtp(data)
           })}
         >
           <div className="step-one-form">
@@ -191,7 +191,12 @@ const StepOne = ({ submit, page }) => {
               </div>
             </div>
           </div>
-          <PriButton text="Next" active={active} load={newOtpLoad} />
+          <PriButton
+            text="Next"
+            active={active}
+            load={null}
+            // {newOtpLoad}
+          />
         </form>
       </div>
       <p>

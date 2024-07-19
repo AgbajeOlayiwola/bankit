@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import {
-  useSendOtpMutation,
-  useVerifyOtpMutation,
-} from "../../../redux/api/mutationApi"
-import Loader from "../../loader/loader"
+// import {
+//   useSendOtpMutation,
+//   useVerifyOtpMutation,
+// } from "../../../redux/api/mutationApi"
 import Otp from "../../otp/otp"
 import PriButton from "../../primary-button/priButton"
 import "./stepTwo.css"
@@ -25,36 +24,36 @@ const StepTwo = ({
   const [otp, setOtp] = useState("")
   const { profile } = useSelector((store) => store)
   console.log(profile)
-  const [
-    verifyOtp,
-    {
-      data: otpSend,
-      isLoading: newOtpLoad,
-      isSuccess: newOtpSuccess,
-      isError: newOtpFalse,
-      error: newOtpErr,
-    },
-  ] = useVerifyOtpMutation()
-  const [
-    sendOtp,
-    {
-      data: sendOtpData,
-      isLoading: sendOtpLoad,
-      isSuccess: sendOtpSuccess,
-      isError: sendOtpFalse,
-      error: sendOtpErr,
-    },
-  ] = useSendOtpMutation()
-  useEffect(() => {
-    if (sendOtpSuccess) {
-      showToastOtpSuccessMessage()
-    }
-  }, [sendOtpData, sendOtpSuccess])
-  useEffect(() => {
-    if (sendOtpErr) {
-      showToastOtpErrorMessage()
-    }
-  }, [sendOtpErr])
+  // const [
+  //   verifyOtp,
+  //   {
+  //     data: otpSend,
+  //     isLoading: newOtpLoad,
+  //     isSuccess: newOtpSuccess,
+  //     isError: newOtpFalse,
+  //     error: newOtpErr,
+  //   },
+  // ] = useVerifyOtpMutation()
+  // const [
+  //   sendOtp,
+  //   {
+  //     data: sendOtpData,
+  //     isLoading: sendOtpLoad,
+  //     isSuccess: sendOtpSuccess,
+  //     isError: sendOtpFalse,
+  //     error: sendOtpErr,
+  //   },
+  // ] = useSendOtpMutation()
+  // useEffect(() => {
+  //   if (sendOtpSuccess) {
+  //     showToastOtpSuccessMessage()
+  //   }
+  // }, [sendOtpData, sendOtpSuccess])
+  // useEffect(() => {
+  //   if (sendOtpErr) {
+  //     showToastOtpErrorMessage()
+  //   }
+  // }, [sendOtpErr])
   const showToastOtpSuccessMessage = () => {
     toast.success("Otp sent successfully.", {
       position: "top-right",
@@ -65,26 +64,26 @@ const StepTwo = ({
       position: "top-right",
     })
   }
-  useEffect(() => {
-    if (newOtpSuccess) {
-      if (otpSend) {
-        console.log(otpSend)
-        if (from == "login") {
-          forward()
-        } else {
-          forward()
-        }
-        //  }
-      }
-    }
-  }, [otpSend, newOtpSuccess, forward])
-  useEffect(() => {
-    if (newOtpFalse) {
-      if (newOtpErr) {
-        showToastErrorMessage()
-      }
-    }
-  }, [newOtpErr, newOtpFalse])
+  // useEffect(() => {
+  //   if (newOtpSuccess) {
+  //     if (otpSend) {
+  //       console.log(otpSend)
+  //       if (from == "login") {
+  //         forward()
+  //       } else {
+  //         forward()
+  //       }
+  //       //  }
+  //     }
+  //   }
+  // }, [otpSend, newOtpSuccess, forward])
+  // useEffect(() => {
+  //   if (newOtpFalse) {
+  //     if (newOtpErr) {
+  //       showToastErrorMessage()
+  //     }
+  //   }
+  // }, [newOtpErr, newOtpFalse])
   // useEffect(() => {
   //   if (from === "login") {
   //     return null
@@ -106,7 +105,7 @@ const StepTwo = ({
     const data = {
       phoneNumber: profile?.phoneNumber,
     }
-    sendOtp(data)
+    // sendOtp(data)
   }
   return (
     <div className="steptwo-container">
@@ -136,7 +135,7 @@ const StepTwo = ({
             <h3>
               Didn’t receive the code?
               <span onClick={() => resentOtp()}>
-                {sendOtpLoad ? <Loader /> : "Resend"}
+                {/* {sendOtpLoad ? <Loader /> : "Resend"} */}
               </span>
             </h3>
           </div>
@@ -145,7 +144,7 @@ const StepTwo = ({
           text="Next"
           active={active}
           action={null}
-          load={newOtpLoad}
+          // load={newOtpLoad}
         />
       </div>
     </div>

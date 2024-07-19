@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
-import { setToken } from "../../../redux/slices/tokenSlice"
+// import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -14,28 +13,28 @@ const StepSix = ({ back, forward, page }) => {
   const dispatch = useDispatch()
   const [value, setValue] = useState("")
   const { profile } = useSelector((store) => store)
-  const [
-    registerNewUser,
-    {
-      data: registerUser,
-      isLoading: newUserLoad,
-      isSuccess: newUserSuccess,
-      isError: newUserFalse,
-      error: newUserErr,
-    },
-  ] = useRegisterNewUserMutation()
+  // const [
+  //   registerNewUser,
+  //   {
+  //     data: registerUser,
+  //     isLoading: newUserLoad,
+  //     isSuccess: newUserSuccess,
+  //     isError: newUserFalse,
+  //     error: newUserErr,
+  //   },
+  // ] = useRegisterNewUserMutation()
 
-  useEffect(() => {
-    if (newUserSuccess) {
-      console.log(registerUser)
-      dispatch(setToken(registerUser?.accessToken))
-      forward()
-    } else if (newUserFalse) {
-      if (newUserErr) {
-        showToastErrorMessage()
-      }
-    }
-  }, [newUserErr, newUserSuccess, newUserFalse])
+  // useEffect(() => {
+  //   if (newUserSuccess) {
+  //     console.log(registerUser)
+  //     dispatch(setToken(registerUser?.accessToken))
+  //     forward()
+  //   } else if (newUserFalse) {
+  //     if (newUserErr) {
+  //       showToastErrorMessage()
+  //     }
+  //   }
+  // }, [newUserErr, newUserSuccess, newUserFalse])
 
   const showToastErrorMessage = () => {
     toast.error("Account creation failed", {
@@ -81,9 +80,9 @@ const StepSix = ({ back, forward, page }) => {
             lastName: profile?.lastName,
             username: value.replace("@", ""),
           }
-          registerNewUser(data)
+          // registerNewUser(data)
         }}
-        load={newUserLoad}
+        // load={newUserLoad}
       />
     </div>
   )

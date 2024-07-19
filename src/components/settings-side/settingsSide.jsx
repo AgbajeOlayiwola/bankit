@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useSetUserPinMutation } from "../../redux/api/mutationApi"
+// import { useSetUserPinMutation } from "../../redux/api/mutationApi"
 import Right from "../../svg-component/right"
 import { settingsData } from "../../utils/data"
 import AccountInfo from "../account-info/accountInfo"
@@ -12,7 +12,6 @@ import Statements from "../statements/statements"
 import Support from "../support/support"
 import UpdatePassword from "../update-password/updatePassword"
 import Verification from "../verification/verification"
-import Viewbadges from "../view-badges"
 import "./settingsSide.css"
 const SettingsSide = () => {
   const dispatch = useDispatch()
@@ -25,40 +24,40 @@ const SettingsSide = () => {
   const [right6, setRight6] = useState("-700px")
   const [right7, setRight7] = useState("-700px")
 
-  const [
-    userPin,
-    {
-      data: userPinData,
-      isLoading: userPinLoad,
-      isSuccess: userPinSuccess,
-      isError: userPinFalse,
-      error: userPinErr,
-    },
-  ] = useSetUserPinMutation()
+  // const [
+  //   userPin,
+  //   {
+  //     data: userPinData,
+  //     isLoading: userPinLoad,
+  //     isSuccess: userPinSuccess,
+  //     isError: userPinFalse,
+  //     error: userPinErr,
+  //   },
+  // ] = useSetUserPinMutation()
   const setPin = (value) => {
     const pinData = {
       pin: value,
       verifyPin: value,
     }
-    userPin(pinData)
+    // userPin(pinData)
   }
-  useEffect(() => {
-    if (userPinErr) {
-      showToastErrorMessage()
-    } else if (userPinSuccess) {
-      showToastSuccsss()
-    }
-  }, [userPinSuccess, userPinErr])
+  // useEffect(() => {
+  //   if (userPinErr) {
+  //     showToastErrorMessage()
+  //   } else if (userPinSuccess) {
+  //     showToastSuccsss()
+  //   }
+  // }, [userPinSuccess, userPinErr])
   const showToastSuccsss = () => {
     toast.success("Pin Set SUccessfully", {
       position: "top-right",
     })
   }
-  const showToastErrorMessage = () => {
-    toast.error(userPinErr?.data?.errorMessage, {
-      position: "top-right",
-    })
-  }
+  // const showToastErrorMessage = () => {
+  //   toast.error(userPinErr?.data?.errorMessage, {
+  //     position: "top-right",
+  //   })
+  // }
   return settingsData?.map((item, index) => {
     return (
       <div className="settings-cont" key={index}>
@@ -154,7 +153,7 @@ const SettingsSide = () => {
           }}
         />
         <ConfirmOtp
-          load={userPinLoad}
+          load={null}
           click={(value) => setPin(value)}
           title="Reset PIN"
           text="Create PIN"

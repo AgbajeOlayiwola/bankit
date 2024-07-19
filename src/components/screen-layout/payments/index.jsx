@@ -6,7 +6,10 @@ import cabletvImage from "../../../assets/cabletv.png"
 import electricityyImage from "../../../assets/electricity.png"
 import sendmomeyImage from "../../../assets/sendmoney.png"
 import AddmoneySteps from "./addmoney"
-import AddbillsSteps from "./bills"
+import AirtimeSteps from "./airtime"
+import BuyDataSteps from "./buydata"
+import CableTvSteps from "./cabletv"
+import ElectricitySteps from "./electricity"
 import SendMoneySteps from "./sendmoney"
 import "./styles.css"
 const Paymenrs = () => {
@@ -16,12 +19,17 @@ const Paymenrs = () => {
   const steps = () => {
     switch (onSelectStep) {
       case 0:
-        return <AddbillsSteps />
+        return <AirtimeSteps />
       case 1:
         return <AddmoneySteps />
-
       case 2:
+        return <ElectricitySteps />
+      case 3:
         return <SendMoneySteps />
+      case 4:
+        return <CableTvSteps />
+      case 5:
+        return <BuyDataSteps />
     }
   }
   return (
@@ -42,7 +50,7 @@ const Paymenrs = () => {
           <div
             className="images"
             onClick={() => {
-              setOnSelectStep(2)
+              setOnSelectStep(3)
               setSHowPages(false)
             }}
           >
@@ -67,7 +75,7 @@ const Paymenrs = () => {
           <div
             className="images"
             onClick={() => {
-              setOnSelectStep(0)
+              setOnSelectStep(5)
               setSHowPages(false)
             }}
           >
@@ -81,7 +89,7 @@ const Paymenrs = () => {
           <div
             className="images"
             onClick={() => {
-              setOnSelectStep(0)
+              setOnSelectStep(4)
               setSHowPages(false)
             }}
           >
@@ -95,7 +103,7 @@ const Paymenrs = () => {
           <div
             className="images"
             onClick={() => {
-              setOnSelectStep(0)
+              setOnSelectStep(2)
               setSHowPages(false)
             }}
           >

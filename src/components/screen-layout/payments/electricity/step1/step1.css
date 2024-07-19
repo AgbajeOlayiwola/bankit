@@ -1,0 +1,120 @@
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.images h2 {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+.images p {
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+  color: var(--Text-Secondary, #666666);
+}
+.payment_outer {
+  display: flex;
+  padding-top: 6vh;
+  height: 80vh;
+  align-items: center;
+  flex-direction: column;
+}
+.payment_inner {
+  overflow: scroll;
+  width: 42%;
+  max-height: 40vh;
+  background: var(--Surface-Default, #ffffff);
+  border-radius: 24px;
+  padding: 34px 30px;
+  height: fit-content;
+}
+.payment_bene_list {
+  display: flex;
+  gap: 20px;
+}
+.payment_bene_item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.payment_bene_init {
+  background-color: rgb(184, 155, 155);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  padding: 20px 29px;
+  border-radius: 50px;
+  color: var(--Primitives-White, #ffffff);
+}
+.payment_bene_item h6 {
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+}
+.payment_bene_viewAll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.payment_bene_viewAll h5 {
+  font-family: SF Pro Display;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: var(--Text-Default, #262626);
+}
+.payment_bene_viewAll h6 {
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: var(--Actions-Default, #062983);
+}
+.payment_send_money {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+.payment_send_money h2 {
+  font-family: SF Pro Display;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: var(--Text-Default, #262626);
+}
+.payment_send_money h3 {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: var(--Text-Hovered, #7a7a7a);
+}
+.payment_send_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment_send_top_outer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.payment_table .sideFlex {
+  padding: 0px;
+}

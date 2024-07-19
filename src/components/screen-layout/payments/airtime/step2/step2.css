@@ -1,0 +1,13 @@
+.airtimeOuter {
+  padding: 10px;
+  border-radius: 50px;
+  border: 5px solid var(--Palette-Yellow-400, #ffd466);
+  width: fit-content;
+}
+.airtime_icon {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}

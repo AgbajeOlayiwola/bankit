@@ -1,10 +1,10 @@
 import { Formik } from "formik"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import * as yup from "yup"
-import { useUpdateAdminMutation } from "../../redux/api/mutationApi"
+// import { useUpdateAdminMutation } from "../../redux/api/mutationApi"
 import Input from "../input/input"
 import PriButton from "../primary-button/priButton"
 import SidePopup from "../side-popup/sidePopup"
@@ -28,24 +28,24 @@ const EditForm = ({ right, closeAction, messageAction, refresh }) => {
     email: editAdmin?.email,
     role: editAdmin?.role,
   }
-  const [
-    updateAdmin,
-    {
-      data: updateAdminData,
-      isLoading: updateAdminLoad,
-      isSuccess: updateAdminSuccess,
-      isError: updateAdminFalse,
-      error: updateAdminErr,
-    },
-  ] = useUpdateAdminMutation()
-  useEffect(() => {
-    if (updateAdminErr) {
-      showToastErrorMessage()
-    } else if (updateAdminSuccess) {
-      showToastSuccessMessage()
-      refresh()
-    }
-  }, [updateAdminErr, updateAdminSuccess])
+  // const [
+  //   updateAdmin,
+  //   {
+  //     data: updateAdminData,
+  //     isLoading: updateAdminLoad,
+  //     isSuccess: updateAdminSuccess,
+  //     isError: updateAdminFalse,
+  //     error: updateAdminErr,
+  //   },
+  // ] = useUpdateAdminMutation()
+  // useEffect(() => {
+  //   if (updateAdminErr) {
+  //     showToastErrorMessage()
+  //   } else if (updateAdminSuccess) {
+  //     showToastSuccessMessage()
+  //     refresh()
+  //   }
+  // }, [updateAdminErr, updateAdminSuccess])
   const showToastErrorMessage = () => {
     toast.error("User Edit Failed", {
       position: "top-right",
@@ -70,7 +70,7 @@ const EditForm = ({ right, closeAction, messageAction, refresh }) => {
               email: values?.email,
               role: values?.role,
             }
-            updateAdmin(data)
+            // updateAdmin(data)
             setSubmitting(false)
           }}
         >
@@ -136,7 +136,7 @@ const EditForm = ({ right, closeAction, messageAction, refresh }) => {
 
               <PriButton
                 text="Create User"
-                load={updateAdminLoad}
+                load={null}
                 active={active}
                 action={null}
                 type="submit"

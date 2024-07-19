@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import AddNewAgent from "../../../components/add-new-agent"
 import EditForm from "../../../components/edit-admin"
 import { Modal } from "../../../components/modal"
 import PriButton from "../../../components/primary-button/priButton"
 import TableTwo from "../../../components/tables/table-two"
-import {
-  useDeleteAdminManagmentByIDQuery,
-  useGetAdminManagmentQuery,
-} from "../../../redux/api/query"
+// import {
+//   useDeleteAdminManagmentByIDQuery,
+//   useGetAdminManagmentQuery,
+// } from "../../../redux/api/queryApi"
 import { setEditAdmin } from "../../../redux/slices/editAdminSlice"
 import "./styles.css"
 const AdminUserManagement = () => {
@@ -21,14 +21,14 @@ const AdminUserManagement = () => {
   const [right3, setRight3] = useState("-700px")
   const [right4, setRight4] = useState("-700px")
   const tableHeaders = ["S/N", "Name", "User ID", "Role", "Status", "Admin"]
-  const { data, isLoading, isSuccess, isError, error, refetch } =
-    useGetAdminManagmentQuery() // Use the query hook
-  useEffect(() => {
-    refetch()
-  }, [refetch])
-  const refresh = () => {
-    refetch()
-  }
+  // const { data, isLoading, isSuccess, isError, error, refetch } =
+  //   useGetAdminManagmentQuery() // Use the query hook
+  // useEffect(() => {
+  //   refetch()
+  // }, [refetch])
+  // const refresh = () => {
+  //   refetch()
+  // }
   const openModal = (id) => {
     setIsOpen((prev) => !prev)
     setUserId(id)
@@ -36,14 +36,14 @@ const AdminUserManagement = () => {
   const closeAction = () => {
     setIsOpen((prev) => !prev)
   }
-  const {
-    data: deleteAdminData,
-    isLoading: deleteAdminLoad,
-    isSuccess: deleteAdminSuccess,
-    isError: deleteAdminFalse,
-    error: deleteAdmintErr,
-    refetch: deleteAdmin,
-  } = useDeleteAdminManagmentByIDQuery()
+  // const {
+  //   data: deleteAdminData,
+  //   isLoading: deleteAdminLoad,
+  //   isSuccess: deleteAdminSuccess,
+  //   isError: deleteAdminFalse,
+  //   error: deleteAdmintErr,
+  //   refetch: deleteAdmin,
+  // } = useDeleteAdminManagmentByIDQuery()
   const openEdit = (item) => {
     setRight3("0px")
     dispatch(setEditAdmin(item))
@@ -60,8 +60,8 @@ const AdminUserManagement = () => {
         />
       </div>
       <TableTwo
-        data={data}
-        load={isLoading}
+        // data={data}
+        // load={isLoading}
         tableHeaders={tableHeaders}
         openDelModal={(id) => openModal(id)}
         edit={(item) => openEdit(item)}
@@ -80,17 +80,17 @@ const AdminUserManagement = () => {
               />
               <PriButton
                 text={"Delete"}
-                action={() => deleteAdmin(userId)}
+                // action={() => deleteAdmin(userId)}
                 type={null}
                 active={true}
-                load={deleteAdminLoad}
+                // load={deleteAdminLoad}
               />
             </div>
           </div>
         </Modal>
       ) : null}
       <AddNewAgent
-        refresh={refresh}
+        // refresh={refresh}
         right={right}
         messageAction={() => {
           setRight2("0px")
@@ -100,7 +100,7 @@ const AdminUserManagement = () => {
         }}
       />
       <EditForm
-        refresh={refresh}
+        // refresh={refresh}
         right={right3}
         messageAction={() => {
           setRight4("0px")

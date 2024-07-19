@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css"
 import { useLoginMutation } from "../../../redux/api/mutationApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
 import { setToken } from "../../../redux/slices/tokenSlice"
-import ArrowLeft from "../../../svg-component/arrowLeft"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -72,13 +71,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
   return (
     <div className="loginform-container">
       <ToastContainer />
-      <div className="back-button">
-        <ArrowLeft
-          action={() => {
-            navigate("/")
-          }}
-        />
-      </div>
+
       <div className="loginform-wrapper">
         <OnboardingHeader
           title="Login"
@@ -98,7 +91,10 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
         >
           <div className="loginform-content">
             <div className="loginform-cont">
-              <div className="loginform-group">
+              <div
+                className="loginform-group"
+                style={{ display: "flex", gap: "12px", flexDirection: "row" }}
+              >
                 <div className="step-one-single" style={{ width: "15%" }}>
                   <div>
                     <input
@@ -115,7 +111,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                     />
                   </div>
                 </div>
-                <div className="step-one-groups">
+                <div className="step-one-groups" style={{ width: "100%" }}>
                   <div className="step-one-single">
                     <div>
                       <input

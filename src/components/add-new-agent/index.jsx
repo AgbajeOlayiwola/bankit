@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import * as yup from "yup"
-import { useCreateAdminMutation } from "../../redux/api/mutationApi"
+
 import Input from "../input/input"
 import PriButton from "../primary-button/priButton"
 import SidePopup from "../side-popup/sidePopup"
@@ -29,24 +29,24 @@ const AddNewAgent = ({ right, closeAction, messageAction, refresh }) => {
     userid: "",
     role: "",
   }
-  const [
-    createAdmin,
-    {
-      data: createAdminData,
-      isLoading: createAdminLoad,
-      isSuccess: createAdminSuccess,
-      isError: createAdminFalse,
-      error: createAdminErr,
-    },
-  ] = useCreateAdminMutation()
-  useEffect(() => {
-    if (createAdminErr) {
-      showToastErrorMessage()
-    } else if (createAdminSuccess) {
-      showToastSuccessMessage()
-      refresh()
-    }
-  }, [createAdminErr, createAdminSuccess])
+  // const [
+  //   createAdmin,
+  //   {
+  //     data: createAdminData,
+  //     isLoading: createAdminLoad,
+  //     isSuccess: createAdminSuccess,
+  //     isError: createAdminFalse,
+  //     error: createAdminErr,
+  //   },
+  // ] = useCreateAdminMutation()
+  // useEffect(() => {
+  //   if (createAdminErr) {
+  //     showToastErrorMessage()
+  //   } else if (createAdminSuccess) {
+  //     showToastSuccessMessage()
+  //     refresh()
+  //   }
+  // }, [createAdminErr, createAdminSuccess])
   const showToastErrorMessage = () => {
     toast.error("Identifier or Password Incorrect", {
       position: "top-right",
@@ -73,7 +73,7 @@ const AddNewAgent = ({ right, closeAction, messageAction, refresh }) => {
               userId: `BN${values?.userId}`,
               role: values?.role,
             }
-            createAdmin(data)
+            // createAdmin(data)
             setSubmitting(false)
           }}
         >
@@ -145,7 +145,7 @@ const AddNewAgent = ({ right, closeAction, messageAction, refresh }) => {
               </div>
               <PriButton
                 text="Create User"
-                load={createAdminLoad}
+                load={null}
                 active={active}
                 action={null}
                 type="submit"

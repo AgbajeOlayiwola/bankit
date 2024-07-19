@@ -13,7 +13,7 @@ import {
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { mutationApi } from "../api/mutationApi"
-import { queryApi } from "../api/query"
+import { queryApi } from "../api/queryApi"
 import airtimeReducer from "../slices/airtimeSlice"
 import configdataReducer from "../slices/configurationDataSlice"
 import editAdminReducer from "../slices/editAdminSlice"

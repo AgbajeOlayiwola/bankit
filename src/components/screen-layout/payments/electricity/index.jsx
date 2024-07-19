@@ -1,25 +1,28 @@
 "use client"
 import React, { useState } from "react"
-import BillsStepOne from "./step1"
-import BillsStepTwo from "./step2"
+import ElectStepOne from "./step1"
+import ElectStepTwo from "./step2"
+import ElectStepThree from "./step3"
 
-const AddbillsSteps = () => {
-  const [page, setPage] = useState(0)
+const ElectricitySteps = () => {
+  const [page, setPage] = useState(2)
   const steps = () => {
     switch (page) {
       case 0:
         return (
-          <BillsStepOne
+          <ElectStepOne
             nextPage={() => setPage(page + 1)}
             movetobank={() => setPage(1)}
           />
         )
       case 1:
-        return <BillsStepTwo nextPage={() => setPage(page + 1)} />
+        return <ElectStepTwo nextPage={() => setPage(page + 1)} />
+      case 2:
+        return <ElectStepThree nextPage={() => setPage(page + 1)} />
 
       default:
         return (
-          <BillsStepOne
+          <ElectStepOne
             nextPage={() => setPage(page + 1)}
             movetobank={() => setPage(1)}
           />
@@ -29,4 +32,4 @@ const AddbillsSteps = () => {
   return <div>{steps()}</div>
 }
 
-export default AddbillsSteps
+export default ElectricitySteps

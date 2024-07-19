@@ -1,10 +1,10 @@
 import { Formik } from "formik"
-import React, { useEffect } from "react"
+import React from "react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import * as yup from "yup"
 import profileImage from "../../../assets/mini_profil_img.png"
-import { useAddPointMutation } from "../../../redux/api/mutationApi"
+
 import Input from "../../input/input"
 import PriButton from "../../primary-button/priButton"
 import Selectinput from "../../seelect-input"
@@ -24,24 +24,24 @@ const Managerewards = ({ recall }) => {
     transactionType: "",
     description: "",
   }
-  const [
-    addPoint,
-    {
-      data: addPointData,
-      isLoading: addPointLoad,
-      isSuccess: addPointSuccess,
-      isError: addPointFalse,
-      error: addPointErr,
-    },
-  ] = useAddPointMutation()
-  useEffect(() => {
-    if (addPointSuccess) {
-      showToastSuccessMessage()
-      recall()
-    } else if (addPointErr) {
-      showToastErrorMessage()
-    }
-  }, [addPointSuccess, addPointErr])
+  // const [
+  //   addPoint,
+  //   {
+  //     data: addPointData,
+  //     isLoading: addPointLoad,
+  //     isSuccess: addPointSuccess,
+  //     isError: addPointFalse,
+  //     error: addPointErr,
+  //   },
+  // ] = useAddPointMutation()
+  // useEffect(() => {
+  //   if (addPointSuccess) {
+  //     showToastSuccessMessage()
+  //     recall()
+  //   } else if (addPointErr) {
+  //     showToastErrorMessage()
+  //   }
+  // }, [addPointSuccess, addPointErr])
 
   const showToastErrorMessage = () => {
     toast.error("Rewards failed", {
@@ -64,7 +64,7 @@ const Managerewards = ({ recall }) => {
           description: values?.description,
           point: values?.pointAmount,
         }
-        addPoint(contdata)
+        // addPoint(contdata)
         setSubmitting(false)
       }}
     >
@@ -138,7 +138,7 @@ const Managerewards = ({ recall }) => {
               action={null}
               type="submit"
               active={true}
-              load={addPointLoad}
+              load={null}
             />
           </div>
         </form>

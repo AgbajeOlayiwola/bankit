@@ -1,13 +1,16 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-const baseUrl = "https://bankit-two.vercel.app/api/v1/"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react"
+
+const baseUrl = "https://api.staging.bankitafrica.com"
+
+// const baseUrl = 'https://bankit-two.vercel.app/api/v1';
+
 export const mutationApi = createApi({
-  reducerPath: "api",
+  reducerPath: "onboardingApi",
   baseQuery: fetchBaseQuery({
     baseUrl,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().token
-
-      // headers.set('x-api-key', `${process.env.BASE_KEY}`);
+      headers.set("x-api-key", "aXA7DdqHKemWwXO5maT1hiLuWbOYTyFB")
       headers.set("Accept", "application/json")
       headers.set("Content-Type", "application/json")
       if (token) {
@@ -17,150 +20,270 @@ export const mutationApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    registerNewUser: builder.mutation({
-      query: (data) => ({
-        url: "auth/register",
-        method: "POST",
-        body: data,
-      }),
-    }),
-    sendOtp: builder.mutation({
-      query: (data) => ({
-        url: "auth/send-phone-verification-code",
-        method: "POST",
-        body: data,
-      }),
-    }),
-    verifyOtp: builder.mutation({
-      query: (data) => ({
-        url: "auth/verify-phone-number",
-        method: "POST",
-        body: data,
-      }),
+    signupInit: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/signup/initiate",
+          method: "POST",
+          body,
+        }
+      },
     }),
     login: builder.mutation({
-      query: (data) => ({
-        url: "auth/login",
-        method: "POST",
-        body: data,
-      }),
+      query: (body) => {
+        return {
+          url: "auth/login",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    changePassword: builder.mutation({
-      query: (data) => ({
-        url: "auth/change-password",
-        method: "POST",
-        body: data,
-      }),
+    verifyPhone: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/signup/phone/verify",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    verifyMFA: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/mfa",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    verifyEmail: builder.mutation({
+      query: (body) => {
+        return {
+          url: "user/email/verify",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    sendPhoneOtp: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/send-phone-verification-code",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    signUp: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/signup/profile",
+          method: "PATCH",
+          body,
+        }
+      },
     }),
     forgotPassword: builder.mutation({
-      query: (data) => ({
-        url: "auth/forgot-password",
-        method: "POST",
-        body: data,
-      }),
+      query: (body) => {
+        return {
+          url: "auth/forgot-passcode",
+          method: "POST",
+          body,
+        }
+      },
     }),
     resetPassword: builder.mutation({
-      query: (data) => ({
-        url: "auth/reset-password",
-        method: "POST",
-        body: data,
-      }),
+      query: (body) => {
+        return {
+          url: "auth/forgot-password",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    setUserPin: builder.mutation({
-      query: (data) => ({
-        url: "users/set-pin",
-        method: "POST",
-        body: data,
-      }),
+    setPin: builder.mutation({
+      query: (body) => {
+        return {
+          url: "user/transaction-pin",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    userChangePin: builder.mutation({
-      query: (data) => ({
-        url: "users/change-pin",
-        method: "POST",
-        body: data,
-      }),
+    checkAlias: builder.mutation({
+      query: (body) => {
+        return {
+          url: "username/check",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    usersLivenessCheck: builder.mutation({
-      query: (data) => ({
-        url: "users/liveness-check",
-        method: "POST",
-        body: data,
-      }),
+    changePin: builder.mutation({
+      query: (body) => {
+        return {
+          url: "users/change-pin",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    usersFinancialHabit: builder.mutation({
-      query: (data) => ({
-        url: "users/financial-habit",
-        method: "POST",
-        body: data,
-      }),
+    changePassword: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/change-password",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    vrifyUsrEmail: builder.mutation({
-      query: (data) => ({
-        url: "users/verify-email",
-        method: "POST",
-        body: data,
-      }),
+    upOne: builder.mutation({
+      query: (body) => {
+        return {
+          url: "kyc/tier-one",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    vrifyUsrId: builder.mutation({
-      query: (data) => ({
-        url: "users/idverification",
-        method: "POST",
-        body: data,
-      }),
+    liveness: builder.mutation({
+      query: (body) => {
+        return {
+          url: "users/liveness-check",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    upgradeToTierOne: builder.mutation({
-      query: (data) => ({
-        url: "users/upgrade-tierOne",
-        method: "POST",
-        body: data,
-      }),
+    collectHabit: builder.mutation({
+      query: (body) => {
+        return {
+          url: "users/financial-habit",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    createAdmin: builder.mutation({
-      query: (data) => ({
-        url: "management/admin",
-        method: "POST",
-        body: data,
-      }),
+    getBillersByCat: builder.mutation({
+      query: (body) => {
+        return {
+          url: "billings/category",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    updateAdmin: builder.mutation({
-      query: (data) => ({
-        url: `management/edit/profile/${data?.id}`,
-        method: "POST",
-        body: data,
-      }),
+    buyData: builder.mutation({
+      query: (body) => {
+        return {
+          url: "billings/buy/data",
+          method: "POST",
+          body,
+        }
+      },
     }),
-    addPoint: builder.mutation({
-      query: (data) => ({
-        url: `management/manage-point`,
-        method: "POST",
-        body: data,
-      }),
-    }),
-
     buyAirtime: builder.mutation({
-      query: (data) => ({
-        url: `billings/buy/airtime`,
-        method: "POST",
-        body: data,
-      }),
+      query: (body) => {
+        return {
+          url: "billings/buy/airtime",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    getBundle: builder.mutation({
+      query: (body) => {
+        return {
+          url: "billings/databundle/bundles",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    verifyId: builder.mutation({
+      query: (body) => {
+        return {
+          url: "kyc/tier-two/id-verification",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    verifyAddy: builder.mutation({
+      query: (body) => {
+        return {
+          url: "kyc/tier-two/address",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    resendOtp: builder.mutation({
+      query: (id) => {
+        return {
+          url: "otp/resend",
+          method: "POST",
+          body: {
+            flow_key: id,
+          },
+        }
+      },
+    }),
+    makeTransfer: builder.mutation({
+      query: (body) => {
+        return {
+          url: "transfer",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    payBill: builder.mutation({
+      query: (body) => {
+        return {
+          url: "bill-payment",
+          method: "POST",
+          body,
+        }
+      },
+    }),
+    addBeneficiary: builder.mutation({
+      query: (body) => {
+        return {
+          url: "transaction/beneficiary",
+          method: "POST",
+          body,
+        }
+      },
     }),
   }),
 })
 
 export const {
+  useVerifyMFAMutation,
+  useAddBeneficiaryMutation,
+  usePayBillMutation,
+  useMakeTransferMutation,
+  useResendOtpMutation,
+  useChangePasswordMutation,
+  useVerifyIdMutation,
+  useGetBundleMutation,
+  useBuyDataMutation,
   useBuyAirtimeMutation,
-  useAddPointMutation,
-  useUpdateAdminMutation,
-  useVrifyUsrIdMutation,
-  useUpgradeToTierOneMutation,
-  useCreateAdminMutation,
-  useUserChangePinMutation,
-  useUsersFinancialHabitMutation,
-  useSetUserPinMutation,
-  useVrifyUsrEmailMutation,
-  usersLivenessCheck,
-  useRegisterNewUserMutation,
-  useSendOtpMutation,
-  useVerifyOtpMutation,
+  useGetBillersByCatMutation,
+  useUpOneMutation,
+  useLivenessMutation,
   useLoginMutation,
+  useChangePinMutation,
+  useVerifyPhoneMutation,
+  useSendPhoneOtpMutation,
+  useSignUpMutation,
+  useForgotPasswordMutation,
+  useResetPasswordMutation,
+  useSetPinMutation,
+  useCollectHabitMutation,
+  useVerifyEmailMutation,
+  useVerifyAddyMutation,
+  useSignupInitMutation,
+  useCheckAliasMutation,
 } = mutationApi

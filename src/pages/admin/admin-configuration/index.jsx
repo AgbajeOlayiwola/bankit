@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import Rewards from "../../../components/rewards"
 import TableOne from "../../../components/tables/table-one"
-import { useGetAllPointsQuery } from "../../../redux/api/query"
+// import { useGetAllPointsQuery } from "../../../redux/api/queryApi"
 import { setConfigdata } from "../../../redux/slices/configurationDataSlice"
 import "./styles.css"
 const AdminConfiguration = () => {
   const [right, setRight] = useState("-700px")
   const [right2, setRight2] = useState("-700px")
   const dispatch = useDispatch()
-  const { data, isLoading, isSuccess, isError, error, refetch } =
-    useGetAllPointsQuery() // Use the query hook
-  useEffect(() => {
-    refetch()
-  }, [refetch])
-  const recall = () => {
-    refetch()
-  }
+  // const { data, isLoading, isSuccess, isError, error, refetch } =
+  // useGetAllPointsQuery()  // Use the query hook
+  // useEffect(() => {
+  //   refetch()
+  // }, [refetch])
+  // const recall = () => {
+  //   refetch()
+  // }
 
   const table_header = [
     "S/N",
@@ -35,13 +35,13 @@ const AdminConfiguration = () => {
       <h1>Point Management</h1>
       <TableOne
         head={table_header}
-        body={data?.user}
-        load={isLoading}
+        // body={data?.user}
+        // load={isLoading}
         action={(item) => actionIteem(item)}
       />
 
       <Rewards
-        recall={recall}
+        // recall={recall}
         right={right}
         messageAction={() => {
           setRight2("0px")
