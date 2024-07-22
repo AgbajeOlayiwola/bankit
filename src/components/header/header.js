@@ -150,7 +150,15 @@ const Header = () => {
         ) : (
           <div className="header-container">
             <div className="header-logo">
-              <img src={bankitLogo} width={97} height={26} alt="bankit logo" />
+              <img
+                src={bankitLogo}
+                width={97}
+                height={26}
+                alt="bankit logo"
+                onClick={() => {
+                  navigate("/")
+                }}
+              />
             </div>
           </div>
         )}
