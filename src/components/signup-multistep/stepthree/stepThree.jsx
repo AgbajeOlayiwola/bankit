@@ -73,6 +73,7 @@ const StepThree = ({ back, forward, page }) => {
         text="Next"
         active={active}
         action={() => {
+          forward()
           const data = {
             password: profile?.password,
             phone: profile?.phoneNumber,

@@ -72,6 +72,7 @@ const StepFive = ({ back, forward, page }) => {
       <PriButton
         text="Next"
         active={active}
+        action={forward}
         // action={() => {
         //   const data = {
         //     password: profile?.password,

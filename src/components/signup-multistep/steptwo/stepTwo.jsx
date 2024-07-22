@@ -143,7 +143,8 @@ const StepTwo = ({
         <PriButton
           text="Next"
           active={active}
-          action={null}
+          action={forward}
+
           // load={newOtpLoad}
         />
       </div>

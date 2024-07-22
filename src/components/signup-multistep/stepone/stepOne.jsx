@@ -9,7 +9,7 @@ import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepOne.css"
-const StepOne = ({ submit, page }) => {
+const StepOne = ({ submit, page, forward }) => {
   const {
     register,
     handleSubmit,
@@ -193,7 +193,8 @@ const StepOne = ({ submit, page }) => {
           </div>
           <PriButton
             text="Next"
-            active={active}
+            active={true}
+            action={forward}
             load={null}
             // {newOtpLoad}
           />

@@ -14,7 +14,7 @@ import StepTwo from "./steptwo/stepTwo"
 
 const SignupMulti = () => {
   const dispatch = useDispatch()
-  const [count, setCount] = useState(8)
+  const [count, setCount] = useState(0)
   const [type, setType] = useState("")
   const add = () => {
     setCount(count + 1)
@@ -31,6 +31,8 @@ const SignupMulti = () => {
               dispatch(setProfile(e))
               add()
             }}
+            forward={add}
+            nextPage={() => count + 1}
             page={count}
           />
         )
