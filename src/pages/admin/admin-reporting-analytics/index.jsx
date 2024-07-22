@@ -1,6 +1,6 @@
 import React from "react"
 import CardOne from "../../../components/card/card-one"
-import { VerticalBarChart } from "../../../components/charts/vertical-bar-chart"
+import { LineChart } from "../../../components/charts/vertical-bar-chart"
 import DepositlargeSvg from "../../../svg-component/deposit_largeSvg"
 import DepositsmallSvg from "../../../svg-component/deposit_smallSvg"
 import Exportsvg from "../../../svg-component/exportsvg"
@@ -94,7 +94,7 @@ const AdmminReportingAnalytics = () => {
           </div>
           <div></div>
         </div>
-        <VerticalBarChart ChartData={chartsData} />
+        <LineChart ChartData={chartsData} />
       </div>
     </div>
   )

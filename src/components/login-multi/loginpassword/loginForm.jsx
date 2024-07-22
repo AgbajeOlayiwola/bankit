@@ -106,10 +106,10 @@ const LoginPassword = ({ forward, forwardToAdmin, next }) => {
                         name="identifier"
                         placeholder=" "
                         {...register("password", {
-                          required: "Phone or Email is required",
+                          required: "Password is required",
                         })}
                       />
-                      <span>Phone or email</span>
+                      <span>Password</span>
                     </div>
                     <Info />
                   </div>

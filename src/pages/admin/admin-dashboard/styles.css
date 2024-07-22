@@ -16,7 +16,7 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 15px;
   padding-bottom: 50px;
 }
 .chart-top {

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
-import Logo from "../../svg-component/logo"
+import advert from "../../assets/bankitAd.png"
+import sidebarLogo from "../../assets/sidebarLogo.png"
 import SideBarData from "../../utils/sidebarData"
 import "./sidebar.css"
-
 const Sidebar = ({ action, action2, showSide }) => {
   const location = useLocation()
-  const color1 = location.pathname === "/user/dashboard" ? "#062983" : "#666666"
+  const color1 = location.pathname === "/user/dashboard" ? "#062983" : "#5482F7"
   const color2 =
-    location.pathname === "/user/transactions" ? "#062983" : "#666666"
-  const color3 = location.pathname === "/user/analytics" ? "#062983" : "#666666"
-  const color4 = location.pathname === "/user/cards" ? "#062983" : "#666666"
-  const color5 = location.pathname === "/user/settings" ? "#062983" : "#666666"
+    location.pathname === "/user/transactions" ? "#062983" : "#5482F7"
+  const color3 = location.pathname === "/user/analytics" ? "#062983" : "#5482F7"
+  const color4 = location.pathname === "/user/cards" ? "#062983" : "#5482F7"
+  const color5 = location.pathname === "/user/settings" ? "#062983" : "#5482F7"
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const handleWindowResize = () => {
@@ -40,7 +40,7 @@ const Sidebar = ({ action, action2, showSide }) => {
       }
     >
       <div className="sidebar-cont">
-        <Logo />
+        <img src={sidebarLogo} width={97} height={32} alt="bankit logo" />
         <div className="sidebar-links">
           {SideBarData(color1, color2, color3, color4, color5)?.links?.map(
             (item, index) => {
@@ -62,6 +62,7 @@ const Sidebar = ({ action, action2, showSide }) => {
           )}
         </div>
       </div>
+      <img src={advert} width={241} height={221} alt="bankit ad" />
       <div className="sidebar-wrapper">
         {SideBarData()?.subLinks?.map((item, index) => {
           return (

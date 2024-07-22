@@ -122,7 +122,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                           required: "Phone or Email is required",
                         })}
                       />
-                      <span>Phone or email</span>
+                      <span>Phone Number</span>
                     </div>
                     <Info />
                   </div>

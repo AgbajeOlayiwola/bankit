@@ -59,7 +59,8 @@
 }
 
 .sidebar-single p {
-  color: var(--text-secondary, #666);
+  color: var(--Palette-Blue-500, #5482f7);
+
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

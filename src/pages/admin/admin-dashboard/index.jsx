@@ -1,8 +1,12 @@
 import React from "react"
+import addMmoneyImage from "../../../assets/addmoney.png"
 import bannerImage from "../../../assets/banner.png"
 import cardImage from "../../../assets/cardImage.png"
+import recieptImage from "../../../assets/recieptImage.png"
+import sendmomeyImage from "../../../assets/sendmoney.png"
 import CardOne from "../../../components/card/card-one"
-import { VerticalBarChart } from "../../../components/charts/vertical-bar-chart"
+import CardThree from "../../../components/card/card-three"
+import { LineChart } from "../../../components/charts/vertical-bar-chart"
 import { dashsidejsonData } from "../../../components/data"
 import SideTable from "../../../components/tables/side-table"
 import "./styles.css"
@@ -11,51 +15,77 @@ const AdminDashboard = () => {
     {
       text: "Lifestyle",
       smallSvg: cardImage,
-      price: "N999,187,519",
+      price: "N0.00",
     },
     {
       text: "Kiddies",
       smallSvg: cardImage,
-      price: "N999,187,519",
+      price: "N0.00",
     },
     {
       text: "Business",
       smallSvg: cardImage,
-      price: "N999,187,519",
+      price: "N0.00",
     },
   ]
+  const serviceData = [
+    {
+      title: "Add Money",
+      image: addMmoneyImage,
+      about: "Fund your BankIT account through transfer or card deposit ",
+    },
+    {
+      title: "Send Money",
+      image: sendmomeyImage,
+      about: "Transfer funs to any account through your BankIT account ",
+    },
+    {
+      title: "Pay Bills",
+      image: recieptImage,
+      about:
+        "Make payment for your airtime, data, electricity, cable TV and more",
+    },
+  ]
+
   const chartData = [
     {
-      companyName: "Sun",
-      progressPaymentPrice: 20,
+      companyName: "Company A",
+      blueLineData: 1000,
+      redLineData: 800,
     },
     {
-      companyName: "Mon",
-      progressPaymentPrice: 100,
+      companyName: "Company A",
+      blueLineData: 1300,
+      redLineData: 800,
     },
     {
-      companyName: "Tue",
-      progressPaymentPrice: 150,
+      companyName: "Company A",
+      blueLineData: 3000,
+      redLineData: 800,
     },
     {
-      companyName: "Wed",
-      progressPaymentPrice: 200,
+      companyName: "Company B",
+      blueLineData: 2700,
+      redLineData: 1500,
     },
     {
-      companyName: "Thu",
-      progressPaymentPrice: 250,
+      companyName: "Company B",
+      blueLineData: 1800,
+      redLineData: 1500,
     },
     {
-      companyName: "Fri",
-      progressPaymentPrice: 300,
+      companyName: "Company B",
+      blueLineData: 1000,
+      redLineData: 1500,
     },
+    // Add more data as needed
   ]
+
   return (
     <div className="dashboard">
       <img src={bannerImage} />
       <div className="cardGridDash1">
         <h2>Your Accounts</h2>
-
         <div className="dashCardGrid">
           {cardData.map((item, index) => {
             return (
@@ -70,14 +100,13 @@ const AdminDashboard = () => {
       </div>
       <div className="cardGridDash1">
         <h2>Services</h2>
-
         <div className="dashCardGrid">
-          {cardData.map((item, index) => {
+          {serviceData.map((item, index) => {
             return (
-              <CardOne
-                text={item?.text}
-                price={item?.price}
-                smallSvg={item?.smallSvg}
+              <CardThree
+                title={item?.title}
+                about={item?.about}
+                image={item?.image}
               />
             )
           })}
@@ -121,7 +150,7 @@ const AdminDashboard = () => {
                   </div>
                   <div></div>
                 </div>
-                <VerticalBarChart ChartData={chartData} />
+                <LineChart ChartData={chartData} />
               </div>
             </div>
           </div>

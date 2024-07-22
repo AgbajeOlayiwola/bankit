@@ -94,6 +94,59 @@ const Header = () => {
               </div>
             ) : null}
           </div>
+        ) : location.pathname === "/" ? (
+          <div className="header-container">
+            <div className="header-logo">
+              <img src={bankitLogo} width={97} height={26} alt="bankit logo" />
+            </div>
+            {width > 900 ? (
+              <>
+                {/* <div className="header-nav">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="#">Features</NavLink>
+                <NavLink to="#">Open an Account</NavLink>
+                <NavLink to="#">About Us</NavLink>
+              </div> */}
+                <div className="header-action">
+                  {/* <NavLink>Contact Us</NavLink> */}
+                  <button
+                    className="header-login"
+                    onClick={() => {
+                      navigate("/auth/login")
+                    }}
+                  >
+                    Login
+                  </button>
+                  <button
+                    className="header-signup"
+                    onClick={() => {
+                      navigate("/auth/signup")
+                    }}
+                  >
+                    Get early access
+                  </button>
+                </div>
+              </>
+            ) : (
+              <BurgerMenuSvg onClick={() => setShowDropDown((prev) => !prev)} />
+            )}
+            {showDropDown ? (
+              <div className="head">
+                <div className="header-action">
+                  <a href="#earlyAccessForm">
+                    <button
+                      className="header-signup"
+                      // onClick={() => {
+                      //   navigate("/auth/signup")
+                      // }}
+                    >
+                      Get early access
+                    </button>
+                  </a>
+                </div>
+              </div>
+            ) : null}
+          </div>
         ) : (
           <div className="header-container">
             <div className="header-logo">

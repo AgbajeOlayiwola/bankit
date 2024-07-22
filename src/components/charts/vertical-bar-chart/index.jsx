@@ -1,27 +1,31 @@
 "use client"
 import {
-  BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
   LinearScale,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
 } from "chart.js"
-import { Bar } from "react-chartjs-2"
+import { Line } from "react-chartjs-2"
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+)
 
-export function VerticalBarChart({ ChartData }) {
+export function LineChart({ ChartData }) {
   const options = {
     scales: {
-      xAxes: [
-        {
-          barPercentage: 0.4,
-        },
-      ],
       x: {
-        display: true, // show/ hide x-axis
+        display: true, // show/hide x-axis
         grid: {
           display: false, // show/hide grid line in x-axis
         },
@@ -33,51 +37,41 @@ export function VerticalBarChart({ ChartData }) {
         },
       },
     },
-    cornerRadius: 200,
     plugins: {
       legend: {
-        display: false,
+        display: true,
       },
       tooltip: {
         callbacks: {
           label: function (data) {
-            return "Custom Label Text:" + data.formattedValue
+            return "Custom Label Text: " + data.formattedValue
           },
-        },
-      },
-
-      datalabels: {
-        formatter: function (value) {
-          //custom money icon
-          return "₺" + new Intl.NumberFormat("tr-TR").format(value)
-        },
-        color: "white",
-        font: {
-          weight: "bold",
-          size: 1,
-          family: "poppins",
         },
       },
     },
   }
-  // The following colors will be used sequentially for the chart bars
-  const backgroundColors = ["#5482F7"]
 
   const data = {
     labels: ChartData.map((item) => item.companyName),
     datasets: [
       {
-        barPercentage: 13,
-        barThickness: 906,
-        maxBarThickness: 90,
-        borderRadius: 9,
-        minBarLength: 0,
-        label: ChartData.map((item) => item.progressPaymentPrice),
-        data: ChartData.map((item) => item.progressPaymentPrice),
-        backgroundColor: backgroundColors,
+        label: "Total Credit",
+        data: ChartData.map((item) => item.blueLineData),
+        borderColor: "#5482F7",
+        backgroundColor: "rgba(84, 130, 247, 0.2)",
+        fill: true,
+        tension: 0.4, // curve the lines
+      },
+      {
+        label: "Total Debit",
+        data: ChartData.map((item) => item.redLineData),
+        borderColor: "#FF0000",
+        backgroundColor: "rgba(255, 0, 0, 0.2)",
+        fill: true,
+        tension: 0.4, // curve the lines
       },
     ],
   }
 
-  return <Bar data={data} options={options} />
+  return <Line data={data} options={options} />
 }

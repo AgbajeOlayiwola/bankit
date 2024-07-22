@@ -5,9 +5,10 @@ import CardsSvg from "../svg-component/cardsSvg"
 import DashboardSvg from "../svg-component/dashboardSvg"
 import HelpCenter from "../svg-component/helpCenter"
 import Logout from "../svg-component/logout"
+import PaymentSvg from "../svg-component/paymentSvg"
 import SettingsSvg from "../svg-component/settingsSvg"
+import StatementsSvg from "../svg-component/statementsSvg"
 import TransactionSvg from "../svg-component/transactionSvg"
-import Usermanagement from "../svg-component/user-management"
 
 const SideBarData = (color1, color2, color3, color4, color5) => {
   const location = useLocation()
@@ -20,12 +21,12 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
           link: "/admin/dashboard",
         },
         {
-          img: <Usermanagement color={color2} />,
+          img: <PaymentSvg color={color2} />,
           text: "Payments",
           link: "/admin/custom-management",
         },
         {
-          img: <TransactionSvg color={color2} />,
+          img: <CardsSvg color={color2} />,
           text: "Cards",
           link: "/admin/transaction-feed",
         },
@@ -46,7 +47,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
         //   link: "/admin/loan-management",
         // },
         {
-          img: <Usermanagement color={color5} />,
+          img: <StatementsSvg color={color5} />,
           text: "Statements",
           link: "/admin/user-management",
         },
