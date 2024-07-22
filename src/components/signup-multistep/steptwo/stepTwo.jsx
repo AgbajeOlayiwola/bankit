@@ -120,7 +120,7 @@ const StepTwo = ({
             </p>
             {/* {title === "Enter OTP" ? null : <h3>{text3}</h3>} */}
           </div>
-          <p className="header_steps">Step 2 of 5</p>
+          <p className="header_steps">Step 2 of 7</p>
         </div>
         <div className="steptwo-otp">
           <Otp
