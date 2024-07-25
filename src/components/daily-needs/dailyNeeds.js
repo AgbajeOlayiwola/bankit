@@ -28,7 +28,7 @@ const DailyNeeds = () => {
                   <img
                     src={phone_upright}
                     alt="phone"
-                    width={width > 900 ? 346 : 390}
+                    width={width > 900 ? 346 : 300}
                     height={width > 900 ? 664 : 580}
                   />
                 </div>

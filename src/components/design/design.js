@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import exportImage from "../../assets/export.png"
+import mob_phone_upright from "../../assets/mobileViewMAcBook.png"
 import appPhone from "../../assets/phoneLaptopImageI.png"
 import totalPoint from "../../assets/totalPoint.png"
 import Layout from "../../utils/layout/layout"
@@ -87,13 +88,24 @@ const Design = () => {
                   hand.
                 </p>
               </div>
-              <div className="designs-images">
-                <img
-                  src={appPhone}
-                  alt="bankitapphone"
-                  className="phoneLaptop"
-                />
-              </div>
+              {width > 900 ? (
+                <div className="designs-images">
+                  <img
+                    src={appPhone}
+                    alt="bankitapphone"
+                    className="phoneLaptop"
+                  />
+                </div>
+              ) : (
+                <div>
+                  <img
+                    src={mob_phone_upright}
+                    alt="phone"
+                    width={400}
+                    height={350}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </Layout>

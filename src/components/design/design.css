@@ -232,4 +232,31 @@
     width: 100%;
     gap: 32px;
   }
+  .designs-conts {
+    display: flex;
+    flex-direction: column;
+  }
+  .design-conts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  .designs-images {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+  .revolutess-containers {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 20px 0px 0px 70px;
+    background-color: var(--Primitives-White, #062983);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 32px;
+  }
 }
