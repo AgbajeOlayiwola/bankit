@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import phone_upright from "../../assets/phone_image.png"
+import phone_upright from "../../assets/iphonImage.png"
 import Layout from "../../utils/layout/layout"
 import Pointssvg from "../svgs/pointssvg"
 import "./dailyNeeds.css"
@@ -28,8 +28,8 @@ const DailyNeeds = () => {
                   <img
                     src={phone_upright}
                     alt="phone"
-                    width={width > 900 ? 546 : 390}
-                    height={width > 900 ? 764 : 580}
+                    width={width > 900 ? 346 : 390}
+                    height={width > 900 ? 664 : 580}
                   />
                 </div>
               </div>

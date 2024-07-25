@@ -69,7 +69,7 @@ const Header = () => {
                       //   navigate("/auth/signup")
                       // }}
                     >
-                      Get early access
+                      Create an account
                     </button>
                   </a>
                 </div>

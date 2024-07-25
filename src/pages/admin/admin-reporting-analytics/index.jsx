@@ -1,9 +1,10 @@
 import React from "react"
-import CardOne from "../../../components/card/card-one"
+import { FaArrowTrendDown } from "react-icons/fa6"
+import uptrend from "../../../assets/greenUptrend.png"
+import { VerticalBarChart } from "../../../components/charts/bar-chart/indecx"
 import { LineChart } from "../../../components/charts/vertical-bar-chart"
 import DepositlargeSvg from "../../../svg-component/deposit_largeSvg"
 import DepositsmallSvg from "../../../svg-component/deposit_smallSvg"
-import Exportsvg from "../../../svg-component/exportsvg"
 import Totaltransferssmallsvg from "../../../svg-component/totaltransfers_smallsvg"
 import Totaltrasfersvg from "../../../svg-component/totaltrasfersvg"
 import TransactlargeSvg from "../../../svg-component/transact_largeSvg"
@@ -38,63 +39,100 @@ const AdmminReportingAnalytics = () => {
       price: "870,519",
     },
   ]
-  const chartsData = [
+  const chartData = [
     {
-      companyName: "Sun",
-      progressPaymentPrice: 20,
+      companyName: "Company A",
+      blueLineData: 1000,
+      redLineData: 800,
     },
     {
-      companyName: "Mon",
-      progressPaymentPrice: 100,
+      companyName: "Company A",
+      blueLineData: 1300,
+      redLineData: 800,
     },
     {
-      companyName: "Tue",
-      progressPaymentPrice: 150,
+      companyName: "Company A",
+      blueLineData: 2000,
+      redLineData: 800,
     },
     {
-      companyName: "Wed",
-      progressPaymentPrice: 200,
+      companyName: "Company B",
+      blueLineData: 2700,
+      redLineData: 1500,
     },
     {
-      companyName: "Thu",
-      progressPaymentPrice: 250,
+      companyName: "Company B",
+      blueLineData: 1800,
+      redLineData: 1500,
     },
     {
-      companyName: "Fri",
-      progressPaymentPrice: 300,
+      companyName: "Company B",
+      blueLineData: 1000,
+      redLineData: 1500,
     },
+    // Add more data as needed
   ]
+
   return (
     <div className="reports">
-      <h1>Reporting and Analytics</h1>{" "}
-      <div className="cardGrid">
-        {cardData.map((item, index) => {
-          return (
-            <CardOne
-              text={item?.text}
-              largesvg={item?.svg}
-              price={item?.price}
-              smallSvg={item?.smallSvg}
-            />
-          )
-        })}
-      </div>
-      <div className="filters">
-        <div className="filter-div">
-          <div>
-            Export <Exportsvg />
-          </div>
-        </div>
-      </div>
-      <div className="barchart-area">
+      <div className="barchart-area-i">
         <div className="chart-top">
           <div className="chart-top-text">
-            <h2>Customer Growth</h2>
-            <h3>Total no of customers</h3>
+            <h2>Analytics</h2>
+            <div className="chart-labels">
+              <div className="creditData">
+                <h3>Total Debit</h3>
+                <h2>N20,000,000.00</h2>
+              </div>
+              <div className="credit-data-i">
+                <h3>Total Credit</h3>
+                <h2>N20,000,000.00</h2>
+              </div>
+            </div>
           </div>
           <div></div>
         </div>
-        <LineChart ChartData={chartsData} />
+        <LineChart ChartData={chartData} />
+      </div>
+      <div className="vertical-charts">
+        <div className="barchart-areas">
+          <div className="chart-top">
+            <div className="chart-top-info">
+              <div className="chart-top-left">
+                <img src={uptrend} width={40} height={40} />
+                <h2>Credit</h2>
+              </div>
+              <div className="chart-top-text">
+                <h2>N20,000,000</h2>
+                <h3 className="chart-top-up">
+                  <FaArrowTrendDown />
+                  Total no of customers
+                </h3>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <VerticalBarChart ChartData={chartData} barColor={"blue"} />
+        </div>
+        <div className="barchart-areas">
+          <div className="chart-top">
+            <div className="chart-top-info">
+              <div className="chart-top-left">
+                <img src={uptrend} width={40} height={40} />
+                <h2>Debit</h2>
+              </div>
+              <div className="chart-top-text">
+                <h2>N20,000,000</h2>
+                <h3 className="chart-top-down">
+                  <FaArrowTrendDown />
+                  15% down from last week
+                </h3>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <VerticalBarChart ChartData={chartData} barColor={"red"} />
+        </div>
       </div>
     </div>
   )

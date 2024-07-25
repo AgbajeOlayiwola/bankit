@@ -13,7 +13,7 @@
 
 .welcome-cont {
   width: 100%;
-  padding-top: 0%;
+  padding-top: 20px;
   gap: 124px;
   height: fit-content;
   /* max-width: 1120px; */
@@ -75,15 +75,15 @@
   right: 0px;
 }
 .phone {
-  width: 556px;
-  height: 866px;
+  width: 342px;
+  height: 689px;
 }
 .card {
   position: absolute;
   bottom: 100px;
   width: 370px;
   height: 370px;
-  right: 297px;
+  right: 197px;
   animation: cardAnimation 3s infinite forwards;
 }
 
@@ -152,6 +152,7 @@
 
   .welcome-cont {
     width: 100%;
+    padding-top: 20px;
     gap: 124px;
     max-width: 1120px;
     display: flex;

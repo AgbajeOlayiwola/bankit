@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import WelcomeCard from "../../assets/BankitCardBlack.png"
-import WelcomeImage from "../../assets/Phoneimage18.png"
+import WelcomeImage from "../../assets/iphonImage.png"
 import Cover from "../cover"
 import Header from "../header/header"
 import PriButton from "../primary-button/priButton"
@@ -56,8 +56,8 @@ const Welcome = () => {
                   src={WelcomeImage}
                   alt="welcome"
                   className="phone"
-                  width={width > 1200 ? 555 : 300}
-                  height={width > 1200 ? 866 : 400}
+                  width={width > 1200 ? 455 : 300}
+                  height={width > 1200 ? 766 : 400}
                 />
               </div>
             ) : null}

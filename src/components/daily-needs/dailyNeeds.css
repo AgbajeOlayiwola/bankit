@@ -9,6 +9,7 @@
 .daily-needs-wrapper {
   display: flex;
   flex-direction: column;
+  padding: 20px 0px;
   gap: 80px;
 }
 .daily_neads_list_div {

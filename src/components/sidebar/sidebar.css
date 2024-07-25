@@ -20,7 +20,7 @@
   max-width: 300px;
   overflow: hidden;
   position: absolute;
-  padding: 48px 11px 104px;
+  padding: 24px 11px 104px;
   z-index: 1000;
   transition: all ease-in 0.5s;
   box-sizing: border-box;

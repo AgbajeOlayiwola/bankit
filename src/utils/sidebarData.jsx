@@ -1,4 +1,5 @@
 import React from "react"
+import { IoMdSettings } from "react-icons/io"
 import { useLocation } from "react-router-dom"
 import AnalyticsSvg from "../svg-component/analyticsSvg"
 import CardsSvg from "../svg-component/cardsSvg"
@@ -6,7 +7,6 @@ import DashboardSvg from "../svg-component/dashboardSvg"
 import HelpCenter from "../svg-component/helpCenter"
 import Logout from "../svg-component/logout"
 import PaymentSvg from "../svg-component/paymentSvg"
-import SettingsSvg from "../svg-component/settingsSvg"
 import StatementsSvg from "../svg-component/statementsSvg"
 import TransactionSvg from "../svg-component/transactionSvg"
 
@@ -25,21 +25,21 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
           text: "Payments",
           link: "/admin/custom-management",
         },
-        {
-          img: <CardsSvg color={color2} />,
-          text: "Cards",
-          link: "/admin/transaction-feed",
-        },
+        // {
+        //   img: <CardsSvg color={color2} />,
+        //   text: "Cards",
+        //   link: "/admin/transaction-feed",
+        // },
         {
           img: <AnalyticsSvg color={color3} />,
           text: "Analytics",
           link: "/admin/reporting-analytics",
         },
-        {
-          img: <SettingsSvg color={color5} />,
-          text: "Transactions",
-          link: "/admin/configuration",
-        },
+        // {
+        //   img: <SettingsSvg color={color5} />,
+        //   text: "Transactions",
+        //   link: "/admin/configuration",
+        // },
 
         // {
         //   img: <Loanmanagmentsvg color={color5} />,
@@ -59,7 +59,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
       ],
       subLinks: [
         {
-          img: <HelpCenter />,
+          img: <IoMdSettings style={{ color: `${color5}` }} />,
           text: "Settings",
         },
         {
@@ -92,7 +92,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
           link: "/user/cards",
         },
         {
-          img: <SettingsSvg color={color5} />,
+          img: <IoMdSettings style={{ color: color5 }} />,
           text: "Settings",
           link: "/user/settings",
         },

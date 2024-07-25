@@ -39,7 +39,7 @@ export function LineChart({ ChartData }) {
     },
     plugins: {
       legend: {
-        display: true,
+        display: false, // Set this to false to hide the legend
       },
       tooltip: {
         callbacks: {
@@ -55,7 +55,6 @@ export function LineChart({ ChartData }) {
     labels: ChartData.map((item) => item.companyName),
     datasets: [
       {
-        label: "Total Credit",
         data: ChartData.map((item) => item.blueLineData),
         borderColor: "#5482F7",
         backgroundColor: "rgba(84, 130, 247, 0.2)",
@@ -63,7 +62,6 @@ export function LineChart({ ChartData }) {
         tension: 0.4, // curve the lines
       },
       {
-        label: "Total Debit",
         data: ChartData.map((item) => item.redLineData),
         borderColor: "#FF0000",
         backgroundColor: "rgba(255, 0, 0, 0.2)",

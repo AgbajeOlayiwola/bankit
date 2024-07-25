@@ -10,7 +10,7 @@ const SideTable = ({ sign, jsonData, load }) => {
               <div className="bankImageCover">
                 <img src={item.imageSrc} height={24} width={24} alt="image" />
               </div>
-              <div className={"date"}>
+              <div className={"dates"}>
                 <h4>{item.title}</h4>
                 <h5>{item.subtitle}</h5>
               </div>

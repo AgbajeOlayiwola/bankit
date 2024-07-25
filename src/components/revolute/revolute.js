@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import Phone from "../../assets/iPhone.png"
+import Phone from "../../assets/phoneImageII.png"
 import Layout from "../../utils/layout/layout"
 import PriButton from "../primary-button/priButton"
 import "./revolute.css"
@@ -58,7 +58,7 @@ const Revolute = () => {
         </div>
 
         <div className="revolute-img">
-          <img src={Phone} alt="phone" />
+          <img src={Phone} alt="phone" className="revoplute_image" />
         </div>
       </div>
     </Layout>

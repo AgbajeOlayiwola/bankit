@@ -24,7 +24,7 @@
   line-height: 24px;
   text-align: left;
 
-  color: #666666;
+  color: var(--Text-Default, #262626);
 }
 .large-font {
   font-family: SF Pro Display;

@@ -1,6 +1,6 @@
 .revolute-container {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
   align-items: center;
   padding: 50px 70px;
   background-color: #9db7fb60;
@@ -116,8 +116,10 @@
 }
 
 .revolute-img img {
-  width: 100%;
+  width: 550px;
+  height: 575px;
 }
+
 @media screen and (max-width: 975px) {
   .revolute-container {
     display: flex;

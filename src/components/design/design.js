@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import appPhone from "../../assets/Group308.png"
 import exportImage from "../../assets/export.png"
+import appPhone from "../../assets/phoneLaptopImageI.png"
 import totalPoint from "../../assets/totalPoint.png"
 import Layout from "../../utils/layout/layout"
 import Sheildsvg from "../svgs/sheild-svg"
@@ -75,6 +75,7 @@ const Design = () => {
           <div
             className="revolutess-containers"
             id="earlyAccessForm"
+            style={{ overflow: "hidden" }}
             data-aos="fade-up"
           >
             <div className="designs-conts">
@@ -87,7 +88,11 @@ const Design = () => {
                 </p>
               </div>
               <div className="designs-images">
-                <img src={appPhone} alt="bankitapphone" />
+                <img
+                  src={appPhone}
+                  alt="bankitapphone"
+                  className="phoneLaptop"
+                />
               </div>
             </div>
           </div>

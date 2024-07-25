@@ -1,4 +1,5 @@
 import React from "react"
+import { MdVisibilityOff } from "react-icons/md"
 import addMmoneyImage from "../../../assets/addmoney.png"
 import bannerImage from "../../../assets/banner.png"
 import cardImage from "../../../assets/cardImage.png"
@@ -15,17 +16,17 @@ const AdminDashboard = () => {
     {
       text: "Lifestyle",
       smallSvg: cardImage,
-      price: "N0.00",
+      price: "0.00",
     },
     {
       text: "Kiddies",
       smallSvg: cardImage,
-      price: "N0.00",
+      price: "0.00",
     },
     {
       text: "Business",
       smallSvg: cardImage,
-      price: "N0.00",
+      price: "0.00",
     },
   ]
   const serviceData = [
@@ -85,7 +86,9 @@ const AdminDashboard = () => {
     <div className="dashboard">
       <img src={bannerImage} />
       <div className="cardGridDash1">
-        <h2>Your Accounts</h2>
+        <h2 style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          Your Accounts <MdVisibilityOff />
+        </h2>
         <div className="dashCardGrid">
           {cardData.map((item, index) => {
             return (
@@ -146,7 +149,18 @@ const AdminDashboard = () => {
                 <div className="chart-top">
                   <div className="chart-top-text">
                     <h2>Analytics</h2>
-                    <h3>Total no of customers</h3>
+                    <div className="chart-top-text">
+                      <div className="chart-labels">
+                        <div className="creditData">
+                          <h3>Total Debit</h3>
+                          <h2>N20,000</h2>
+                        </div>
+                        <div className="credit-data-i">
+                          <h3>Total Credit</h3>
+                          <h2>N20,000</h2>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div></div>
                 </div>

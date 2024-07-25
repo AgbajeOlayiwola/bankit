@@ -17,9 +17,10 @@ import { queryApi } from "../api/queryApi"
 import airtimeReducer from "../slices/airtimeSlice"
 import configdataReducer from "../slices/configurationDataSlice"
 import editAdminReducer from "../slices/editAdminSlice"
+import loginReducer from "../slices/loginSlice"
 import profileReducer from "../slices/profileSlice"
+import signupReducer from "../slices/signupSlice"
 import tokenReducer from "../slices/tokenSlice"
-
 const reducers = combineReducers({
   [mutationApi.reducerPath]: mutationApi.reducer,
   [queryApi.reducerPath]: queryApi.reducer,
@@ -28,12 +29,22 @@ const reducers = combineReducers({
   configdata: configdataReducer,
   editAdmin: editAdminReducer,
   airtime: airtimeReducer,
+  login: loginReducer,
+  signup: signupReducer,
 })
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["profile", "token", "configdataReducer", "editAdmin", "airtime"],
+  whitelist: [
+    "profile",
+    "token",
+    "configdataReducer",
+    "editAdmin",
+    "airtime",
+    "login",
+    "signup",
+  ],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

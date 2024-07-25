@@ -12,12 +12,13 @@
 .navbar-text {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 .admin-navbar-container {
   width: 100%;
   display: flex;
-  padding: 41px 48px 16px 323px;
+  padding: 12px 48px 16px 314px;
   justify-content: space-between;
   box-sizing: border-box;
   align-items: center;

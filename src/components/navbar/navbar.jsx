@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 import Coins from "../../assets/coins.png"
 import ProfilePic from "../../assets/profile-pic.png"
 import Bell from "../../svg-component/bell"
-import Search from "../../svg-component/search"
 import BurgerMenuSvg from "../svgs/burgwerMenuSvg"
 import "./navbar.css"
 
@@ -40,27 +39,27 @@ const Navbar = ({ openSide }) => {
       {width > 900 ? (
         <div className="navbar-body">
           <div className="navbar-cont">
-            <div className="navbar-search">
+            {/* <div className="navbar-search">
               <Search />
               <input type="text" placeholder="Search" />
-            </div>
-            {location.pathname.includes("admin") ? null : (
-              <div className="navbar-other">
-                <div className="navbar-points">
-                  <h2>200</h2>
-                  <img src={Coins} alt="coins" />
-                </div>
-                <div className="navbar-notifications">
-                  <Bell />
-                </div>
+            </div> */}
+            {/* {location.pathname.includes("admin") ? null : ( */}
+            <div className="navbar-other">
+              <div className="navbar-points">
+                <h2>200</h2>
+                <img src={Coins} alt="coins" />
               </div>
-            )}
-          </div>
-          {location.pathname.includes("admin") ? null : (
-            <div className="navbar-profile">
-              <img src={ProfilePic} alt="profilepic" />
+              <div className="navbar-notifications">
+                <Bell />
+              </div>
             </div>
-          )}
+            {/* )} */}
+          </div>
+          {/* {location.pathname.includes("admin") ? null : ( */}
+          <div className="navbar-profile">
+            <img src={ProfilePic} alt="profilepic" />
+          </div>
+          {/* )} */}
         </div>
       ) : (
         <div onClick={openSide}>

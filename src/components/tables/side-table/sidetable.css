@@ -5,9 +5,9 @@
   flex-direction: column;
   border-radius: 15px;
   gap: 40px;
-  height: 50vh;
+  height: fit-content;
   overflow: scroll;
-  max-height: 50vh;
+  max-height: 65vh;
   padding: 20px 0px;
 }
 
@@ -48,19 +48,38 @@
   font-weight: 500;
   margin: 0px;
 }
+.dates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.dates h4 {
+  color: #262626 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin: 0px !important;
+}
+.dates h5 {
+  color: #b2b2b2 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin: 0px !important;
+}
 .date {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-end;
 }
 .date h6 {
   color: #a6a8b1;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   margin: 0px;
 }
 .date p {
-  color: #45464e;
+  color: #10c00c;
   font-size: 14px;
   font-weight: 500;
   margin: 0px;

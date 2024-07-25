@@ -26,3 +26,122 @@
   align-items: center;
   gap: 10px;
 }
+.vertical-charts {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.barchart-area-i {
+  padding: 24px 40px 24px 40px;
+  border-radius: 16px;
+  border: 1px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  width: 94%;
+  height: fit-content;
+}
+.barchart-areas {
+  padding: 24px 40px 24px 40px;
+  border-radius: 16px;
+  border: 1px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  width: 40%;
+  height: fit-content;
+}
+.chart-top-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.chart-top-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.chart-top-left h2 {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+.chart-top-text h2 {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+.chart-top-down {
+  font-family: SF Pro Display;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17.4px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: var(--Text-Success, #059d02) !important;
+}
+.chart-top-up {
+  font-family: SF Pro Display;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17.4px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: var(--Text-Critical, #c52d26) !important;
+}
+.creditData {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.creditData h3 {
+  margin: 0px;
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+  color: var(--Text-Subdued, #b2b2b2);
+}
+.creditData h2 {
+  margin: 0px;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: var(--Text-Highlight, #245ef5);
+}
+.credit-data-i {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.credit-data-i h3 {
+  margin: 0px;
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: left;
+  color: var(--Text-Subdued, #b2b2b2);
+}
+.credit-data-i h2 {
+  margin: 0px;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: var(--Text-Highlight, #c52d26);
+}
+.chart-top {
+  display: flex;
+  gap: 20px;
+}
+.chart-labels {
+  display: flex;
+  gap: 25px;
+}
