@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useLoginMutation } from "../../../redux/api/mutationApi"
+import { useGetProfileQuery } from "../../../redux/api/queryApi"
 import { setProfile } from "../../../redux/slices/profileSlice"
 import { setToken } from "../../../redux/slices/tokenSlice"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./loginForm.css"
-const LoginPassword = ({ forward, forwardToAdmin, next }) => {
+const LoginPassword = ({ forward, forwardToAdmin, next, returnBack }) => {
   const dispatch = useDispatch()
   const {
     register,
@@ -22,13 +23,22 @@ const LoginPassword = ({ forward, forwardToAdmin, next }) => {
   const navigate = useNavigate()
   const [state, setState] = useState(false)
   const [active, setActive] = useState(false)
-  const { profile } = useSelector((state) => state)
-  console.log(profile)
+  const { login } = useSelector((state) => state)
+
   const action = () => {
     setState(!state)
   }
+  const {
+    data: getProfileData,
+    isLoading: getProfileLoad,
+    isSuccess: getProfileSuccess,
+    isError: getProfileFalse,
+    error: getProfileErr,
+    refetch: getProfileReset,
+  } = useGetProfileQuery(null)
+
   const [
-    login,
+    loginCall,
     {
       data: loginUser,
       isLoading: loginUserLoad,
@@ -37,39 +47,47 @@ const LoginPassword = ({ forward, forwardToAdmin, next }) => {
       error: loginUserErr,
     },
   ] = useLoginMutation()
-  useEffect(() => {
-    if (loginUserSuccess) {
-      if (loginUser) {
-        if (
-          loginUser?.message ==
-          "First time using this device to login.. Please verify your acount with the otp sent to you"
-        ) {
-          next()
-        } else if (loginUser?.user?.role == "super admin") {
-          dispatch(setProfile(loginUser))
-          dispatch(setToken(loginUser?.accessToken))
-          forwardToAdmin()
-        } else if (loginUser?.user?.role !== "super admin") {
-          dispatch(setProfile(loginUser))
-          dispatch(setToken(loginUser?.accessToken))
-          forward()
-        }
-      }
-    }
-  }, [loginUser, loginUserSuccess, forward, dispatch])
-  useEffect(() => {
-    if (loginUserFalse) {
-      if (loginUserErr) {
-        console.log(loginUserErr)
-        showToastErrorMessage()
-      }
-    }
-  }, [loginUserErr, loginUserFalse])
+  // useEffect(() => {
+  //   if (loginUserSuccess) {
+  //     if (loginUser) {
+  //       if (
+  //         loginUser?.message ==
+  //         "First time using this device to login.. Please verify your acount with the otp sent to you"
+  //       ) {
+  //         next()
+  //       } else if (loginUser?.user?.role == "super admin") {
+  //         dispatch(setProfile(loginUser))
+  //         dispatch(setToken(loginUser?.accessToken))
+  //         // forwardToAdmin()
+  //       } else if (loginUser?.user?.role !== "super admin") {
+  //         dispatch(setProfile(loginUser))
+  //         dispatch(setToken(loginUser?.accessToken))
+  //         // forward()
+  //       }
+  //     }
+  //   }
+  // }, [loginUser, loginUserSuccess, forward, dispatch])
   const showToastErrorMessage = () => {
     toast.error("Identifier or Password Incorrect", {
       position: "top-right",
     })
   }
+
+  useEffect(() => {
+    if (loginUserSuccess) {
+      getProfileReset()
+      dispatch(setToken(loginUser?.data?.auth_token))
+    } else if (loginUserErr) {
+      showToastErrorMessage()
+      returnBack()
+    }
+  }, [loginUserSuccess, loginUserErr])
+  useEffect(() => {
+    if (getProfileSuccess) {
+      dispatch(setProfile(getProfileData))
+      // forward()
+    }
+  }, [getProfileSuccess])
   return (
     <div className="loginform-container">
       <ToastContainer />
@@ -82,14 +100,13 @@ const LoginPassword = ({ forward, forwardToAdmin, next }) => {
         />
         <form
           onSubmit={handleSubmit((e) => {
-            forward()
             // e.preventDefault()
             const data = {
-              identifier: profile?.phoneNumber,
-              password: e.password,
+              ...login,
+              passcode: e.password,
             }
-            dispatch(setProfile({ phoneNumber: e.identifier }))
-            login(data)
+
+            loginCall(data)
           })}
         >
           <div className="loginform-content">
@@ -128,7 +145,12 @@ const LoginPassword = ({ forward, forwardToAdmin, next }) => {
                 </h2>
               </div>
             </div>
-            <PriButton text="Next" active={true} load={loginUserLoad} />
+            <PriButton
+              text="Next"
+              active={true}
+              load={loginUserLoad}
+              action={null}
+            />
           </div>
         </form>
       </div>

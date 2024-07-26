@@ -1,14 +1,18 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import validator from "validator"
 // import { useSendOtpMutation } from "../../../redux/api/mutationApi"
+import "react-toastify/dist/ReactToastify.css"
+import { useSignupInitMutation } from "../../../redux/api/mutationApi"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
 import "./stepOne.css"
+import { useDispatch } from "react-redux"
+import { setSignup } from "../../../redux/slices/signupSlice"
 const StepOne = ({ submit, page, forward }) => {
   const {
     register,
@@ -16,38 +20,36 @@ const StepOne = ({ submit, page, forward }) => {
     getValues,
     formState: { errors },
   } = useForm()
-  // const [
-  //   sendOtp,
-  //   {
-  //     data: otpSend,
-  //     isLoading: newOtpLoad,
-  //     isSuccess: newOtpSuccess,
-  //     isError: newOtpFalse,
-  //     error: newOtpErr,
-  //   },
-  // ] = useSendOtpMutation()
-  // useEffect(() => {
-  //   if (newOtpSuccess) {
-  //     if (otpSend) {
-  //       console.log(otpSend)
-
-  //       //  setCookie("accessToken", otpSend?.accessToken);
-  //       //  if (getCookie("accessToken")) {
-  //       submit(getValues())
-  //       //  }
-  //     }
-  //   }
-  // }, [otpSend, newOtpSuccess, submit, getValues])
-  // useEffect(() => {
-  //   if (newOtpErr) {
-  //     showToastErrorMessage()
-  //   }
-  // }, [newOtpErr])
+  const dispatch = useDispatch()
+  const [
+    signupInit,
+    {
+      data: signupInitData,
+      isLoading: signupInitLoad,
+      isSuccess: signupInitSuccess,
+      isError: signupInitFalse,
+      error: signupInitErr,
+    },
+  ] = useSignupInitMutation()
+  // const showToastSuccessMessage = () => {
+  //   toast.success("Login successful", {
+  //     position: "top-right",
+  //   })
+  // }
   const showToastErrorMessage = () => {
-    toast.error("Otp failed to send.", {
+    toast.error("Unable to initiate signup process ", {
       position: "top-right",
     })
   }
+
+  useEffect(() => {
+    if (signupInitSuccess) {
+      forward()
+    } else if (signupInitErr) {
+      showToastErrorMessage()
+    }
+  }, [signupInitSuccess, signupInitErr])
+
   const navigate = useNavigate()
   const [state, setState] = useState(false)
   const [symbol, setSymbol] = useState(false)
@@ -127,8 +129,10 @@ const StepOne = ({ submit, page, forward }) => {
       setActive(false)
     }
   }
+
   return (
     <div className="step-one-container">
+      <ToastContainer />
       <ToastContainer />
 
       <div className="step-one-body">
@@ -140,9 +144,10 @@ const StepOne = ({ submit, page, forward }) => {
         <form
           onSubmit={handleSubmit((e) => {
             const data = {
-              phoneNumber: e.phoneNumber,
+              phone_number: `${e.countryCode}${e.phoneNumber}`,
             }
-            // sendOtp(data)
+            dispatch(setSignup(data))
+            signupInit(data)
           })}
         >
           <div className="step-one-form">
@@ -154,9 +159,9 @@ const StepOne = ({ submit, page, forward }) => {
                       type="tel"
                       className="input_tel_text"
                       placeholder="+234"
-                      name="phoneNumber"
+                      name="countryCode"
                       {...register(
-                        "phoneNumber",
+                        "countryCode",
                         {
                           required: "Phone Number is required",
                         },
@@ -194,8 +199,8 @@ const StepOne = ({ submit, page, forward }) => {
           <PriButton
             text="Next"
             active={true}
-            action={forward}
-            load={null}
+            action={null}
+            load={signupInitLoad}
             // {newOtpLoad}
           />
         </form>

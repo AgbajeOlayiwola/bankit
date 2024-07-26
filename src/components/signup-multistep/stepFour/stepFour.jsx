@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 // import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
+import { setCompProfile } from "../../../redux/slices/compProfileSlice"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -12,7 +13,7 @@ const StepFour = ({ back, forward, page }) => {
   const suggesstions = ["@adolf", "@adam", "@aadolfus"]
   const dispatch = useDispatch()
   const [value, setValue] = useState("")
-  const { profile } = useSelector((store) => store)
+  const { compProfile } = useSelector((store) => store)
   // const [
   //   registerNewUser,
   //   {
@@ -40,6 +41,13 @@ const StepFour = ({ back, forward, page }) => {
     toast.error("Account creation failed", {
       position: "top-right",
     })
+  }
+  const setName = () => {
+    const updatedData = {
+      ...compProfile,
+      last_name: value,
+    }
+    dispatch(setCompProfile(updatedData))
   }
   return (
     <div className="stepthree-container">
@@ -74,16 +82,8 @@ const StepFour = ({ back, forward, page }) => {
         active={active}
         action={() => {
           forward()
-          const data = {
-            password: profile?.password,
-            phone: profile?.phoneNumber,
-            firstName: profile?.firstName,
-            lastName: profile?.lastName,
-            username: value.replace("@", ""),
-          }
-          // registerNewUser(data)
+          setName()
         }}
-        // load={newUserLoad}
       />
     </div>
   )

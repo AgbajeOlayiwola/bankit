@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css"
 //   useSendOtpMutation,
 //   useVerifyOtpMutation,
 // } from "../../../redux/api/mutationApi"
+import { useVerifyPhoneMutation } from "../../../redux/api/mutationApi"
 import Otp from "../../otp/otp"
 import PriButton from "../../primary-button/priButton"
 import "./stepTwo.css"
@@ -34,16 +35,16 @@ const StepTwo = ({
   //     error: newOtpErr,
   //   },
   // ] = useVerifyOtpMutation()
-  // const [
-  //   sendOtp,
-  //   {
-  //     data: sendOtpData,
-  //     isLoading: sendOtpLoad,
-  //     isSuccess: sendOtpSuccess,
-  //     isError: sendOtpFalse,
-  //     error: sendOtpErr,
-  //   },
-  // ] = useSendOtpMutation()
+  const [
+    verifyPhone,
+    {
+      data: verifyPhoneData,
+      isLoading: verifyPhoneLoad,
+      isSuccess: verifyPhoneSuccess,
+      isError: verifyPhoneFalse,
+      error: verifyPhoneErr,
+    },
+  ] = useVerifyPhoneMutation()
   // useEffect(() => {
   //   if (sendOtpSuccess) {
   //     showToastOtpSuccessMessage()
@@ -96,8 +97,15 @@ const StepTwo = ({
   //     )
   //   }
   // }, [])
+  useEffect(() => {
+    if (verifyPhoneSuccess) {
+      forward()
+    } else if (verifyPhoneErr) {
+      showToastErrorMessage()
+    }
+  }, [verifyPhoneErr, verifyPhoneSuccess])
   const showToastErrorMessage = () => {
-    toast.error("Otp failed.", {
+    toast.error("Invalid Otp", {
       position: "top-right",
     })
   }
@@ -105,7 +113,12 @@ const StepTwo = ({
     const data = {
       phoneNumber: profile?.phoneNumber,
     }
-    // sendOtp(data)
+  }
+  const verifyOtp = () => {
+    const data = {
+      otp: otp,
+    }
+    verifyPhone(data)
   }
   return (
     <div className="steptwo-container">
@@ -143,9 +156,8 @@ const StepTwo = ({
         <PriButton
           text="Next"
           active={active}
-          action={forward}
-
-          // load={newOtpLoad}
+          action={verifyOtp}
+          load={verifyPhoneLoad}
         />
       </div>
     </div>

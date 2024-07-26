@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useLoginMutation } from "../../../redux/api/mutationApi"
-import { setProfile } from "../../../redux/slices/profileSlice"
-import { setToken } from "../../../redux/slices/tokenSlice"
+import { setLogin } from "../../../redux/slices/loginSlice"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -25,44 +23,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
   const action = () => {
     setState(!state)
   }
-  const [
-    login,
-    {
-      data: loginUser,
-      isLoading: loginUserLoad,
-      isSuccess: loginUserSuccess,
-      isError: loginUserFalse,
-      error: loginUserErr,
-    },
-  ] = useLoginMutation()
-  useEffect(() => {
-    if (loginUserSuccess) {
-      if (loginUser) {
-        if (
-          loginUser?.message ==
-          "First time using this device to login.. Please verify your acount with the otp sent to you"
-        ) {
-          next()
-        } else if (loginUser?.user?.role == "super admin") {
-          dispatch(setProfile(loginUser))
-          dispatch(setToken(loginUser?.accessToken))
-          forwardToAdmin()
-        } else if (loginUser?.user?.role !== "super admin") {
-          dispatch(setProfile(loginUser))
-          dispatch(setToken(loginUser?.accessToken))
-          forward()
-        }
-      }
-    }
-  }, [loginUser, loginUserSuccess, forward, dispatch])
-  useEffect(() => {
-    if (loginUserFalse) {
-      if (loginUserErr) {
-        console.log(loginUserErr)
-        showToastErrorMessage()
-      }
-    }
-  }, [loginUserErr, loginUserFalse])
+
   const showToastErrorMessage = () => {
     toast.error("Identifier or Password Incorrect", {
       position: "top-right",
@@ -82,10 +43,11 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
           onSubmit={handleSubmit((e) => {
             // e.preventDefault()
             const data = {
-              identifier: e.identifier,
-              password: e.password,
+              phone_number: `${e.phoneNumber.replace(/\s+/g, "")}${
+                e.identifier
+              }`,
             }
-            dispatch(setProfile({ phoneNumber: e.identifier }))
+            dispatch(setLogin(data))
             forward()
           })}
         >
@@ -101,6 +63,15 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                       type="text"
                       placeholder="+234"
                       required="required"
+                      {...register(
+                        "phoneNumber",
+                        {
+                          required: "Phone Number is required",
+                        },
+                        {
+                          maxLength: 11,
+                        }
+                      )}
                       onChange={(e) => {
                         if (e.target.value.length > 0) {
                           setActive(true)
@@ -141,7 +112,7 @@ const LoginForm = ({ forward, forwardToAdmin, next }) => {
                 </h2>
               </div>
             </div>
-            <PriButton text="Next" active={active} load={loginUserLoad} />
+            <PriButton text="Next" active={active} load={null} />
           </div>
         </form>
       </div>

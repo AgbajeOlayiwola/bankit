@@ -1,8 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 // import { useRegisterNewUserMutation } from "../../../redux/api/mutationApi"
+import { useSignUpMutation } from "../../../redux/api/mutationApi"
+import { setCompProfile } from "../../../redux/slices/compProfileSlice"
+import { setToken } from "../../../redux/slices/tokenSlice"
 import Info from "../../../svg-component/info"
 import OnboardingHeader from "../../onboarding-header/onboardingHeader"
 import PriButton from "../../primary-button/priButton"
@@ -13,34 +16,40 @@ const StepSevem = ({ back, forward, page }) => {
   const dispatch = useDispatch()
   const [value, setValue] = useState("")
   const { profile } = useSelector((store) => store)
-  // const [
-  //   registerNewUser,
-  //   {
-  //     data: registerUser,
-  //     isLoading: newUserLoad,
-  //     isSuccess: newUserSuccess,
-  //     isError: newUserFalse,
-  //     error: newUserErr,
-  //   },
-  // ] = useRegisterNewUserMutation()
-
-  // useEffect(() => {
-  //   if (newUserSuccess) {
-  //     console.log(registerUser)
-  //     dispatch(setToken(registerUser?.accessToken))
-  //     forward()
-  //   } else if (newUserFalse) {
-  //     if (newUserErr) {
-  //       showToastErrorMessage()
-  //     }
-  //   }
-  // }, [newUserErr, newUserSuccess, newUserFalse])
+  const [
+    signUp,
+    {
+      data: signUpData,
+      isLoading: signUpLoad,
+      isSuccess: signUpSuccess,
+      isError: signUpFalse,
+      error: signUpErr,
+    },
+  ] = useSignUpMutation()
 
   const showToastErrorMessage = () => {
     toast.error("Account creation failed", {
       position: "top-right",
     })
   }
+  const { compProfile } = useSelector((store) => store)
+  const setName = () => {
+    const updatedData = {
+      ...compProfile,
+      username: value,
+    }
+
+    dispatch(setCompProfile(updatedData))
+    signUp(updatedData)
+  }
+  useEffect(() => {
+    if (signUpSuccess) {
+      dispatch(setToken(signUpData?.accessToken))
+      forward()
+    } else if (signUpErr) {
+      showToastErrorMessage()
+    }
+  }, [signUpSuccess, signUpErr])
   return (
     <div className="stepthree-container">
       <ToastContainer />
@@ -73,17 +82,10 @@ const StepSevem = ({ back, forward, page }) => {
         text="Next"
         active={active}
         action={() => {
-          forward()
-          const data = {
-            password: profile?.password,
-            phone: profile?.phoneNumber,
-            firstName: profile?.firstName,
-            lastName: profile?.lastName,
-            username: value.replace("@", ""),
-          }
+          setName()
           // registerNewUser(data)
         }}
-        // load={newUserLoad}
+        load={signUpLoad}
       />
     </div>
   )

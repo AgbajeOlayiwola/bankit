@@ -21,6 +21,7 @@ import loginReducer from "../slices/loginSlice"
 import profileReducer from "../slices/profileSlice"
 import signupReducer from "../slices/signupSlice"
 import tokenReducer from "../slices/tokenSlice"
+import compProfileReducer from "../slices/compProfileSlice"
 const reducers = combineReducers({
   [mutationApi.reducerPath]: mutationApi.reducer,
   [queryApi.reducerPath]: queryApi.reducer,
@@ -31,6 +32,7 @@ const reducers = combineReducers({
   airtime: airtimeReducer,
   login: loginReducer,
   signup: signupReducer,
+  compProfile: compProfileReducer,
 })
 
 const persistConfig = {
@@ -44,6 +46,7 @@ const persistConfig = {
     "airtime",
     "login",
     "signup",
+    "compProfile",
   ],
 }
 

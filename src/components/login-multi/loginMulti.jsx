@@ -34,6 +34,7 @@ const LoginMulti = () => {
             forward={() => {
               navigate("/admin/dashboard")
             }}
+            returnBack={() => setCount(0)}
             next={() => setCount(1)}
           />
         )

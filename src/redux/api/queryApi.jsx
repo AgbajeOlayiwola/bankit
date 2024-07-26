@@ -23,116 +23,11 @@ export const queryApi = createApi({
     getProfile: builder.query({
       query: () => {
         return {
-          url: "user",
-        }
-      },
-    }),
-    sendMailOtp: builder.query({
-      query: () => {
-        return {
-          url: "users/send-email-verification-code",
-        }
-      },
-    }),
-    getAccount: builder.query({
-      query: () => {
-        return {
-          url: "/bank-account",
-        }
-      },
-    }),
-    getDataProviders: builder.query({
-      query: () => {
-        return {
-          url: "billings/databundle/bundles",
-        }
-      },
-    }),
-    getCurrentUser: builder.query({
-      query: () => {
-        return {
-          url: "users/current-user",
-        }
-      },
-    }),
-    getTxName: builder.query({
-      query: (body) => {
-        return {
-          url: body?.username?.length
-            ? `bank/account/details?username=${body?.username}`
-            : `bank/account/details?bank_code=${body?.bank_code}&account_number=${body?.account_number}`,
-        }
-      },
-    }),
-    getBanksList: builder.query({
-      query: () => {
-        return {
-          url: "bank/list",
-        }
-      },
-    }),
-    getKycStatus: builder.query({
-      query: () => {
-        return {
-          url: "kyc/status",
-        }
-      },
-    }),
-    getBillerCats: builder.query({
-      query: () => {
-        return {
-          url: "biller/category/list",
-        }
-      },
-    }),
-    getBeneficiaries: builder.query({
-      query: () => {
-        return {
-          url: "transaction/beneficiary/fetch/all",
-        }
-      },
-    }),
-    getBillers: builder.query({
-      query: (id) => {
-        return {
-          url: `biller/list?category_code=${id}`,
-        }
-      },
-    }),
-    getProducts: builder.query({
-      query: (id) => {
-        return {
-          url: `biller/product/list?biller_code=${id}`,
-        }
-      },
-    }),
-    getTxHistory: builder.query({
-      query: ({ total, last }) => {
-        return {
-          url: `transaction/fetch?result_per_page=${total}&last_record_index=${last}`,
+          url: "account/user",
         }
       },
     }),
   }),
 })
 
-export const {
-  useGetBeneficiariesQuery,
-  useLazyGetBeneficiariesQuery,
-  useLazyGetBillerCatsQuery,
-  useLazyGetTxHistoryQuery,
-  useLazyGetProductsQuery,
-  useLazyGetTxNameQuery,
-  useGetKycStatusQuery,
-  useLazyGetKycStatusQuery,
-  useGetDataProvidersQuery,
-  useGetProfileQuery,
-  useLazyGetProfileQuery,
-  useLazySendMailOtpQuery,
-  useGetAccountQuery,
-  useGetBillersQuery,
-  useLazyGetBillersQuery,
-  useLazyGetCurrentUserQuery,
-  useLazyGetAccountQuery,
-  useGetBanksListQuery,
-} = queryApi
+export const { useGetProfileQuery } = queryApi
