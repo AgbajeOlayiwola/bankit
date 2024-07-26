@@ -5,6 +5,7 @@
   padding: 50px 70px;
   background-color: #9db7fb60;
   margin-top: 10%;
+  justify-content: space-between;
   margin-bottom: 10%;
   border-radius: 32px;
 }
@@ -113,11 +114,25 @@
 
 .revolute-img {
   width: 37%;
+  position: relative;
 }
-
-.revolute-img img {
-  width: 550px;
-  height: 575px;
+.revoplute_imageII {
+  bottom: -3px;
+  position: absolute;
+  left: -104px;
+  width: 342px;
+  height: 122px;
+}
+.revoplute_imageI {
+  top: 203px;
+  position: absolute;
+  left: -105px;
+  width: 342px;
+  height: 122px;
+}
+.revoplute_image {
+  width: 298px;
+  height: 601px;
 }
 
 @media screen and (max-width: 975px) {
