@@ -84,8 +84,8 @@ const LoginPassword = ({ forward, forwardToAdmin, next, returnBack }) => {
   }, [loginUserSuccess, loginUserErr])
   useEffect(() => {
     if (getProfileSuccess) {
-      dispatch(setProfile(getProfileData))
-      // forward()
+      dispatch(setProfile(getProfileData?.data))
+      forward()
     }
   }, [getProfileSuccess])
   return (

@@ -9,8 +9,9 @@ import "./navbar.css"
 
 const Navbar = ({ openSide }) => {
   const profile = useSelector((state) => state.profile)
+  const [currentDate, setCurrentDate] = useState("")
   const location = useLocation()
-
+  console.log(profile)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const handleWindowResize = () => {
@@ -24,6 +25,17 @@ const Navbar = ({ openSide }) => {
     window.addEventListener("resize", handleWindowResize)
     return () => window.removeEventListener("resize", handleWindowResize)
   }, [width])
+  useEffect(() => {
+    const today = new Date()
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+    const formattedDate = today.toLocaleDateString(undefined, options)
+    setCurrentDate(formattedDate)
+  }, [])
   return (
     <div
       className={
@@ -33,8 +45,8 @@ const Navbar = ({ openSide }) => {
       }
     >
       <div className="navbar-text">
-        <h2>Hello {profile?.user?.firstName}</h2>
-        <p>Wednesday August 23rd, 2023.</p>
+        <h2>Hello {profile?.first_name}</h2>
+        <p>{currentDate}</p>
       </div>
       {width > 900 ? (
         <div className="navbar-body">

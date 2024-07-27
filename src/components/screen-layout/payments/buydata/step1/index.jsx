@@ -1,7 +1,47 @@
+import { useFormik } from "formik"
 import React from "react"
+import * as yup from "yup"
+import {
+  useGetBillerCatsQuery,
+  useGetBillersQuery,
+} from "../../../../../redux/api/queryApi"
 import PriButton from "../../../../primary-button/priButton"
 import "./step1.css"
 const BuyDataStepOne = ({ nextPage }) => {
+  const formik = useFormik({
+    initialValues: {
+      nework: "",
+      phonenumber: "",
+      amount: "",
+    },
+    validationSchema: yup.object({
+      network: yup.string().trim().required("Old password is required"),
+      phonenumber: yup.string().trim().required("Old password is required"),
+      amount: yup.string().required("Please add accpount number"),
+    }),
+    onSubmit: (values) => {
+      const data = {
+        accountNumber: values?.accountNumber,
+      }
+    },
+  })
+  const {
+    data: getBillerCats,
+    isLoading: getBillerCatsLoad,
+    isSuccess: getBillerCatsSuccess,
+    isError: getBillerCatsFalse,
+    error: getBillerCatsErr,
+    refetch: getBillerCatsReset,
+  } = useGetBillerCatsQuery(null)
+
+  const {
+    data: getBillers,
+    isLoading: getBillersLoad,
+    isSuccess: getBillersSuccess,
+    isError: getBillersFalse,
+    error: getBillersErr,
+    refetch: getBillersReset,
+  } = useGetBillersQuery(null)
   return (
     <div className="payment_outer">
       <div

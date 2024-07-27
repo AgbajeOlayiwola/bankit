@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { MdVisibilityOff } from "react-icons/md"
 import addMmoneyImage from "../../../assets/addmoney.png"
 import bannerImage from "../../../assets/banner.png"
@@ -8,8 +8,13 @@ import sendmomeyImage from "../../../assets/sendmoney.png"
 import CardOne from "../../../components/card/card-one"
 import CardThree from "../../../components/card/card-three"
 import { LineChart } from "../../../components/charts/vertical-bar-chart"
-import { dashsidejsonData } from "../../../components/data"
 import SideTable from "../../../components/tables/side-table"
+import {
+  useGetAccountQuery,
+  useGetBeneficiariesQuery,
+  useGetTxHistoryQuery,
+} from "../../../redux/api/queryApi"
+import { formatBalance } from "../../../utils/formatter/formatBalance"
 import "./styles.css"
 const AdminDashboard = () => {
   const cardData = [
@@ -82,6 +87,36 @@ const AdminDashboard = () => {
     // Add more data as needed
   ]
 
+  const {
+    data: getAccountData,
+    isLoading: getAccountLoad,
+    isSuccess: getAccountSuccess,
+    isError: getAccountFalse,
+    error: getAccountErr,
+    refetch: getAccounteset,
+  } = useGetAccountQuery(null)
+  const {
+    data: getBeneficiariesData,
+    isLoading: getBeneficiariesLoad,
+    isSuccess: getBeneficiariesSuccess,
+    isError: getBeneficiariesFalse,
+    error: getBeneficiariesErr,
+    refetch: getBeneficiariesReset,
+  } = useGetBeneficiariesQuery(null)
+  const {
+    data: getTxHistoryData,
+    isLoading: getTxHistoryLoad,
+    isSuccess: getTxHistorySuccess,
+    isError: getTxHistoryFalse,
+    error: getTxHistorysErr,
+    refetch: getTxHistoryReset,
+  } = useGetTxHistoryQuery(null)
+
+  useEffect(() => {
+    getBeneficiariesReset()
+    getTxHistoryReset()
+  }, [])
+  console.log(getTxHistoryData)
   return (
     <div className="dashboard">
       <img src={bannerImage} />
@@ -94,7 +129,7 @@ const AdminDashboard = () => {
             return (
               <CardOne
                 text={item?.text}
-                price={item?.price}
+                price={formatBalance(getAccountData?.data?.avaliable_balance)}
                 smallSvg={item?.smallSvg}
               />
             )
@@ -120,29 +155,35 @@ const AdminDashboard = () => {
           <div className="dashBoottomFlexInn">
             <div className="dashBoottomFlexHist">
               <h3>Recent Beneficiaries</h3>
-              <div className="dashBeneficiaryFLex">
-                <div className="dashuserlist">
-                  <div className="initials">A</div>
-                  <h2>Adekunle</h2>
-                </div>
-                <div className="dashuserlist">
-                  <div className="initials">A</div>
-                  <h2>Adekunle</h2>
-                </div>
-                <div className="dashuserlist">
-                  <div className="initials">A</div>
-                  <h2>Adekunle</h2>
-                </div>
+              {getBeneficiariesLoad ? (
+                <h2>Loading....</h2>
+              ) : getBeneficiariesData?.data.length <= 0 ? (
+                <h2>No beneficiaries</h2>
+              ) : (
+                <div className="dashBeneficiaryFLex">
+                  <div className="dashuserlist">
+                    <div className="initials">A</div>
+                    <h2>Adekunle</h2>
+                  </div>
+                  <div className="dashuserlist">
+                    <div className="initials">A</div>
+                    <h2>Adekunle</h2>
+                  </div>
+                  <div className="dashuserlist">
+                    <div className="initials">A</div>
+                    <h2>Adekunle</h2>
+                  </div>
 
-                <div className="dashuserlist">
-                  <div className="initials">A</div>
-                  <h2>Adekunle</h2>
+                  <div className="dashuserlist">
+                    <div className="initials">A</div>
+                    <h2>Adekunle</h2>
+                  </div>
+                  <div className="dashuserlist">
+                    <div className="initials">A</div>
+                    <h2>Adekunle</h2>
+                  </div>
                 </div>
-                <div className="dashuserlist">
-                  <div className="initials">A</div>
-                  <h2>Adekunle</h2>
-                </div>
-              </div>
+              )}
             </div>
             <div>
               <div className="barchart-area">
@@ -169,7 +210,14 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className={"right"}>
-            <SideTable jsonData={dashsidejsonData} sign="Transactions" />
+            {getTxHistoryLoad ? (
+              <h2>Loading..</h2>
+            ) : (
+              <SideTable
+                jsonData={getTxHistoryData?.data}
+                sign="Transactions"
+              />
+            )}
           </div>
         </div>
       </div>

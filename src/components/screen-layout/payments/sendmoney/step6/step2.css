@@ -1,0 +1,18 @@
+.countryCover {
+  position: relative;
+}
+.list {
+  position: absolute;
+  height: fit-content;
+  max-height: 200px;
+  overflow: scroll;
+  background-color: #fff;
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  z-index: 99999;
+  padding-bottom: 15px;
+}
