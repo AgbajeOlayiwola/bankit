@@ -23,7 +23,7 @@ const SideBarData = (color1, color2, color3, color4, color5) => {
         {
           img: <PaymentSvg color={color2} />,
           text: "Payments",
-          link: "/admin/custom-management",
+          link: "/admin/payment",
         },
         // {
         //   img: <CardsSvg color={color2} />,

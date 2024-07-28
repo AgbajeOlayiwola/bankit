@@ -183,4 +183,19 @@
     flex-direction: column;
     justify-content: space-between;
   }
+  .admin-sidebar-container {
+    height: 100vh;
+    background: #e6edfe;
+    width: 58%;
+    max-width: 300px;
+    overflow: hidden;
+    position: absolute;
+    padding: 24px 11px 104px;
+    z-index: 1000;
+    transition: all ease-in 0.5s;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

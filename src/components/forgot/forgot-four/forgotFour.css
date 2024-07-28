@@ -38,3 +38,12 @@
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 975px) {
+  .forgotfour-container {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 64px;
+  }
+}

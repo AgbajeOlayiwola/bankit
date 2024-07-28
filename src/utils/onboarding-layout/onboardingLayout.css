@@ -179,15 +179,14 @@
   }
 
   .onboarding-layout-body {
-    flex: 1;
+    display: flex;
+    justify-content: center;
   }
 
   .onboarding-layout-wrapper {
-    width: 84%;
-    /* margin: 0px auto; */
-    padding: 46px 0px 0px;
-    /* height: 85vh;
-  overflow-y: scroll; */
+    width: 90%;
+    display: flex;
+    justify-content: center;
   }
 
   .onboarding-layout-wrapper::-webkit-scrollbar {

@@ -145,3 +145,31 @@
   display: flex;
   gap: 25px;
 }
+@media screen and (max-width: 975px) {
+  .vertical-charts {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .barchart-areas {
+    padding: 17px 3px 20px 4px;
+    border-radius: 16px;
+    border: 1px;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .barchart-area-i {
+    padding: 14px 9px 4px 9px;
+    border-radius: 16px;
+    border: 1px;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    width: 94%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}

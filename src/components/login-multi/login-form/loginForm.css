@@ -53,3 +53,17 @@
   font-weight: 700;
   cursor: pointer;
 }
+@media screen and (max-width: 975px) {
+  .loginform-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .loginform-container,
+  .loginform-cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 32px;
+  }
+}

@@ -134,3 +134,31 @@
   overflow: scroll;
   align-items: center;
 }
+@media screen and (max-width: 975px) {
+  .dashCardGrid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .dashCardGrid .styles-card {
+    width: 95% !important;
+  }
+  .dashBoottomFlex {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashBoottomFlexInn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+}

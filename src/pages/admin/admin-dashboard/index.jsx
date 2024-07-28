@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { MdVisibilityOff } from "react-icons/md"
+import React, { useEffect, useState } from "react"
+import { MdVisibility, MdVisibilityOff } from "react-icons/md"
 import addMmoneyImage from "../../../assets/addmoney.png"
 import bannerImage from "../../../assets/banner.png"
 import cardImage from "../../../assets/cardImage.png"
@@ -17,6 +17,7 @@ import {
 import { formatBalance } from "../../../utils/formatter/formatBalance"
 import "./styles.css"
 const AdminDashboard = () => {
+  const [hideBalance, setHideBalance] = useState(true)
   const cardData = [
     {
       text: "Lifestyle",
@@ -122,14 +123,23 @@ const AdminDashboard = () => {
       <img src={bannerImage} />
       <div className="cardGridDash1">
         <h2 style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          Your Accounts <MdVisibilityOff />
+          Your Accounts
+          {hideBalance ? (
+            <MdVisibility onClick={() => setHideBalance((prev) => !prev)} />
+          ) : (
+            <MdVisibilityOff onClick={() => setHideBalance((prev) => !prev)} />
+          )}
         </h2>
         <div className="dashCardGrid">
           {cardData.map((item, index) => {
             return (
               <CardOne
                 text={item?.text}
-                price={formatBalance(getAccountData?.data?.avaliable_balance)}
+                price={
+                  hideBalance
+                    ? "******.**"
+                    : formatBalance(getAccountData?.data?.avaliable_balance)
+                }
                 smallSvg={item?.smallSvg}
               />
             )

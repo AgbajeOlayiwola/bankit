@@ -28,3 +28,15 @@
   padding: 18px;
   border-radius: 30px;
 }
+@media screen and (max-width: 975px) {
+  .modalInner {
+    width: 92%;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 65vh;
+    background: #fff;
+    border-radius: 24px;
+    padding: 30px 40px;
+    overflow: scroll;
+  }
+}

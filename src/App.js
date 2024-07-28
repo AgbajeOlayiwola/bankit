@@ -69,7 +69,7 @@ function App() {
                   element={<AdminConfiguration />}
                 />
                 <Route
-                  path="/admin/custom-management"
+                  path="/admin/payment"
                   element={<AdminCustomManagement />}
                 />
                 <Route
@@ -85,7 +85,7 @@ function App() {
                   element={<AdmminReportingAnalytics />}
                 />
                 <Route
-                  path="/admin/user-management"
+                  path="/admin/statement"
                   element={<AdminUserManagement />}
                 />
                 <Route

@@ -1,0 +1,8 @@
+@media screen and (max-width: 975px) {
+  .steptwo-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    width: 100%;
+  }
+}
