@@ -27,6 +27,8 @@ import Dashboard from "./pages/user/dashboard/dashboard"
 import Settings from "./pages/user/settings/settings"
 import Transactions from "./pages/user/transactions/transactions"
 import DashboardLayout from "./utils/dashboard-layout/dashboardLayout"
+import Privacy from "./pages/privacy/privacy"
+import Terms from "./pages/terms/terms"
 
 function App() {
   const variants = {
@@ -102,6 +104,9 @@ function App() {
                 path="/auth/forgot-password"
                 element={<ForgotPassword />}
               />
+
+              <Route path="/privacy-policy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </div>
         </motion.div>
