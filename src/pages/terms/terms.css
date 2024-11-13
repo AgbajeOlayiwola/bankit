@@ -1,5 +1,4 @@
 
-
 .terms {
     text-align: left;
     font-size: 16px;
@@ -13,12 +12,231 @@
     margin: 14px auto;
 }
 
+.spacer {
+    margin: 0 0 1.5rem ;
+    display: block;
+}
+
+
 h1 {
     font-size: 60px;
+    line-height: 1;
     font-weight: bolder;
     padding: 2rem 0;
 }
 
+
+h2 {
+    font-size: 45px;
+    line-height: 1;
+    font-weight: bolder;
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: bolder;
+    margin: 6rem 0 3rem;
+}
+
+h4 {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: bolder;
+}
+
+h5 {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+p {
+    margin: 2rem 0;
+}
+
+.h-spacer {
+    padding: 2rem 0 1.5rem;
+}
+
+.h-spacer-mini {
+    padding: 1.5rem 0 1rem;
+}
+
+.h-spacer-small {
+    padding: 1rem 0;
+}
+
+ul li {
+    margin-top: 1rem;
+}
+
 .footer {
-    margin: 4rem 0;
+    margin: 6rem 0 3rem;
+    /* font-weight: lighter; */
+}
+
+
+/* Default styles (Desktop) */
+/* The styles you've provided will work as they are for desktop screens */
+
+/* Large Tablets - Between 768px and 1024px */
+@media (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 50px;
+        padding: 1.5rem 0;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 36px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    .terms {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .h-spacer {
+        padding: 1.5rem 0 1.25rem;
+    }
+
+    .h-spacer-mini {
+        padding: 1rem 0 0.75rem;
+    }
+
+    .h-spacer-small {
+        padding: 0.75rem 0;
+    }
+}
+
+/* Tablets - Between 576px and 768px */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 40px;
+        padding: 1rem 0;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    h4 {
+        font-size: 24px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    .terms {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .spacer {
+        margin: 0 0 1rem;
+    }
+
+    .h-spacer {
+        padding: 1rem 0;
+    }
+
+    .h-spacer-mini {
+        padding: 0.75rem 0;
+    }
+
+    .h-spacer-small {
+        padding: 0.5rem 0;
+    }
+
+    ul li {
+        margin-top: 0.75rem;
+    }
+
+    .footer {
+        margin: 4rem 0 2rem;
+    }
+}
+
+/* Mobile Phones - Below 576px */
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 32px;
+        padding: 0.75rem 0;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    .terms {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .spacer {
+        margin: 0 0 0.75rem;
+    }
+
+    .h-spacer {
+        padding: 0.5rem 0;
+    }
+
+    .h-spacer-mini {
+        padding: 0.25rem 0;
+    }
+
+    .h-spacer-small {
+        padding: 0.25rem 0;
+    }
+
+    ul li {
+        margin-top: 0.5rem;
+    }
+
+    .footer {
+        margin: 3rem 0 1.5rem;
+    }
 }
